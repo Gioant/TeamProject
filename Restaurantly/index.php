@@ -720,6 +720,26 @@
             </div>
           </div>
 
+          <div class="col-lg-4 col-md-6">
+            <div class="member" data-aos="zoom-in" data-aos-delay="300">
+              <img src="assets/img/chefs/kevin.jpg" class="img-fluid1" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                <h3>Kevin Chan</h3>
+                  <h4>Speed Checker</h4>
+                  <h6>All Kevin does is work everyday</h6>
+                </div>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
         </div>
 
       </div>
