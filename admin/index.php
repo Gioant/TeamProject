@@ -35,9 +35,10 @@
                     <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                 </div>
             </form>
+
             <!-- Navbar-->
+            <form method="POST" action="">
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <form method="POST" action="">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -47,8 +48,8 @@
                             <li><input class="dropdown-item" type="submit" name="logout" value="Logout"></li>
                         </ul>
                     </li>
-                </form>
             </ul>
+            </form>
         </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
