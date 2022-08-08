@@ -75,5 +75,28 @@
 			$query = $this->db->prepare("UPDATE users SET level = 1 WHERE username = :username;");
 			$query->execute(array("username" => $_POST['username']));
 		}
+
+		//Function to log in the user inside the administration panel
+		public function login_user($email, $password) {
+			$query = $this->db->prepare("SELECT * FROM users WHERE email = :email and password = :password;");
+			$query->execute(array("email" 		=> $_POST['email'],
+								  "password"	=> $_POST['password']));
+
+			$result = $query->fetch();
+			var_dump($result);
+
+			if ($result) {
+				$_SESSION['loggedInUser'] = $result;
+				echo ("<script LANGUAGE='JavaScript'>
+                        window.alert('Login Successful');
+                        window.location.href='http://localhost/TeamProject/admin/index.php';
+                   </script>");
+			} else {
+				echo ("<script LANGUAGE='JavaScript'>
+                        window.alert('Wrong email or password.\\nPlease try again.');
+                        window.location.href='http://localhost/TeamProject/admin/login.php';
+                   </script>");
+			}
+		}
 	}
 ?>
