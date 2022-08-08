@@ -1,8 +1,8 @@
 <?php 
     session_start();
 
-    include "../classes/DB_Manager.class.php";
-    include "../classes/Users.class.php";
+    include_once "../classes/DB_Manager.class.php";
+    include_once "../classes/Users.class.php";
 
     $database = new DB_Manager();
 
