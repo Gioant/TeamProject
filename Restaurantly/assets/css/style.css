@@ -300,7 +300,7 @@ h6 {
   opacity: 0;
   visibility: hidden;
   background: #fff;
-  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  box-shadow: 0 0 30px rgba(127, 137, 161, 0.25);
   transition: 0.3s;
   border-radius: 4px;
 }
@@ -506,7 +506,7 @@ h6 {
 
 #hero h2 {
   color: #eee;
-  margin-bottom: 10px 0 0 0;
+  margin-bottom: 10px;
   font-size: 22px;
 }
 
@@ -708,7 +708,6 @@ section {
 
 .section-title p {
   margin: 0;
-  margin: 0;
   font-size: 36px;
   font-weight: 700;
   font-family: "Playfair Display", serif;
@@ -875,7 +874,7 @@ section {
 --------------------------------------------------------------*/
 .why-us .box {
   padding: 50px 30px;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
   transition: all ease-in-out 0.3s;
   background: #1a1814;
 }
@@ -1453,6 +1452,11 @@ section {
 .chefs .member:hover .social {
   bottom: 0;
   transition: bottom ease-in-out 0.4s;
+}
+
+.img-fluid1{
+  height: 516px;
+  max-width: 100%;
 }
 
 /*--------------------------------------------------------------
