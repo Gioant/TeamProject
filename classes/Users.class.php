@@ -1,22 +1,23 @@
-<?php 
-	class Users {
-		private $id;
-		private $name;
-		private $lastname;
-        private $username;
-		private $email;
-		private $password;
-		private $confirmPassword;
-		private $level;
+<?php
+class Users {
+    private $id;
+    private $name;
+    private $lastname;
+    private $username;
+    private $avatar;
+    private $email;
+    private $password;
+    private $confirmPassword;
+    private $level;
 
-		public function __construct ($array){
-	        foreach ($array as $users => $value) {
-	            $this->$users = $value;
-	        }
-    	}
+    public function __construct ($array){
+        foreach ($array as $users => $value) {
+            $this->$users = $value;
+        }
+    }
 
     //Getters and Setters
-	
+
     /**
      * @return mixed
      */
@@ -157,7 +158,7 @@
         return $this;
     }
 
-    
+
 
     /**
      * @return mixed
@@ -175,6 +176,27 @@
     public function setUsername($username)
     {
         $this->username = $username;
+
+        return $this;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    /**
+     * @param mixed $avatar
+     *
+     * @return self
+     */
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
 
         return $this;
     }
