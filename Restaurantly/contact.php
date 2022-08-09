@@ -88,7 +88,7 @@
             </ul> -->
           </li>
           <li><a class="nav-link scrollto" href="contact.php">Contact</a></li>
-          <li><a class="nav-link scrollto active" href="http://localhost/module5/TeamProject/admin/login.php">Admin</a></li>
+          <li><a class="nav-link scrollto active" href="../admin/login.php">Admin</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
