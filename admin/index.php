@@ -1,20 +1,17 @@
 <?php
-session_start();
-
-    include "../classes/DB_Manager.class.php";
-    include_once "../classes/Users.class.php";
+//session_start();
+    include_once "../controller/core.php";
+   /* include_once "../model/DB_Manager.class.php";
+    include_once "../model/Users.class.php";*/
 
     //Logout Button
-    if (isset($_POST['logout'])) {
+  /*  if (isset($_POST['logout'])) {
         session_unset();
         session_destroy();
         header('Location: login.php');
-    }
+    }*/
 
-    $database = new DB_Manager();
-    $all_users = $database->get_all_users();
-
-    //To upgrade the moderator status to admin status
+    /*//To upgrade the moderator status to admin status
     if (isset($_GET['action']) && $_GET['action'] == "update") {
         $update_user = $database->update_user();
 
@@ -24,6 +21,10 @@ session_start();
     if (isset($_GET['action']) && $_GET['action'] == "delete") {
        $delete_user = $database->delete_user();
 
+    }*/
+
+    if (empty($_SESSION['loggedInUser'])) {
+        header('location: login.php');
     }
 
 ?>
@@ -51,10 +52,7 @@ session_start();
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-            <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-            </div>
+            <div class="input-group"></div>
         </form>
         <!-- Navbar-->
         <?php if (!empty($_SESSION['loggedInUser'])) : ?>
@@ -134,15 +132,15 @@ session_start();
                             </nav>
                         </div>
                         <div class="sb-sidenav-menu-heading">Addons</div>
-                        <a class="nav-link" href="tables.php">
+                        <a class="nav-link" href="team.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Team
                         </a>
-                        <a class="nav-link" href="tables.php">
+                        <a class="nav-link" href="portfolio.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Portfolio
                         </a>
-                        <a class="nav-link" href="tables.php">
+                        <a class="nav-link" href="services.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Services
                         </a>
@@ -165,7 +163,6 @@ session_start();
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
-                    <?php var_dump($all_users); ?>
                     <div class="row">
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-primary text-white mb-4">
@@ -224,7 +221,7 @@ session_start();
                                     </thead>
                                     <tbody>
                                         <?php if ($_SESSION['loggedInUser']['level'] == "1") : ?>  
-                                            <?php foreach ($all_users as $user) : ?>
+                                            <?php foreach ($_SESSION['all_users'] as $user) : ?>
                                                 <tr>
                                                     <td><?php echo $user['name'] ?></td>
                                                     <td><?php echo $user['lastname'] ?></td>
@@ -244,7 +241,7 @@ session_start();
                                                 </tr>
                                             <?php endforeach; ?>
                                         <?php else: ?>
-                                            <?php foreach ($all_users as $user) : ?>
+                                            <?php foreach ($_SESSION['all_users'] as $user) : ?>
                                                 <tr>
                                                     <td><?php echo $user['name'] ?></td>
                                                     <td><?php echo $user['lastname'] ?></td>

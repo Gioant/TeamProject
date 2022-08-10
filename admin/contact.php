@@ -1,18 +1,3 @@
-<?php
-
-    include_once "../controller/core.php";
-/*session_start();
-
-include_once "../model/DB_Manager.class.php";
-include_once "../model/Users.class.php";*/
-
-//Logout Button
-/*if (isset($_POST['logout'])) {
-    session_destroy();
-    header('Location: index.php');
-}*/
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +7,7 @@ include_once "../model/Users.class.php";*/
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Profile Page</title>
+    <title>Home Page</title>
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/profilestyles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -34,7 +19,6 @@ include_once "../model/Users.class.php";*/
         <a class="navbar-brand ps-3" href="index.php">Admin Panel</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-        <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group"></div>
         </form>
@@ -114,15 +98,15 @@ include_once "../model/Users.class.php";*/
                             </nav>
                         </div>
                         <div class="sb-sidenav-menu-heading">Addons</div>
-                        <a class="nav-link" href="tables.php">
+                        <a class="nav-link" href="team.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Team
                         </a>
-                        <a class="nav-link" href="tables.php">
+                        <a class="nav-link" href="portfolio.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Portfolio
                         </a>
-                        <a class="nav-link" href="tables.php">
+                        <a class="nav-link" href="services.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Services
                         </a>
@@ -140,88 +124,80 @@ include_once "../model/Users.class.php";*/
         </div>
         <div id="layoutSidenav_content">
             <main>
-                <div class="container-fluid px-4">
-                    <h1 class="mt-4">Profil</h1>
-                    <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Profil</li>
-                    </ol>
-                </div>
-                <div style="display: flex; justify-content: center;">
-                    <div class="row mb-4">
-                        <div class="col-md-4 mb-3" style="width: unset;">
-                            <div class="card" style="margin-right: 10px;">
-                                <div class="card-body" style="height: 355px;">
-                                    <div class="d-flex flex-column align-items-center text-center">
-                                        <img src="<?php echo "image/" . $_SESSION['loggedInUser']['avatar'] ?>" alt="profile_picture" class="rounded-circle" height="150" width="150">
-                                        <div class="mt-3">
-                                            <h4><?php echo $_SESSION['loggedInUser']['username'] ?></h4>
-                                            <p class="text-secondary mb-1">Full Stack Developer</p>
-                                            <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-3">
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Contact Tables</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Contact Tables</li>
+                        </ol>
+                        <div class="card mb-4">
                             <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Full Name</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <?php echo $_SESSION['loggedInUser']['name'] . " " . $_SESSION['loggedInUser']['lastname'] ?>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Email</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <?php echo $_SESSION['loggedInUser']['email'] ?>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Avatar</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <?php echo $_SESSION['loggedInUser']['avatar'] ?>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Mobile</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        (320) 380-4539
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Address</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        Bay Area, San Francisco, CA
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
-                                    </div>
-                                </div>
+                                DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables.</div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Contact DataTable
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple" class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                            <th>Start date</th>
+                                            <th>Salary</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Tiger Nixon</td>
+                                            <td>System Architect</td>
+                                            <td>Edinburgh</td>
+                                            <td>61</td>
+                                            <td>2011/04/25</td>
+                                            <td>$320,800</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Garrett Winters</td>
+                                            <td>Accountant</td>
+                                            <td>Tokyo</td>
+                                            <td>63</td>
+                                            <td>2011/07/25</td>
+                                            <td>$170,750</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ashton Cox</td>
+                                            <td>Junior Technical Author</td>
+                                            <td>San Francisco</td>
+                                            <td>66</td>
+                                            <td>2009/01/12</td>
+                                            <td>$86,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cedric Kelly</td>
+                                            <td>Senior Javascript Developer</td>
+                                            <td>Edinburgh</td>
+                                            <td>22</td>
+                                            <td>2012/03/29</td>
+                                            <td>$433,060</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Airi Satou</td>
+                                            <td>Accountant</td>
+                                            <td>Tokyo</td>
+                                            <td>33</td>
+                                            <td>2008/11/28</td>
+                                            <td>$162,700</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
-                </div>
-            </main>
+                </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
@@ -232,7 +208,9 @@ include_once "../model/Users.class.php";*/
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="js/scripts.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <!-- <script src="js/datatables-simple-demo.js"></script> -->
 </body>
 
 </html>

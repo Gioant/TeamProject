@@ -1,17 +1,18 @@
 <?php 
-    session_start();
+    //session_start();
 
-    include_once "../classes/DB_Manager.class.php";
-    include_once "../classes/Users.class.php";
+  /*  include_once "../model/DB_Manager.class.php";
+    include_once "../model/Users.class.php";*/
+    include_once "../controller/core.php";
 
-    $database = new DB_Manager();
+    //$database = new DB_Manager();
 
-    if (isset($_POST['login'])) {
+   /* if (isset($_POST['login'])) {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
         $login = $database->login_user($email, $password);
-    }
+    }*/
 
 
 ?>
