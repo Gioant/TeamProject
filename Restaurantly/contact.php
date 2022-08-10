@@ -97,30 +97,10 @@
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-    <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
-      <div class="row">
-        <div class="col-lg-8">
-          <h1>Welcome to <span>Content Manager</span></h1>
-          <h2>Changing content for 2 weeks. . . !</h2>
-
-          <div class="btns">
-            <a href="#menu" class="btn-menu animated fadeInUp scrollto">Our Menu</a>
-            <a href="#book-a-table" class="btn-book animated fadeInUp scrollto">Book a Table</a>
-          </div>
-        </div>
-        <div class="col-lg-4 d-flex align-items-center justify-content-center position-relative" data-aos="zoom-in" data-aos-delay="200">
-          <a href="https://www.youtube.com/watch?v=u6BOC7CDUTQ" class="glightbox play-btn"></a>
-        </div>
-
-      </div>
-    </div>
-  </section><!-- End Hero -->
-
+  
   <main id="main">
 
-   
+
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -145,13 +125,13 @@
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <p name="contact-location">A108 Adam Street, New York, NY 535022</p>
               </div>
 
               <div class="open-hours">
                 <i class="bi bi-clock"></i>
                 <h4>Open Hours:</h4>
-                <p>
+                <p name="contact-hours">
                   Monday-Saturday:<br>
                   11:00 AM - 2300 PM
                 </p>
@@ -160,16 +140,24 @@
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p name="contact-email">info@example.com</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
+                <p name="contact-number">+1 5589 55488 55s</p>
               </div>
 
             </div>
+
+            <div class="social-links mt-3">
+                <a name="contact-twitter" href="https://www.youtube.com/watch?v=0qJxp7LwGd0&ab_channel=CrunchyrollCollection" target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a name="contact-facebook" href="https://www.youtube.com/watch?v=0qJxp7LwGd0&ab_channel=CrunchyrollCollection" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a name="contact-instagram" href="https://www.youtube.com/watch?v=0qJxp7LwGd0&ab_channel=CrunchyrollCollection" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a name="contact-skype" href="https://www.youtube.com/watch?v=0qJxp7LwGd0&ab_channel=CrunchyrollCollection" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a name="contact-linkedin" href="https://www.youtube.com/watch?v=0qJxp7LwGd0&ab_channel=CrunchyrollCollection" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
 
           </div>
 
@@ -222,13 +210,6 @@
                 <strong>Phone:</strong> +1 5589 55488 55<br>
                 <strong>Email:</strong> info@example.com<br>
               </p>
-              <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-              </div>
             </div>
           </div>
 
@@ -260,6 +241,7 @@
             <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>
+
 
           </div>
 

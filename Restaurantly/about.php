@@ -98,7 +98,7 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
+  <!-- <section id="hero" class="d-flex align-items-center">
     <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
       <div class="row">
         <div class="col-lg-8">
@@ -116,7 +116,8 @@
 
       </div>
     </div>
-  </section><!-- End Hero -->
+  </section> -->
+  <!-- End Hero -->
 
   <main id="main">
 
@@ -127,21 +128,21 @@
         <div class="row">
           <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
             <div class="about-img">
-              <img src="assets/img/about.jpg" alt="">
+              <img name="about-image" src="assets/img/about.jpg" alt="">
             </div>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
-            <p class="fst-italic">
+            <h3 name="about-title">Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+            <p name="about-subtitle" class="fst-italic">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
               magna aliqua.
             </p>
             <ul>
-              <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-              <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-              <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+              <li><i name="about-point1" class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+              <li><i name="about-point2" class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+              <li><i name="about-point3" class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
             </ul>
-            <p>
+            <p name="about-point4">
               Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
               velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
               culpa qui officia deserunt mollit anim id est laborum
@@ -199,19 +200,19 @@
 
         <div class="section-title">
           <h2>Chefs</h2>
-          <p>Our Proffesional Chefs</p>
+          <p>Our Professional Chefs</p>
         </div>
 
         <div class="row">
 
           <div class="col-lg-4 col-md-6">
             <div class="member" data-aos="zoom-in" data-aos-delay="100">
-              <img src="assets/img/chefs/nick.jpg" class="img-fluid1" alt="" height="416" width="416">
+              <img name="about-nickpic" src="assets/img/chefs/nickk.jpg" class="img-fluid1" alt="" height="416" width="416">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h3>Nicholas Tsoukatos</h3>
-                  <h4>Team Leader</h4>
-                  <h6>I need me a bad bitch</h6>
+                  <h3 name="about-name1">Nicholas Tsoukatos</h3>
+                  <h4 name="about-title1">Team Leader</h4>
+                  <h6  name="about-bio1">I need me a bad bitch</h6>
                 </div>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
@@ -225,12 +226,12 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="member" data-aos="zoom-in" data-aos-delay="200">
-              <img src="assets/img/chefs/andy.jpg" class="img-fluid1" alt="">
+              <img name="about-andypic" src="assets/img/chefs/andy.jpg" class="img-fluid1" alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                <h3>Anthony Giolti Funes</h3>
-                  <h4>Big Brain Genius</h4>
-                  <h6>Andy graduated University at 8 years old and is now mama birding us newbies in coding</h6>
+                <h3 name="about-name2">Anthony Giolti Funes</h3>
+                  <h4  name="about-title2">Big Brain Genius</h4>
+                  <h6 name="about-bio2">Andy graduated University at 8 years old and is now mama birding us newbies in coding</h6>
                 </div>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
@@ -244,12 +245,12 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="member" data-aos="zoom-in" data-aos-delay="300">
-              <img src="assets/img/chefs/jean-loup.jpg" class="img-fluid1" alt="">
+              <img name="about-jlpic" src="assets/img/chefs/jean-loup.jpg" class="img-fluid1" alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                <h3>Jean-Loup Davidson</h3>
-                  <h4>Hardworker</h4>
-                  <h6>Finally got his first W in warzone last night</h6>
+                <h3 name="about-name3">Jean-Loup Davidson</h3>
+                  <h4 name="about-title3">Hardworker</h4>
+                  <h6 name="about-bio3">Finally got his first W in warzone last night</h6>
                 </div>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
@@ -263,12 +264,12 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="member" data-aos="zoom-in" data-aos-delay="300">
-              <img src="assets/img/chefs/kevin.jpg" class="img-fluid1" alt="">
+              <img name="about-kevinpic" src="assets/img/chefs/kevin.jpg" class="img-fluid1" alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                <h3>Kevin Chan</h3>
-                  <h4>Speed Checker</h4>
-                  <h6>All Kevin does is work everyday</h6>
+                <h3 name="about-name4">Kevin Chan</h3>
+                  <h4  name="about-title4">Speed Checker</h4>
+                  <h6 name="about-bio4">All Kevin does is work everyday</h6>
                 </div>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
@@ -305,13 +306,7 @@
                 <strong>Phone:</strong> +1 5589 55488 55<br>
                 <strong>Email:</strong> info@example.com<br>
               </p>
-              <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-              </div>
+              
             </div>
           </div>
 
