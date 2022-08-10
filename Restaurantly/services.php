@@ -98,7 +98,7 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
+  <!-- <section id="hero" class="d-flex align-items-center">
     <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
       <div class="row">
         <div class="col-lg-8">
@@ -116,7 +116,8 @@
 
       </div>
     </div>
-  </section><!-- End Hero -->
+  </section> -->
+  <!-- End Hero -->
 
   <main id="main">
 
@@ -135,23 +136,23 @@
             <div class="swiper-slide">
               <div class="row event-item">
                 <div class="col-lg-6">
-                  <img src="assets/img/event-birthday.jpg" class="img-fluid" alt="">
+                  <img  name="services.pic1" src="assets/img/event-birthday.jpg" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content">
-                  <h3>Birthday Parties</h3>
+                  <h3 name="services-title1">Birthday Parties</h3>
                   <div class="price">
-                    <p><span>$189</span></p>
+                    <p><span name="services-price1">$189</span></p>
                   </div>
-                  <p class="fst-italic">
+                  <p name="services-text1" class="fst-italic">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                     magna aliqua.
                   </p>
                   <ul>
-                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                    <li><i class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li><i name="services-point1" class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li><i name="services-point2" class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                    <li><i name="services-point3" class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
                   </ul>
-                  <p>
+                  <p name="services-text1.1">
                     Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
                     velit esse cillum dolore eu fugiat nulla pariatur
                   </p>
@@ -162,23 +163,23 @@
             <div class="swiper-slide">
               <div class="row event-item">
                 <div class="col-lg-6">
-                  <img src="assets/img/event-private.jpg" class="img-fluid" alt="">
+                  <img name="services.pic2" src="assets/img/event-private.jpg" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content">
-                  <h3>Private Parties</h3>
+                  <h3 name="services-title2" >Private Parties</h3>
                   <div class="price">
-                    <p><span>$290</span></p>
+                    <p><span name="services-price2" >$290</span></p>
                   </div>
-                  <p class="fst-italic">
+                  <p name="services-text2" class="fst-italic">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                     magna aliqua.
                   </p>
                   <ul>
-                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                    <li><i class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li><i name="services-point2.1" class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li><i name="services-point2.2" class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                    <li><i name="services-point2.3" class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
                   </ul>
-                  <p>
+                  <p name="services-text2.1">
                     Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
                     velit esse cillum dolore eu fugiat nulla pariatur
                   </p>
@@ -189,23 +190,23 @@
             <div class="swiper-slide">
               <div class="row event-item">
                 <div class="col-lg-6">
-                  <img src="assets/img/event-custom.jpg" class="img-fluid" alt="">
+                  <img name="services.pic3" src="assets/img/event-custom.jpg" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content">
-                  <h3>Custom Parties</h3>
+                  <h3 name="services-title3" >Custom Parties</h3>
                   <div class="price">
-                    <p><span>$99</span></p>
+                    <p><span name="services-price3" >$99</span></p>
                   </div>
-                  <p class="fst-italic">
+                  <p name="services-text3" class="fst-italic">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                     magna aliqua.
                   </p>
                   <ul>
-                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                    <li><i class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li><i name="services-point3.1" class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li><i name="services-point3.2" class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                    <li><i name="services-point3.3"class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
                   </ul>
-                  <p>
+                  <p name="services-text3.1">
                     Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
                     velit esse cillum dolore eu fugiat nulla pariatur
                   </p>
@@ -376,13 +377,7 @@
                 <strong>Phone:</strong> +1 5589 55488 55<br>
                 <strong>Email:</strong> info@example.com<br>
               </p>
-              <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-              </div>
+              
             </div>
           </div>
 
