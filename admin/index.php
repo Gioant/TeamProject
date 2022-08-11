@@ -205,6 +205,7 @@
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
                             Admins/Moderators tables
+                            <a href="./register.php" class="btn btn-primary" style="float: right;margin-right: 60px;padding: 0.375rem 2.75rem;">Add</a>
                         </div>
                         <div class="card-body">
                             <form action="#" method="POST">
@@ -233,7 +234,7 @@
                                                         <input type="submit" name="upgrade" class="btn btn-success" value="Upgrade">
                                                     </td> -->
                                                     <td>
-                                                        <a href="index.php?action=update&id=<?= $user['id'] ?>" class="btn btn-success">Update</a>
+                                                        <a href="./editprofile.php" class="btn btn-success">Update</a>
                                                         <a href="index.php?action=delete&id=<?= $user['id'] ?>" class="btn btn-danger ">Delete</a>
                                                        <!--  <input type="submit" name="upgrade" class="btn btn-success" value="Upgrade">
                                                         <input type="submit" name="delete" class="btn btn-danger" value="Delete"> -->
