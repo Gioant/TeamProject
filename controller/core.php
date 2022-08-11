@@ -95,4 +95,20 @@
 
     }
 
+    //Edit profil part
+    //When the user click, the edit form is automatically filled with his existing infos
+    if (isset($_POST['edit'])) {
+        $id = $_SESSION['loggedInUser']['id'];
+        $edit_user = $database->user_info($id);
+        $_SESSION['firstname'] = $edit_user['name'];
+        $_SESSION['lastname'] = $edit_user['lastname'];
+        $_SESSION['username'] = $edit_user['username'];
+        $_SESSION['email'] = $edit_user['email'];
+        $_SESSION['avatar'] = $edit_user['avatar'];
+        $_SESSION['password'] = $edit_user['password'];
+
+        header('location: editprofile.php');
+        
+    }
+
 ?>
