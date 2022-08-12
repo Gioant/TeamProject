@@ -98,7 +98,6 @@ $_SESSION['all_users'] = $database->get_all_users();
 //To delete a user from the admin panel and database
 if (isset($_GET['action']) && $_GET['action'] == "delete") {
     $delete_user = $database->delete_user();
-
 }
 
 //check if user is on edit profile page by clicking update button from index.php
@@ -115,21 +114,58 @@ if (strpos($_SERVER['REQUEST_URI'], '/editprofile.php?updateID') !== false) {
     //store avatar into session
     $_SESSION['pic'] = $edit_user['avatar'];
 
-    //Edit profile part
+    //store remaining properties of user into unique sessions
+    // to autofill form inputs
+    $_SESSION['firstName'] = $edit_user['name'];
+    $_SESSION['lastName'] = $edit_user['lastname'];
+    $_SESSION['username'] = $edit_user['username'];
+    $_SESSION['email'] = $edit_user['email'];
+    $_SESSION['password'] = $edit_user['password'];
+    $_SESSION['level'] = $edit_user['level'];
+
+
+    // ==================== Edit profile part ===============================
     if (isset($_POST['edit'])) {
         //Save all form inputs to variables
         $name = $_POST['firstName'];
-        $lastName = $_POST['lastName'];
+        $lastname = $_POST['lastName'];
         $username = $_POST['username'];
+        $avatar = basename($_FILES["userPic"]["name"]);
         $email = $_POST['email'];
         $password = $_POST['Pwd'];
-        $level = $_POST['level'];
+       // $level = $_SESSION['level'];
+
+
+        //Holding the users entries inside an array
+        $updateUser = array(
+            "id" => $id,
+            "name" => $name,
+            "lastname" => $lastname,
+            "username" => $username,
+            "avatar" => basename($_FILES["userPic"]["name"]),
+            "email" => $email,
+            "password" => $password,
+            //"level" => $level
+        );
+
+
+        var_dump($updateUser);
+
+        //Getting the avatar
+        $target_directory = "./image/"; //The file that is being selected
+        $target_file = $target_directory . basename($_FILES["userPic"]["name"]);
+        move_uploaded_file($_FILES["userPic"]["tmp_name"], $target_file);
+
+        //update user
+        $database->update_user($updateUser);
+
+
     }
     //if user manually entered to go to edit profile page
 } else if (strpos($_SERVER['REQUEST_URI'], '/editprofile.php'))  {
     //user did not click update button.. alert user and redirect them
     echo '<script>alert("Error! You Did Not click Update Button.. Redirecting you")</script>';
-   header( "Refresh:0.25; url=http://localhost/TeamProject/admin/index.php");
+    header( "Refresh:0.25; url=http://localhost/TeamProject/admin/index.php");
 }
 
 ?>
