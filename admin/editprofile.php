@@ -1,9 +1,6 @@
 <?php 
     include_once "../controller/core.php";
 
-    //include Session variables;
-
-
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +33,8 @@
                             <!-- Show Picture -->
                             <img src="./image/<?php echo $_SESSION['pic']; ?>" alt="user-avatar" class="d-block rounded" id="uploadedAvatar" width="100" height="100">
                             <div class="button-wrapper">
+                                <!-- Start Of Form -->
+                                <form id="formAccountSettings" method="POST" action="#" enctype="multipart/form-data">
                                 <!-- Upload Input-->
                                 <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
                                     <span class="d-none d-sm-block">Upload new photo</span>
@@ -53,32 +52,32 @@
                     </div>
                     <hr class="my-0">
                     <div class="card-body">
-                        <form id="formAccountSettings" method="POST" action="#" enctype="multipart/form-data">
                             <div class="row">
                                 <!-- First Name -->
                                 <div class="mb-3 col-md-6">
                                     <label for="firstName" class="form-label">First Name</label>
-                                    <input class="form-control" type="text" id="firstName" name="firstName" <?php echo 'value="'.$_SESSION['firstName'].'"'; ?>>
+                                    <input class="form-control" type="text" id="firstName"
+                                           name="firstName" <?php echo 'value="'.$_SESSION['firstName'].'"'; ?> autocomplete="off">
                                 </div>
                                 <!-- Last Name -->
                                 <div class="mb-3 col-md-6">
                                     <label for="lastName" class="form-label">Last Name</label>
-                                    <input class="form-control" type="text" name="lastName" id="lastName" <?php echo 'value="'.$_SESSION['lastName'].'"'; ?>>
+                                    <input class="form-control" type="text" name="lastName" id="lastName" <?php echo 'value="'.$_SESSION['lastName'].'"'; ?> autocomplete="off">
                                 </div>
                                 <!-- Username -->
                                 <div class="mb-3 col-md-6">
                                     <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="username" name="username" <?php echo 'value="'.$_SESSION['username'].'"'; ?>>
+                                    <input type="text" class="form-control" id="username" name="username" <?php echo 'value="'.$_SESSION['username'].'"'; ?> autocomplete="off">
                                 </div>
                                 <!-- Email Name -->
                                 <div class="mb-3 col-md-6">
                                     <label for="email" class="form-label">Email</label>
-                                    <input class="form-control" type="text" id="email" name="email" <?php echo 'value="'.$_SESSION['email'].'"'; ?>>
+                                    <input class="form-control" type="text" id="email" name="email" <?php echo 'value="'.$_SESSION['email'].'"'; ?> autocomplete="off">
                                 </div>
                                 <!--Password -->
                                 <div class="mb-3 col-md-6">
                                     <label for="Password" class="form-label">Password</label>
-                                    <input type="text" class="form-control" id="Password" name="Pwd" <?php echo 'value="'.$_SESSION['password'].'"'; ?>>
+                                    <input type="text" class="form-control" id="Password" name="Pwd" <?php echo 'value="'.$_SESSION['password'].'"'; ?> autocomplete="off">
                                 </div>
                                 <!-- Level -->
                                 <div class="mb-3 col-md-6">
