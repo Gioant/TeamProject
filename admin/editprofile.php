@@ -1,5 +1,9 @@
 <?php 
     include_once "../controller/core.php";
+
+    //include Session variables;
+
+
 ?>
 
 <!DOCTYPE html>
@@ -54,32 +58,32 @@
                                 <!-- First Name -->
                                 <div class="mb-3 col-md-6">
                                     <label for="firstName" class="form-label">First Name</label>
-                                    <input class="form-control" type="text" id="firstName" name="firstName">
+                                    <input class="form-control" type="text" id="firstName" name="firstName" <?php echo 'value="'.$_SESSION['firstName'].'"'; ?>>
                                 </div>
                                 <!-- Last Name -->
                                 <div class="mb-3 col-md-6">
                                     <label for="lastName" class="form-label">Last Name</label>
-                                    <input class="form-control" type="text" name="lastName" id="lastName">
+                                    <input class="form-control" type="text" name="lastName" id="lastName" <?php echo 'value="'.$_SESSION['lastName'].'"'; ?>>
                                 </div>
                                 <!-- Username -->
                                 <div class="mb-3 col-md-6">
                                     <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="username" name="username">
+                                    <input type="text" class="form-control" id="username" name="username" <?php echo 'value="'.$_SESSION['username'].'"'; ?>>
                                 </div>
                                 <!-- Email Name -->
                                 <div class="mb-3 col-md-6">
                                     <label for="email" class="form-label">Email</label>
-                                    <input class="form-control" type="text" id="email" name="email">
+                                    <input class="form-control" type="text" id="email" name="email" <?php echo 'value="'.$_SESSION['email'].'"'; ?>>
                                 </div>
                                 <!--Password -->
                                 <div class="mb-3 col-md-6">
                                     <label for="Password" class="form-label">Password</label>
-                                    <input type="text" class="form-control" id="Password" name="Pwd">
+                                    <input type="text" class="form-control" id="Password" name="Pwd" <?php echo 'value="'.$_SESSION['password'].'"'; ?>>
                                 </div>
                                 <!-- Level -->
                                 <div class="mb-3 col-md-6">
                                     <label for="level" class="form-label">Level</label>
-                                    <input class="form-control" type="text" id="level" name="level" disabled>
+                                    <input class="form-control" type="text" id="level" name="level" <?php echo 'value="'.$_SESSION['level'].'"'; ?> disabled >
                                 </div>
                             </div>
                             <div class="mt-2">
