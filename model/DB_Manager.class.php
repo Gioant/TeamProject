@@ -149,6 +149,39 @@ avatar = :avatar, email=:email,password=:password WHERE id = $id;");
                 "password" => $_POST['Pwd'],
             ));
         }
+    }
+
+    //Function to get all the characters from the database
+    public function get_all_users()
+    {
+        $query = $this->db->query("SELECT * FROM users");
+        $array = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        return $array;
+    }
+
+    //Function to upgrade moderator to admin level
+    public function update_user($id){
+        //query to update database
+        unset($_POST['level']);
+        $query = $this->db->prepare("UPDATE users SET id= :id, name=:name,lastname=:lastname,username=:username, 
+avatar = :avatar, email=:email,password=:password WHERE id = $id;");
+
+        //Query
+        $result = $query->execute(array(
+            "id" => $_GET['updateID'],
+            "name"		=> $_POST['firstName'],
+            "lastname"	=> $_POST['lastName'],
+            "username"	=> $_POST['username'],
+            "avatar"	=> basename($_FILES["userPic"]["name"]),
+            "email"		=> $_POST['email'],
+            "password"	=> $_POST['Pwd'],
+        ));
+
+        if($result){
+            header("location: index.php");
+        }
+    }
 
         //redirect user with success msg
         if ($result) {
@@ -174,5 +207,4 @@ avatar = :avatar, email=:email,password=:password WHERE id = $id;");
     }
 
 }
-
 ?>
