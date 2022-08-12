@@ -1,114 +1,156 @@
-<?php 
-    session_start();
+<?php
 
-    include_once "../model/DB_Manager.class.php";
-    include_once "../model/Users.class.php";
+//    include_once "../model/DB_Manager.class.php";
+//    include_once "../model/Users.class.php";
 
-    $database = new DB_Manager();
+//function to load required model classes
+spl_autoload_register(function ($class_name) {
+    $filename = $class_name . '.class.php';
+    include_once '../model/' . $filename;
+});
 
-    //Action to register a new admin/moderator to the admin panel
-    if (isset($_POST['create_account'])) {
+session_start();
+$database = new DB_Manager();
 
-        //Holding password and confirm password in variables
-        $password = $_POST['password'];
-        $confirmPassword = $_POST['confirmPassword'];
+//Action to register a new admin/moderator to the admin panel
+if (isset($_POST['create_account'])) {
 
-        //Comparing password to see if they match
-        if ($password != $confirmPassword) {
-             echo ("<script LANGUAGE='JavaScript'>
+    //Holding password and confirm password in variables
+    $password = $_POST['password'];
+    $confirmPassword = $_POST['confirmPassword'];
+
+    //Comparing password to see if they match
+    if ($password != $confirmPassword) {
+        echo("<script LANGUAGE='JavaScript'>
                         window.alert('PASSWORD DOESNT MATCH!');
                         window.location.href='http://localhost/TeamProject/admin/register.php';
                    </script>");
-        }
+    }
 
-        //Function to see if the name already exists inside the database
-        $newUser = $_POST['username'];
-        $verifyName = $database->verify_name($newUser);
+    //Function to see if the name already exists inside the database
+    $newUser = $_POST['username'];
+    $verifyName = $database->verify_name($newUser);
 
-        //Function to see if the email already exists inside the database
-        $newEmail = $_POST['email'];
-        $verifyEmail = $database->verify_email($newEmail);
+    //Function to see if the email already exists inside the database
+    $newEmail = $_POST['email'];
+    $verifyEmail = $database->verify_email($newEmail);
 
-        //If the name and email doesn't exist in the database process with the new user creation
-        if (!$verifyName && !$verifyEmail) {
-            
-            //Holding the users entries inside an array
-            $newUserDb = array( "name"      => $_POST['firstname'],
-                                "lastname"  => $_POST['lastname'],
-                                "username"  => $_POST['username'],
-                                "avatar"    => basename($_FILES["avatar"]["name"]),
-                                "email"     => $_POST['email'],
-                                "password"  => $_POST['password']
-                                );
+    //If the name and email doesn't exist in the database process with the new user creation
+    if (!$verifyName && !$verifyEmail) {
 
-            //Getting the avatar
-            $target_directory = "image/"; //The file that is being selected
-            $target_file = $target_directory . basename($_FILES["avatar"]["name"]);
-            move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file);
+        //Holding the users entries inside an array
+        $newUserDb = array("name" => $_POST['firstname'],
+            "lastname" => $_POST['lastname'],
+            "username" => $_POST['username'],
+            "avatar" => basename($_FILES["avatar"]["name"]),
+            "email" => $_POST['email'],
+            "password" => $_POST['password']
+        );
 
-            //Calling the classes
-            $users = new Users($newUserDb);
-            $database->add_users($users);
+        //Getting the avatar
+        $target_directory = "image/"; //The file that is being selected
+        $target_file = $target_directory . basename($_FILES["avatar"]["name"]);
+        move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file);
 
-            echo ("<script LANGUAGE='JavaScript'>
+        //Calling the classes
+        $users = new Users($newUserDb);
+        $database->add_users($users);
+
+        echo("<script LANGUAGE='JavaScript'>
                         window.alert('Character sucessfully created!');
                         window.location.href='http://localhost/TeamProject/admin/register.php';
                    </script>");
 
-        }
-
-        //Changing the user level if the checkbox is checked
-        if (isset($_POST['admin'])) {
-            $username = $_POST['username'];
-            $adminLevel = $database->admin_level($username);
-        }
-
     }
 
-    //Action to login the user inside the admin panel
-    if (isset($_POST['login'])) {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-
-        $login = $database->login_user($email, $password);
+    //Changing the user level if the checkbox is checked
+    if (isset($_POST['admin'])) {
+        $username = $_POST['username'];
+        $adminLevel = $database->admin_level($username);
     }
 
-    //Action to logout the user from the admin panel
-    if (isset($_POST['logout'])) {
-        session_unset();
-        session_destroy();
-        header('Location: login.php');
-    }
+}
 
-    //Storing all user inside a session to print them inside the table in the index
-    $_SESSION['all_users'] = $database->get_all_users();
+//Action to login the user inside the admin panel
+if (isset($_POST['login'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-    //To upgrade the moderator status to admin status
-    if (isset($_GET['action']) && $_GET['action'] == "update") {
-        $update_user = $database->update_user();
+    $login = $database->login_user($email, $password);
+}
 
-    }
+//Action to logout the user from the admin panel
+if (isset($_POST['logout'])) {
+    session_unset();
+    session_destroy();
+    header('Location: login.php');
+}
 
-    //To delete a user from the admin panel and database
-    if (isset($_GET['action']) && $_GET['action'] == "delete") {
-       $delete_user = $database->delete_user();
+//Storing all user inside a session to print them inside the table in the index
+$_SESSION['all_users'] = $database->get_all_users();
 
-    }
+//    //To upgrade the moderator status to admin status
+//    if (isset($_GET['action']) && $_GET['action'] == "update") {
+//        $update_user = $database->update_user();
+//
+//    }
 
-    //Edit profil part
-    //When the user click, the edit form is automatically filled with his existing infos
+//To delete a user from the admin panel and database
+if (isset($_GET['action']) && $_GET['action'] == "delete") {
+    $delete_user = $database->delete_user();
+}
+
+//check if user is on edit profile page by clicking update button from index.php
+if (strpos($_SERVER['REQUEST_URI'], '/editprofile.php?updateID') !== false) {
+    //Get ID from url
+    $id = $_GET['updateID'];
+
+    //get data from ID of user
+    $edit_user = $database->user_info($id);
+
+    //dump array data of user to page
+    var_dump($edit_user);
+
+    //store avatar into session
+    $_SESSION['pic'] = $edit_user['avatar'];
+
+    //store remaining properties of user into unique sessions
+    // to autofill form inputs
+    $_SESSION['firstName'] = $edit_user['name'];
+    $_SESSION['lastName'] = $edit_user['lastname'];
+    $_SESSION['username'] = $edit_user['username'];
+    $_SESSION['email'] = $edit_user['email'];
+    $_SESSION['password'] = $edit_user['password'];
+    $_SESSION['level'] = $edit_user['level'];
+
+
+    // ==================== Edit profile part ===============================
     if (isset($_POST['edit'])) {
-        $id = $_SESSION['loggedInUser']['id'];
-        $edit_user = $database->user_info($id);
-        $_SESSION['firstname'] = $edit_user['name'];
-        $_SESSION['lastname'] = $edit_user['lastname'];
-        $_SESSION['username'] = $edit_user['username'];
-        $_SESSION['email'] = $edit_user['email'];
-        $_SESSION['avatar'] = $edit_user['avatar'];
-        $_SESSION['password'] = $edit_user['password'];
+        //Save all form inputs to variables
+        $name = $_POST['firstName'];
+        $lastname = $_POST['lastName'];
+        $username = $_POST['username'];
+        $avatar = basename($_FILES["userPic"]["name"]);
+        $email = $_POST['email'];
+        $password = $_POST['Pwd'];
+       // $level = $_SESSION['level'];
 
-        header('location: editprofile.php');
-        
+
+        //Getting the avatar
+        $target_directory = "./image/"; //The file that is being selected
+        $target_file = $target_directory . basename($_FILES["userPic"]["name"]);
+        move_uploaded_file($_FILES["userPic"]["tmp_name"], $target_file);
+
+        //update user
+        $database->update_user($id);
+
+
     }
+    //if user manually entered to go to edit profile page
+} else if (strpos($_SERVER['REQUEST_URI'], '/editprofile.php'))  {
+    //user did not click update button.. alert user and redirect them
+    echo '<script>alert("Error! You Did Not click Update Button.. Redirecting you")</script>';
+    header( "Refresh:0.25; url=http://localhost/TeamProject/admin/index.php");
+}
 
 ?>
