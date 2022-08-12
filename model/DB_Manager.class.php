@@ -116,31 +116,45 @@ class DB_Manager
         return $array;
     }
 
-    //Function to upgrade moderator to admin level
-    public function update_user($id){
+    //Function to update user
+    public function update_user($id, $avatar){
+
         //query to update database
         unset($_POST['level']);
         $query = $this->db->prepare("UPDATE users SET id= :id, name=:name,lastname=:lastname,username=:username, 
 avatar = :avatar, email=:email,password=:password WHERE id = $id;");
 
-        //Query
-        $result = $query->execute(array(
-            "id" => $_GET['updateID'],
-            "name"		=> $_POST['firstName'],
-            "lastname"	=> $_POST['lastName'],
-            "username"	=> $_POST['username'],
-            "avatar"	=> basename($_FILES["userPic"]["name"]),
-            "email"		=> $_POST['email'],
-            "password"	=> $_POST['Pwd'],
-        ));
+        //check if the $avatar is not in session['pic]'
+        if($_SESSION['pic'] != $avatar) {
 
-        if($result){
-            header("location: index.php");
+            //if it isn't user uploaded a new picture
+            $result = $query->execute(array(
+                "id" => $_GET['updateID'],
+                "name" => $_POST['firstName'],
+                "lastname" => $_POST['lastName'],
+                "username" => $_POST['username'],
+                "avatar" => basename($_FILES["userPic"]["name"]),
+                "email" => $_POST['email'],
+                "password" => $_POST['Pwd'],
+            ));
+        } else {
+            //user did not upload picture
+            $result = $query->execute(array(
+                "id" => $_GET['updateID'],
+                "name" => $_POST['firstName'],
+                "lastname" => $_POST['lastName'],
+                "username" => $_POST['username'],
+                "avatar" => $_SESSION['pic'],
+                "email" => $_POST['email'],
+                "password" => $_POST['Pwd'],
+            ));
+        }
+
+        //redirect user with success msg
+        if ($result) {
+            header("location: index.php?updateSuccess");
         }
     }
-
-
-
 
     //Function to delete a user from the admin/moderator table and the database
     public function delete_user()
