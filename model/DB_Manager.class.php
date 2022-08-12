@@ -112,18 +112,23 @@ class DB_Manager
     {
         $query = $this->db->query("SELECT * FROM users");
         $array = $query->fetchAll(PDO::FETCH_ASSOC);
-        $userObj = new Users($array);
 
         return $array;
     }
 
     //Function to upgrade moderator to admin level
-    public function update_user()
-    {
+    public function update_user($updateUser){
         //query to update database
-        $query = $this->db->prepare("UPDATE users SET level = 1 WHERE id = ?;");
-        $query->execute(array($_GET['id']));
+        $query = $this->db->prepare("UPDATE users SET id= :id, name= :name, lastname= :lastname, username= :username, 
+avatar= :avatar, email = :email, password = :password, level = :level WHERE id = id");
+
+        //execute query
+        return $query->execute($updateUser);
+
     }
+
+
+
 
     //Function to delete a user from the admin/moderator table and the database
     public function delete_user()
