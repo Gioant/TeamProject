@@ -39,6 +39,12 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Dashboard - SB Admin</title>
+
+    <!-- JQUERY & SWEETALERT 2-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.20/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.20/dist/sweetalert2.min.css">
+
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -261,10 +267,25 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script> -->
-    <<!-- script src="assets/demo/chart-area-demo.js"></script>
+    <!-- script src="assets/demo/chart-area-demo.js"></script>
     <script src="assets/demo/chart-bar-demo.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script> -->
     <script src="js/datatables-simple-demo.js"></script>
-</body>
 
+    <?php if (isset($_GET["updateSuccess"])) : ?>
+        <script>
+            Swal.fire({
+                title: 'Success',
+                text: 'User Updated Successfully',
+                icon: 'success',
+                color: 'LimeGreen',
+                confirmButtonText: 'Thank You!'
+            });
+
+            // After Showing Alert, Remove Parameter GET createSuccess
+            window.history.replaceState(null, null, window.location.pathname);
+        </script>
+    <?php endif; ?>
+
+</body>
 </html>
