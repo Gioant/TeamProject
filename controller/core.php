@@ -136,28 +136,13 @@ if (strpos($_SERVER['REQUEST_URI'], '/editprofile.php?updateID') !== false) {
        // $level = $_SESSION['level'];
 
 
-        //Holding the users entries inside an array
-        $updateUser = array(
-            "id" => $id,
-            "name" => $name,
-            "lastname" => $lastname,
-            "username" => $username,
-            "avatar" => basename($_FILES["userPic"]["name"]),
-            "email" => $email,
-            "password" => $password,
-            //"level" => $level
-        );
-
-
-        var_dump($updateUser);
-
         //Getting the avatar
         $target_directory = "./image/"; //The file that is being selected
         $target_file = $target_directory . basename($_FILES["userPic"]["name"]);
         move_uploaded_file($_FILES["userPic"]["tmp_name"], $target_file);
 
         //update user
-        $database->update_user($updateUser);
+        $database->update_user($id);
 
 
     }

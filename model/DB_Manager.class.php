@@ -117,14 +117,26 @@ class DB_Manager
     }
 
     //Function to upgrade moderator to admin level
-    public function update_user($updateUser){
+    public function update_user($id){
         //query to update database
-        $query = $this->db->prepare("UPDATE users SET id= :id, name= :name, lastname= :lastname, username= :username, 
-avatar= :avatar, email = :email, password = :password, level = :level WHERE id = id");
+        unset($_POST['level']);
+        $query = $this->db->prepare("UPDATE users SET id= :id, name=:name,lastname=:lastname,username=:username, 
+avatar = :avatar, email=:email,password=:password WHERE id = $id;");
 
-        //execute query
-        return $query->execute($updateUser);
+        //Query
+        $result = $query->execute(array(
+            "id" => $_GET['updateID'],
+            "name"		=> $_POST['firstName'],
+            "lastname"	=> $_POST['lastName'],
+            "username"	=> $_POST['username'],
+            "avatar"	=> basename($_FILES["userPic"]["name"]),
+            "email"		=> $_POST['email'],
+            "password"	=> $_POST['Pwd'],
+        ));
 
+        if($result){
+            header("location: index.php");
+        }
     }
 
 
