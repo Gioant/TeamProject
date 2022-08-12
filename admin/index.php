@@ -234,22 +234,11 @@
                                                         <input type="submit" name="upgrade" class="btn btn-success" value="Upgrade">
                                                     </td> -->
                                                     <td>
-                                                        <a href="./editprofile.php" class="btn btn-success">Update</a>
+                                                        <a href="editprofile.php?updateID=<?= $user['id'] ?>" class="btn btn-success">Update</a>
                                                         <a href="index.php?action=delete&id=<?= $user['id'] ?>" class="btn btn-danger ">Delete</a>
                                                        <!--  <input type="submit" name="upgrade" class="btn btn-success" value="Upgrade">
                                                         <input type="submit" name="delete" class="btn btn-danger" value="Delete"> -->
                                                     </td>
-                                                </tr>
-                                            <?php endforeach; ?>
-                                        <?php else: ?>
-                                            <?php foreach ($_SESSION['all_users'] as $user) : ?>
-                                                <tr>
-                                                    <td><?php echo $user['name'] ?></td>
-                                                    <td><?php echo $user['lastname'] ?></td>
-                                                    <td><?php echo $user['username'] ?></td>
-                                                    <td><?php echo $user['email'] ?></td>
-                                                    <td><?php echo $user['avatar'] ?></td>
-                                                    <td><?php echo $user['level'] ?></td>
                                                 </tr>
                                             <?php endforeach; ?>
                                         <?php endif; ?>
