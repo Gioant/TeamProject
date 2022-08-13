@@ -95,9 +95,6 @@
                                 <a class="nav-link" href="register.php">
                                     <div class="sb-nav-link-icon"><i class="fas fa-user-plus"></i></div>Register
                                 </a>
-                                <a class="nav-link" href="password.php">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-key"></i></div>Forgot Password
-                                </a>
                             </nav>
                         </div>
                         <?php endif ?>

@@ -49,7 +49,6 @@
                                                 <label for="inputPassword">Password</label>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="password.php">Forgot Password?</a>
                                                 <input class="btn btn-primary btn-block" type="submit" name="login" value="Login">
                                             </div>
                                         </form>
