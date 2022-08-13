@@ -3,9 +3,10 @@ class Contact
 {
     private $id;
     private $location;
-    private $open_hours;
+    private $open;
+    private $close;
     private $email;
-    private $call;
+    private $phone;
 
     public function __construct($array)
     {
@@ -39,14 +40,26 @@ class Contact
         return $this;
     }
 
-    public function getOpenHours()
+    public function getOpen()
     {
-        return $this->open_hours;
+        return $this->open;
     }
 
-    public function setOpenHours($open_hours)
+    public function setOpen($open)
     {
-        $this->open_hours = $open_hours;
+        $this->open = $open;
+
+        return $this;
+    }
+
+    public function getClose()
+    {
+        return $this->close;
+    }
+
+    public function setClose($close)
+    {
+        $this->close = $close;
 
         return $this;
     }
@@ -63,14 +76,14 @@ class Contact
         return $this;
     }
 
-    public function getCall()
+    public function getPhone()
     {
-        return $this->call;
+        return $this->phone;
     }
 
-    public function setCall($call)
+    public function setPhone($phone)
     {
-        $this->call = $call;
+        $this->phone = $phone;
 
         return $this;
     }
