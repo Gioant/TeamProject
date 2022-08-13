@@ -10,7 +10,39 @@
     <title>Home Page</title>
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/profilestyles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <style type="text/css">
+        table.table td a {
+            cursor: pointer;
+            display: inline-block;
+            margin: 0 5px;
+            min-width: 24px;
+            }
+            
+            table.table td a.add {
+            color: #27C46B;
+            }
+
+            table.table td a.edit {
+            color: #FFC107;
+            }
+
+            table.table td a.delete {
+            color: #E34724;
+            }
+
+            table.table td i {
+            font-size: 19px;
+            }
+
+            table.table td a.add i {
+            font-size: 24px;
+            margin-right: -1px;
+            position: relative;
+            top: 3px;
+        }
+    </style>
 </head>
 
 <body class="sb-nav-fixed">
@@ -125,10 +157,10 @@
         <div id="layoutSidenav_content">
             <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Home Tables</h1>
+                        <h1 class="mt-4">Home Table</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Home Tables</li>
+                            <li class="breadcrumb-item active">Home Table</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-body">
@@ -138,6 +170,9 @@
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
                                 Home DataTable
+                                 <div class="float-end">
+                                    <button type="button" class="btn btn-info"><i class="fa fa-plus"></i> Add New</button>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple" class="table table-striped">
@@ -159,6 +194,11 @@
                                             <td>61</td>
                                             <td>2011/04/25</td>
                                             <td>$320,800</td>
+                                            <td>
+                                                <!-- <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a> -->
+                                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Garrett Winters</td>
@@ -167,6 +207,11 @@
                                             <td>63</td>
                                             <td>2011/07/25</td>
                                             <td>$170,750</td>
+                                            <td>
+                                                <!-- <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a> -->
+                                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Ashton Cox</td>
@@ -175,6 +220,11 @@
                                             <td>66</td>
                                             <td>2009/01/12</td>
                                             <td>$86,000</td>
+                                            <td>
+                                                <!-- <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a> -->
+                                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Cedric Kelly</td>
@@ -183,6 +233,11 @@
                                             <td>22</td>
                                             <td>2012/03/29</td>
                                             <td>$433,060</td>
+                                            <td>
+                                                <!-- <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a> -->
+                                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Airi Satou</td>
@@ -191,6 +246,11 @@
                                             <td>33</td>
                                             <td>2008/11/28</td>
                                             <td>$162,700</td>
+                                            <td>
+                                                <!-- <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a> -->
+                                                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

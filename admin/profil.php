@@ -95,7 +95,7 @@ include_once "../model/Users.class.php";*/
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     <a class="nav-link" href="profil.php">
                                         <div class="sb-nav-link-icon"><i class="fas fa-id-card"></i></div>
-                                        Profil
+                                        Profile
                                     </a>
                                 </nav>
                             </div>
@@ -114,15 +114,15 @@ include_once "../model/Users.class.php";*/
                             </nav>
                         </div>
                         <div class="sb-sidenav-menu-heading">Addons</div>
-                        <a class="nav-link" href="tables.php">
+                        <a class="nav-link" href="team.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Team
                         </a>
-                        <a class="nav-link" href="tables.php">
+                        <a class="nav-link" href="portfolio.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Portfolio
                         </a>
-                        <a class="nav-link" href="tables.php">
+                        <a class="nav-link" href="services.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Services
                         </a>
@@ -141,10 +141,10 @@ include_once "../model/Users.class.php";*/
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Profil</h1>
+                    <h1 class="mt-4">Profile</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Profil</li>
+                        <li class="breadcrumb-item active">Profile</li>
                     </ol>
                 </div>
                 <div style="display: flex; justify-content: center;">
@@ -156,8 +156,6 @@ include_once "../model/Users.class.php";*/
                                         <img src="<?php echo "image/" . $_SESSION['loggedInUser']['avatar'] ?>" alt="profile_picture" class="rounded-circle" height="150" width="150">
                                         <div class="mt-3">
                                             <h4><?php echo $_SESSION['loggedInUser']['username'] ?></h4>
-                                            <p class="text-secondary mb-1">Full Stack Developer</p>
-                                            <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
                                         </div>
                                     </div>
                                 </div>
@@ -173,6 +171,15 @@ include_once "../model/Users.class.php";*/
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <?php echo $_SESSION['loggedInUser']['name'] . " " . $_SESSION['loggedInUser']['lastname'] ?>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Username</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <?php echo $_SESSION['loggedInUser']['username'] ?>
                                     </div>
                                 </div>
                                 <hr>
@@ -196,27 +203,21 @@ include_once "../model/Users.class.php";*/
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Mobile</h6>
+                                        <h6 class="mb-0">Password</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        (320) 380-4539
+                                        <?php echo $_SESSION['loggedInUser']['password'] ?>
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Address</h6>
+                                <form action="" method="POST">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <input type="submit" name="edit" class="btn btn-info" value="Edit Profile">
+                                            <!-- <a class="btn btn-info " href="editprofile.php">Edit</a> -->
+                                        </div>
                                     </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        Bay Area, San Francisco, CA
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
