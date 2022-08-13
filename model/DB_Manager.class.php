@@ -149,6 +149,10 @@ avatar = :avatar, email=:email,password=:password WHERE id = $id;");
                 "password" => $_POST['Pwd'],
             ));
         }
+        //redirect user with success msg
+        if ($result) {
+            header("location: index.php?updateSuccess");
+        }
     }
 
 
