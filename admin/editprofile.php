@@ -39,7 +39,10 @@
                                 <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
                                     <span class="d-none d-sm-block">Upload new photo</span>
                                     <i class="bx bx-upload d-block d-sm-none"></i>
-                                    <input type="file" id="upload" class="account-file-input" accept="image/png, image/jpeg" hidden="" name="userPic">
+
+                                    <input type="file" id="upload" class="account-file-input" accept="image/png, image/jpeg" hidden="" name="userPic"
+                                           onchange="document.getElementById('uploadedAvatar').src = window.URL.createObjectURL(this.files[0])">
+                                
                                 </label>
                                 <!--Reset Button -->
                                 <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
@@ -107,7 +110,7 @@
 </div>
 
         <!-- Errors messages -->
-       <!--  <?php
+        <?php
             if (isset($_GET['error'])) {
                 if ($_GET['error'] == "nameAlreadyExist") {
                     echo '<script>alert("This username already exist.\\nPlease select another username.")</script>';
@@ -115,6 +118,6 @@
                     echo '<script>alert("This email already exist.\\nPlease enter a different email.")</script>';
                 }
             }
-        ?> -->
+        ?>
     </body>
 </html>

@@ -89,11 +89,6 @@ if (isset($_POST['logout'])) {
 //Storing all user inside a session to print them inside the table in the index
 $_SESSION['all_users'] = $database->get_all_users();
 
-//    //To upgrade the moderator status to admin status
-//    if (isset($_GET['action']) && $_GET['action'] == "update") {
-//        $update_user = $database->update_user();
-//
-//    }
 
 //To delete a user from the admin panel and database
 if (isset($_GET['action']) && $_GET['action'] == "delete") {
@@ -107,9 +102,6 @@ if (strpos($_SERVER['REQUEST_URI'], '/editprofile.php?updateID') !== false) {
 
     //get data from ID of user
     $edit_user = $database->user_info($id);
-
-    //dump array data of user to page
-    var_dump($edit_user);
 
     //store avatar into session
     $_SESSION['pic'] = $edit_user['avatar'];
@@ -126,23 +118,28 @@ if (strpos($_SERVER['REQUEST_URI'], '/editprofile.php?updateID') !== false) {
 
     // ==================== Edit profile part ===============================
     if (isset($_POST['edit'])) {
-        //Save all form inputs to variables
+        //save all form inputs
         $name = $_POST['firstName'];
         $lastname = $_POST['lastName'];
         $username = $_POST['username'];
-        $avatar = basename($_FILES["userPic"]["name"]);
         $email = $_POST['email'];
         $password = $_POST['Pwd'];
-       // $level = $_SESSION['level'];
+        $avatar = basename($_FILES["userPic"]["name"]);
 
+        if(!empty($avatar)){
+            //move uploaded picture to folderr
+            $target_directory = "./image/";
+            $target_file = $target_directory . basename($_FILES["userPic"]["name"]);
+            move_uploaded_file($_FILES["userPic"]["tmp_name"], $target_file);
 
-        //Getting the avatar
-        $target_directory = "./image/"; //The file that is being selected
-        $target_file = $target_directory . basename($_FILES["userPic"]["name"]);
-        move_uploaded_file($_FILES["userPic"]["tmp_name"], $target_file);
+            //call function to update user
+            $database->update_user($id, $avatar);
 
-        //update user
-        $database->update_user($id);
+        } else {
+            $avatar = $_SESSION['pic'];
+            $database->update_user($id, $avatar);
+        }
+
 
 
     }
