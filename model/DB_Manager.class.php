@@ -1,7 +1,6 @@
 <?php
 
-class DB_Manager
-{
+class DB_Manager{
     private $db;
 
     //Connection to the database
@@ -198,7 +197,5 @@ avatar = :avatar, email=:email,password=:password WHERE id = $id;");
 
         return $array;
     }
-
-
 }
 ?>

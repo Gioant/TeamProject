@@ -1,6 +1,6 @@
 <?php 
     //session_start();
-    include_once "../controller/core.php";
+    include_once "../controller/AdminController.php";
 
 ?>
 

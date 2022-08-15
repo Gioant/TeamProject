@@ -3,7 +3,7 @@
 
   /*  include_once "../model/DB_Manager.class.php";
     include_once "../model/Users.class.php";*/
-    include_once "../controller/core.php";
+    include_once "../controller/AdminController.php";
 
     //$database = new DB_Manager();
 
