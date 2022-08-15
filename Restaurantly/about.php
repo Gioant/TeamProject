@@ -218,9 +218,9 @@
                 <p>Our Professional Chefs</p>
             </div>
 
-            <div class="row">
+            <div class="row" style="justify-content-md-center">
 
-                <div class="col-lg-4 col-md-6">
+                <div class="col-3">
                     <div class="member" data-aos="zoom-in" data-aos-delay="100">
                         <img name="about-nickpic" src="assets/img/chefs/nickk.jpg" class="img-fluid1" alt=""
                              height="416" width="416">
@@ -240,7 +240,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6">
+                <div class="col-3">
                     <div class="member" data-aos="zoom-in" data-aos-delay="200">
                         <img name="about-andypic" src="assets/img/chefs/andy.jpg" class="img-fluid1" alt="">
                         <div class="member-info">
@@ -260,7 +260,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6">
+                <div class="col-3">
                     <div class="member" data-aos="zoom-in" data-aos-delay="300">
                         <img name="about-jlpic" src="assets/img/chefs/jean-loup.jpg" class="img-fluid1" alt="">
                         <div class="member-info">
@@ -279,7 +279,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6">
+                <div class="col-3">
                     <div class="member" data-aos="zoom-in" data-aos-delay="300">
                         <img name="about-kevinpic" src="./assets/img/chefs/kevinChan.jpg" class="img-fluid1" alt="">
                         <div class="member-info">
