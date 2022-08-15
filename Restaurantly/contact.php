@@ -1,3 +1,15 @@
+<?php
+include "../model/DB_Manager.class.php";
+include "../model/Contact.class.php";
+
+$database = new DB_Manager();
+$get_contact = $database->get_contact();
+
+foreach ($get_contact as $contact) {
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,12 +78,12 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-        <li><a class="nav-link scrollto active" href="index.php">Home</a></li>
+          <li><a class="nav-link scrollto active" href="index.php">Home</a></li>
           <li><a class="nav-link scrollto" href="about.php">About</a></li>
           <li><a class="nav-link scrollto" href="services.php">Services</a></li>
           <li><a class="nav-link scrollto" href="portfolio.php">Portfolio</a></li>
           <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a> -->
-            <!-- <ul>
+          <!-- <ul>
               <li><a href="#">Drop Down 1</a></li>
               <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
@@ -97,7 +109,7 @@
     </div>
   </header><!-- End Header -->
 
-  
+
   <main id="main">
 
 
@@ -125,7 +137,7 @@
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p name="contact-location">A108 Adam Street, New York, NY 535022</p>
+                <p name="contact-location"><?php echo $contact['location'] ?></p>
               </div>
 
               <div class="open-hours">
@@ -133,31 +145,31 @@
                 <h4>Open Hours:</h4>
                 <p name="contact-hours">
                   Monday-Saturday:<br>
-                  11:00 AM - 2300 PM
+                  <?php echo $contact['open'] ?> AM - <?php echo $contact['close'] ?> PM
                 </p>
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p name="contact-email">info@example.com</p>
+                <p name="contact-email"><?php echo $contact['email'] ?></p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p name="contact-number">+1 5589 55488 55s</p>
+                <p name="contact-number"><?php echo $contact['phone'] ?></p>
               </div>
 
             </div>
 
             <div class="social-links mt-3">
-                <a name="contact-twitter" href="https://www.youtube.com/watch?v=0qJxp7LwGd0&ab_channel=CrunchyrollCollection" target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a name="contact-facebook" href="https://www.youtube.com/watch?v=0qJxp7LwGd0&ab_channel=CrunchyrollCollection" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a name="contact-instagram" href="https://www.youtube.com/watch?v=0qJxp7LwGd0&ab_channel=CrunchyrollCollection" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a name="contact-skype" href="https://www.youtube.com/watch?v=0qJxp7LwGd0&ab_channel=CrunchyrollCollection" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a name="contact-linkedin" href="https://www.youtube.com/watch?v=0qJxp7LwGd0&ab_channel=CrunchyrollCollection" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-              </div>
+              <a name="contact-twitter" href="https://www.youtube.com/watch?v=0qJxp7LwGd0&ab_channel=CrunchyrollCollection" target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a name="contact-facebook" href="https://www.youtube.com/watch?v=0qJxp7LwGd0&ab_channel=CrunchyrollCollection" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a name="contact-instagram" href="https://www.youtube.com/watch?v=0qJxp7LwGd0&ab_channel=CrunchyrollCollection" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a name="contact-skype" href="https://www.youtube.com/watch?v=0qJxp7LwGd0&ab_channel=CrunchyrollCollection" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a name="contact-linkedin" href="https://www.youtube.com/watch?v=0qJxp7LwGd0&ab_channel=CrunchyrollCollection" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
 
           </div>
 
@@ -205,8 +217,8 @@
             <div class="footer-info">
               <h3>Content Changer</h3>
               <p>
-              1616 René-Lévesque Blvd W<br>
-              Montreal, Quebec H3H 1P8<br><br>
+                1616 René-Lévesque Blvd W<br>
+                Montreal, Quebec H3H 1P8<br><br>
                 <strong>Phone:</strong> +1 5589 55488 55<br>
                 <strong>Email:</strong> info@example.com<br>
               </p>
