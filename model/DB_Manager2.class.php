@@ -23,4 +23,6 @@ class DB_Manager2{
             die("Database Connection Error: " . $e->getMessage());
         }
     }
+
+
 }

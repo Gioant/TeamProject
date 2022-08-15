@@ -6,6 +6,6 @@ spl_autoload_register(function ($class_name) {
 });
 
 session_start();
-$database = new DB_Manager();
+$database = new DB_Manager2();
 
 
