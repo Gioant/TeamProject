@@ -1,27 +1,7 @@
 <?php
 //session_start();
     include_once "../controller/AdminController.php";
-   /* include_once "../model/DB_Manager.class.php";
-    include_once "../model/Users.class.php";*/
 
-    //Logout Button
-  /*  if (isset($_POST['logout'])) {
-        session_unset();
-        session_destroy();
-        header('Location: login.php');
-    }*/
-
-    /*//To upgrade the moderator status to admin status
-    if (isset($_GET['action']) && $_GET['action'] == "update") {
-        $update_user = $database->update_user();
-
-    }
-
-    //To delete a user from the admin panel and database
-    if (isset($_GET['action']) && $_GET['action'] == "delete") {
-       $delete_user = $database->delete_user();
-
-    }*/
 
     if (empty($_SESSION['loggedInUser'])) {
         header('location: login.php');
@@ -239,8 +219,6 @@
                                                     <td>
                                                         <a href="editprofile.php?updateID=<?= $user['id'] ?>" class="btn btn-success">Update</a>
                                                         <a href="index.php?action=delete&id=<?= $user['id'] ?>" class="btn btn-danger ">Delete</a>
-                                                       <!--  <input type="submit" name="upgrade" class="btn btn-success" value="Upgrade">
-                                                        <input type="submit" name="delete" class="btn btn-danger" value="Delete"> -->
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
