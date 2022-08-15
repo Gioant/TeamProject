@@ -173,5 +173,32 @@ avatar = :avatar, email=:email,password=:password WHERE id = $id;");
         return $userInfo;
     }
 
+    //Function to select data from the slider table and save into a variable as an array
+    public function get_slider() {
+        $query = $this->db->query("SELECT * FROM slider");
+        $array = $query->fetchAll(PDO::FETCH_ASSOC);
+        $sliderObj = new Slider($array);
+
+        return $array;
+    }
+
+    //Function to select data from the contact table and save into a variable as an array
+    public function get_contact() {
+        $query = $this->db->query("SELECT * FROM contact");
+        $array = $query->fetchAll(PDO::FETCH_ASSOC);
+        $contactObj = new Contact($array);
+
+        return $array;
+    }
+
+    public function get_about() {
+        $query = $this->db->query("SELECT * FROM about");
+        $array = $query->fetchAll(PDO::FETCH_ASSOC);
+        $aboutObj = new About($array);
+
+        return $array;
+    }
+
+
 }
 ?>
