@@ -1,8 +1,5 @@
-<?php 
-
+<?php
     include_once "../controller/AdminController.php";
-
-
 
 ?>
 
@@ -39,6 +36,7 @@
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <input class="btn btn-primary btn-block" type="submit" name="login" value="Login">
+                                                <a href="../Restaurantly/index.php" class="btn btn-dark">Back</a>
                                             </div>
                                         </form>
                                     </div>
@@ -55,7 +53,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Team-C the best team in the world</div>
+                            <div class="text-muted" style="margin:auto">Copyright &copy; <b>Team-C</b> the best team in the world  ❤</div>
                         </div>
                     </div>
                 </footer>
