@@ -172,4 +172,3 @@ avatar = :avatar, email=:email,password=:password WHERE id = $id;");
         return $userInfo;
     }
 }
-?>

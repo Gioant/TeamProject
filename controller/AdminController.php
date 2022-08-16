@@ -1,7 +1,5 @@
 <?php
 
-//    include_once "../model/DB_Manager.class.php";
-//    include_once "../model/Users.class.php";
 
 //function to load required model classes
 spl_autoload_register(function ($class_name) {

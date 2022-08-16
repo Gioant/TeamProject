@@ -217,7 +217,7 @@
                                                         <input type="submit" name="upgrade" class="btn btn-success" value="Upgrade">
                                                     </td> -->
                                                     <td>
-                                                        <a href="editprofile.php?updateID=<?= $user['id'] ?>" class="btn btn-success">Update</a>
+                                                        <a href="editUser.php?updateID=<?= $user['id'] ?>" class="btn btn-success">Update</a>
                                                         <a href="index.php?action=delete&id=<?= $user['id'] ?>" class="btn btn-danger ">Delete</a>
                                                     </td>
                                                 </tr>
@@ -235,7 +235,7 @@
                                                 <input type="submit" name="upgrade" class="btn btn-success" value="Upgrade">
                                             </td> -->
                                             <td>
-                                                <a href="editprofile.php?updateID=<?= $user['id'] ?>" class="btn btn-success">Update</a>
+                                                <a href="editUser.php?updateID=<?= $user['id'] ?>" class="btn btn-success">Update</a>
                                             </td>
                                         </tr>
                                         <?php endforeach; ?>
