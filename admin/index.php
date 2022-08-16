@@ -222,6 +222,23 @@
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
+                                        <?php else : ?>
+                                        <?php foreach ($_SESSION['all_users'] as $user) : ?>
+                                        <tr>
+                                            <td><?php echo $user['name'] ?></td>
+                                            <td><?php echo $user['lastname'] ?></td>
+                                            <td><?php echo $user['username'] ?></td>
+                                            <td><?php echo $user['email'] ?></td>
+                                            <td><?php echo $user['avatar'] ?></td>
+                                            <td><?php echo $user['level'] ?></td>
+                                            <!-- <td>
+                                                <input type="submit" name="upgrade" class="btn btn-success" value="Upgrade">
+                                            </td> -->
+                                            <td>
+                                                <a href="editprofile.php?updateID=<?= $user['id'] ?>" class="btn btn-success">Update</a>
+                                            </td>
+                                        </tr>
+                                        <?php endforeach; ?>
                                         <?php endif; ?>
                                     </tbody>
                                 </table>
