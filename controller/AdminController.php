@@ -94,7 +94,7 @@ if (isset($_GET['action']) && $_GET['action'] == "delete") {
 }
 
 //check if user is on edit profile page by clicking update button from index.php
-if (strpos($_SERVER['REQUEST_URI'], '/editprofile.php?updateID') !== false) {
+if (strpos($_SERVER['REQUEST_URI'], '/editUser.php?updateID') !== false) {
     //Get ID from url
     $id = $_GET['updateID'];
 
@@ -138,14 +138,11 @@ if (strpos($_SERVER['REQUEST_URI'], '/editprofile.php?updateID') !== false) {
             $database->update_user($id, $avatar);
         }
 
-
-
     }
     //if user manually entered to go to edit profile page
-} else if (strpos($_SERVER['REQUEST_URI'], '/editprofile.php'))  {
+} else if (strpos($_SERVER['REQUEST_URI'], '/editUser.php'))  {
     //user did not click update button.. alert user and redirect them
     echo '<script>alert("Error! You Did Not click Update Button.. Redirecting you")</script>';
     header( "Refresh:0.25; url=http://localhost/TeamProject/admin/index.php");
 }
 
-?>

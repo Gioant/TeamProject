@@ -96,7 +96,7 @@
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                 <a class="nav-link" href="profil.php">
                                     <div class="sb-nav-link-icon"><i class="fas fa-id-card"></i></div>
-                                    Profil
+                                    Profile
                                 </a>
                             </nav>
                         </div>
