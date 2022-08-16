@@ -1,16 +1,7 @@
 <?php
 
     include_once "../controller/AdminController.php";
-/*session_start();
 
-include_once "../model/DB_Manager.class.php";
-include_once "../model/Users.class.php";*/
-
-//Logout Button
-/*if (isset($_POST['logout'])) {
-    session_destroy();
-    header('Location: index.php');
-}*/
 ?>
 
 <!DOCTYPE html>
