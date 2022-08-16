@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 16, 2022 at 01:46 AM
+-- Generation Time: Aug 16, 2022 at 02:34 AM
 -- Server version: 8.0.29
 -- PHP Version: 7.4.9
 
@@ -92,6 +92,38 @@ CREATE TABLE IF NOT EXISTS `contact` (
 
 INSERT INTO `contact` (`id`, `location`, `open`, `close`, `email`, `phone`) VALUES
 (1, 'A108 Adam Street, New York, NY 535022', '11:00', '23:00', 'info@example.com', '+1 5589 55488 55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menu`
+--
+
+DROP TABLE IF EXISTS `menu`;
+CREATE TABLE IF NOT EXISTS `menu` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `description` mediumtext NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `picture` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `menu`
+--
+
+INSERT INTO `menu` (`id`, `name`, `description`, `price`, `picture`, `type`) VALUES
+(1, 'Lobster Bisque', 'Lorem, deren, trataro, filede, nerada', '5.95', 'lobster-bisque.jpg', 'starters'),
+(2, 'Bread Barrel', 'Lorem, deren, trataro, filede, nerada', '6.95', 'bread-barrel.jpg', 'specialty'),
+(3, 'Crab Cake', 'A delicate crab cake served on a toasted roll with lettuce and tartar sauce', '7.95', 'cake.jpg', 'starters'),
+(4, 'Caesar Selections', 'Lorem, deren, trataro, filede, nerada', '8.95', 'caesar.jpg', 'salads'),
+(5, 'Tuscan Grilled', 'Grilled chicken with provolone, artichoke hearts, and roasted red pesto', '9.95', 'tuscan-grilled.jpg', 'starters'),
+(6, 'Mozzarella Stick', 'Lorem, deren, trataro, filede, nerada', '4.95', 'mozzarella.jpg', 'starters'),
+(7, 'Greek Salad', 'Fresh spinach, crisp romaine, tomatoes, and Greek olives', '9.95', 'greek-salad.jpg', 'salads'),
+(8, 'Spinach Salad', 'Fresh spinach with mushrooms, hard boiled egg, and warm bacon vinaigrette', '9.95', 'spinach-salad', 'salads'),
+(9, 'Lobster Roll', 'Plump lobster meat, mayo and crisp lettuce on a toasted bulky roll', '12.95', 'lobster-roll.jpg', 'specialty');
 
 -- --------------------------------------------------------
 
