@@ -104,6 +104,16 @@ if (strpos($_SERVER['REQUEST_URI'], '/editUser.php?updateID') !== false) {
     //store avatar into session
     $_SESSION['pic'] = $edit_user['avatar'];
 
+    //store id into variable
+    $userId = $edit_user['id'];
+
+    //store id of current session of loggedin user
+    $loginUserId = $_SESSION['loggedInUser']['id'];
+
+    if ($userId == $loginUserId) {
+        header('location: ./profil.php');
+    }
+
     //store remaining properties of user into unique sessions
     // to autofill form inputs
     $_SESSION['firstName'] = $edit_user['name'];
@@ -124,7 +134,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/editUser.php?updateID') !== false) {
         $password = $_POST['Pwd'];
         $avatar = basename($_FILES["userPic"]["name"]);
 
-        if(!empty($avatar)){
+        if (!empty($avatar)) {
             //move uploaded picture to folderr
             $target_directory = "./image/";
             $target_file = $target_directory . basename($_FILES["userPic"]["name"]);
@@ -132,17 +142,68 @@ if (strpos($_SERVER['REQUEST_URI'], '/editUser.php?updateID') !== false) {
 
             //call function to update user
             $database->update_user($id, $avatar);
-
         } else {
             $avatar = $_SESSION['pic'];
             $database->update_user($id, $avatar);
         }
-
     }
-    //if user manually entered to go to edit profile page
-} else if (strpos($_SERVER['REQUEST_URI'], '/editUser.php'))  {
+} //if user manually entered to go to edit profile page
+    else if (strpos($_SERVER['REQUEST_URI'], '/editUser.php')) {
     //user did not click update button.. alert user and redirect them
     echo '<script>alert("Error! You Did Not click Update Button.. Redirecting you")</script>';
-    header( "Refresh:0.25; url=http://localhost/TeamProject/admin/index.php");
+    header("Refresh:0.25; url=http://localhost/TeamProject/admin/index.php");
 }
+
+//function To Edit Profile of the Logged in User
+function editProfile()
+{
+    $database = new DB_Manager();
+
+    //get id from logged-In user
+    $id = $_SESSION['loggedInUser']['id'];
+
+    //get data from ID of user
+    $editUser = $database->user_info($id);
+
+
+    //Store Each property into sessions
+    $_SESSION['userFirstName'] = $editUser['name'];
+    $_SESSION['userLastName'] = $editUser['lastname'];
+    $_SESSION['userName'] = $editUser['username'];
+    $_SESSION['userAvatar'] = $editUser['avatar'];
+    $_SESSION['userEmail'] = $editUser['email'];
+    $_SESSION['userPassword'] = $editUser['password'];
+
+    if (isset($_POST['saveProfile'])) {
+        $name = $_POST['userFirstname'];
+        $lastName = $_POST['userLastname'];
+        $username = $_POST['userName'];
+        $email = $_POST['userEmail'];
+        $avatar = basename($_FILES["userPic"]["name"]);
+        $Pwd = $_POST['userPwd'];
+
+        $confirmPass = $_POST['confirmPwd'];
+
+        if (!empty($avatar)) {
+            //move uploaded picture to folder
+            $target_directory = "./image/";
+            $target_file = $target_directory . basename($_FILES["userPic"]["name"]);
+            move_uploaded_file($_FILES["userPic"]["tmp_name"], $target_file);
+
+        } else {
+            $avatar = $_SESSION['userAvatar'];
+        }
+
+        if ($Pwd != $confirmPass) {
+            header('location: ./profil?PwdDontMatch');
+        } else {
+            //call function to update user
+            $database->update_Profile($id, $avatar);
+        }
+
+    }
+
+
+}
+
 
