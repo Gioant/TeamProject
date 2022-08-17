@@ -25,8 +25,8 @@ include_once "../controller/AdminController.php";
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="row">
             <div class="col-md-12">
-                <div class="card mb-4">
-                    <h4 class="card-header">Profile Details</h4>
+                <form class="card mb-4">
+                    <h4 class="card-header">User Details</h4>
                     <!-- Account -->
                     <div class="card-body">
                         <div class="d-flex align-items-start align-items-sm-center gap-4">
@@ -87,8 +87,8 @@ include_once "../controller/AdminController.php";
                             <button type="submit" class="btn btn-primary me-2" name="edit">Save changes</button>
                             <a href="./index.php" class="btn btn-outline-secondary">Cancel</a>
                         </div>
-                        </form>
                     </div>
+                </form>
                     <!-- End Account -->
                     <div id="layoutAuthentication_footer">
                         <footer class="py-4 bg-light mt-auto">
