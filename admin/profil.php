@@ -2,6 +2,7 @@
 
     include_once "../controller/AdminController.php";
 
+    editProfile();
 ?>
 
 <!DOCTYPE html>
@@ -15,9 +16,38 @@
     <meta name="author" content="" />
     <title>Profile Page</title>
     <link href="css/styles.css" rel="stylesheet" />
-    <link href="css/profilestyles.css" rel="stylesheet" />
+<!--    <link href="css/profilestyles.css" rel="stylesheet" />-->
+    <!-- JQUERY & SWEETALERT 2-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.20/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.20/dist/sweetalert2.min.css">
+
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
+<style>
+    .form-control {
+        background-color: rgba(0, 0, 0, 0);
+        color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important;
+        border: none;
+        outline: none;
+        padding: unset;
+    }
+
+    #displayName{
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        outline: none;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    #displayName:focus{
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        outline: none;
+    }
+
+</style>
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -35,11 +65,6 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
                         <li><input class="dropdown-item" type="submit" name="logout" value="Logout"></li>
                     </ul>
                 </li>
@@ -62,7 +87,7 @@
                             Authentication
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div class="collaps show" id="pagesCollapseAuth" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                        <div class="collapse show" id="pagesCollapseAuth" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                 <a class="nav-link" href="login.php">
                                     <div class="sb-nav-link-icon"><i class="fas fa-sign-in"></i></div>Login
@@ -135,15 +160,32 @@
                         <li class="breadcrumb-item active">Profile</li>
                     </ol>
                 </div>
-                <div style="display: flex; justify-content: center;">
+                <!-- Form Start -->
+                <form method="POST" action="#" enctype="multipart/form-data">
+                <div style="display: flex; justify-content: center; gap: 1rem">
                     <div class="row mb-4">
-                        <div class="col-md-4 mb-3" style="width: unset;">
-                            <div class="card" style="margin-right: 10px;">
-                                <div class="card-body" style="height: 355px;">
+                        <div class="col-md-4 mb-3">
+                            <div class="card" style="width: 250px">
+                                <div class="card-body" style="height: 460px;">
+                                    <!-- User Avatar -->
                                     <div class="d-flex flex-column align-items-center text-center">
-                                        <img src="<?php echo "image/" . $_SESSION['loggedInUser']['avatar'] ?>" alt="profile_picture" class="rounded-circle" height="150" width="150">
+                                        <img src="<?php echo "./image/" . $_SESSION['userAvatar']  ?>" id="userAvatar" alt="profile_picture" class="rounded-circle" height="150" width="150">
                                         <div class="mt-3">
-                                            <h4><?php echo $_SESSION['loggedInUser']['username'] ?></h4>
+                                            <!-- Display Username-->
+<!--                                            <h4>--><?php //echo $_SESSION['loggedInUser']['username'] ?><!--</h4>-->
+                                            <label for="displayName" class="form-label">
+                                            <input class="form-control" type="text" id="displayName"
+                                                    <?php echo 'value="'.$_SESSION['userFirstName'].'"'; ?>  disabled="disabled">
+                                            </label>
+                                        </div>
+                                        <div class="mt-3">
+                                            <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+                                                <span class="d-none d-sm-block">Upload New photo</span>
+                                                <i class="bx bx-upload d-block d-sm-none"></i>
+                                                <input type="file" id="upload" class="account-file-input" accept="image/png, image/jpeg" hidden="" name="userPic"
+                                                       onchange="document.getElementById('userAvatar').src = window.URL.createObjectURL(this.files[0])">
+                                            </label>
+                                            <p class="text-muted mb-0">Allowed JPG, GIF or PNG.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -154,62 +196,81 @@
                         <div class="card mb-3">
                             <div class="card-body">
                                 <div class="row">
+                                    <!-- User First Name-->
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Full Name</h6>
+                                        <label for="firstName" class="form-label">First Name</label>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <?php echo $_SESSION['loggedInUser']['name'] . " " . $_SESSION['loggedInUser']['lastname'] ?>
+                                        <input class="form-control" type="text" id="firstName" name="userFirstname" required
+                                            <?php echo 'value="'.$_SESSION['userFirstName'].'"'; ?> autocomplete="off">
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
+                                    <!-- User Last Name-->
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Username</h6>
+                                        <label for="lastName" class="form-label">Last Name</label>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <?php echo $_SESSION['loggedInUser']['username'] ?>
+                                        <input class="form-control" type="text" id="lastName" name="userLastname" required
+                                            <?php echo 'value="'.$_SESSION['userLastName'].'"'; ?> autocomplete="off">
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
+                                    <!-- User's Username-->
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Email</h6>
+                                        <label for="userName" class="form-label">Username</label>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <?php echo $_SESSION['loggedInUser']['email'] ?>
+                                        <input class="form-control" type="text" id="userName" name="userName" required
+                                            <?php echo 'value="'.$_SESSION['userName'].'"'; ?> autocomplete="off" onchange="test()" maxlength="15">
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
+                                    <!-- User Email -->
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Avatar</h6>
+                                        <label for="email" class="form-label">Email</label>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <?php echo $_SESSION['loggedInUser']['avatar'] ?>
+                                        <input class="form-control" type="text" id="email" name="userEmail" required
+                                            <?php echo 'value="'.$_SESSION['userEmail'].'"'; ?> autocomplete="off">
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
+                                    <!-- User Password-->
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Password</h6>
+                                        <label for="userPwd" class="form-label">Password</label>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <?php echo $_SESSION['loggedInUser']['password'] ?>
+                                        <input class="form-control" type="password" id="userPwd" name="userPwd" required
+                                            <?php echo 'value="'.$_SESSION['userPassword'].'"'; ?> autocomplete="off" minlength="5">
                                     </div>
                                 </div>
                                 <hr>
-                                <form action="" method="POST">
+                                <div class="row">
+                                    <!-- Confirm Password-->
+                                    <div class="col-sm-3">
+                                        <label for="confirm-pw" class="form-label">Confirm Password</label>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input class="form-control" type="password" id="confirm-pw" name="confirmPwd" required
+                                               autocomplete="off" placeholder="Confirm Password" minlength="5">
+                                    </div>
+                                </div>
+                                <hr>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <input type="submit" name="edit" class="btn btn-info" value="Edit Profile">
-                                            <!-- <a class="btn btn-info " href="editprofile.php">Edit</a> -->
+                                            <button type="submit" class="btn btn-warning" name="saveProfile">Save Changes</button>
                                         </div>
                                     </div>
-                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
+                </form>
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
@@ -222,6 +283,49 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
+<script>
+    //JS function to change value of Display Username
+    function test(){
+        //save value into variables
+        let oldUser = document.getElementById("displayName");
+        let newUser = document.getElementById("userName");
+
+        //set value from userName input to display Input
+        oldUser.value = newUser.value;
+
+    }
+    //execute function
+    test();
+</script>
+    <?php if (isset($_GET["PwdDontMatch"])) : ?>
+        <script>
+            Swal.fire({
+                title: 'Error',
+                text: 'Passwords Do Not Match!',
+                icon: 'error',
+                color: 'crimson',
+                confirmButtonText: 'Ok!'
+            });
+
+            // After Showing Alert, Remove Parameter GET createSuccess
+            window.history.replaceState(null, null, window.location.pathname);
+        </script>
+    <?php endif; ?>
+
+    <?php if (isset($_GET["updateSuccess"])) : ?>
+        <script>
+            Swal.fire({
+                title: 'Success',
+                text: 'Profile Details Updated',
+                icon: 'success',
+                color: 'limegreen',
+                confirmButtonText: 'Thank You!'
+            });
+
+            // After Showing Alert, Remove Parameter GET createSuccess
+            window.history.replaceState(null, null, window.location.pathname);
+        </script>
+    <?php endif; ?>
 </body>
 
 </html>
