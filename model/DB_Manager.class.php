@@ -154,6 +154,43 @@ avatar = :avatar, email=:email,password=:password WHERE id = $id;");
         }
     }
 
+    public function update_Profile($id,$avatar){
+        //query to update database
+        unset($_POST['level']);
+        $query = $this->db->prepare("UPDATE users SET id= :id, name=:name,lastname=:lastname,username=:username, 
+avatar = :avatar, email=:email,password=:password WHERE id = $id;");
+
+        //check if the $avatar is not in session['pic]'
+        if($_SESSION['pic'] != $avatar) {
+
+            //if it isn't user uploaded a new picture
+            $result = $query->execute(array(
+                "id" => $_SESSION['loggedInUser']['id'],
+                "name" => $_POST['userFirstname'],
+                "lastname" => $_POST['userLastname'],
+                "username" => $_POST['userName'],
+                "avatar" => basename($_FILES["userPic"]["name"]),
+                "email" => $_POST['userEmail'],
+                "password" => $_POST['userPwd'],
+            ));
+        } else {
+            //user did not upload picture
+            $result = $query->execute(array(
+                "id" => $_SESSION['loggedInUser']['id'],
+                "name" => $_POST['userFirstname'],
+                "lastname" => $_POST['userLastname'],
+                "username" => $_POST['userName'],
+                "avatar" => $_SESSION['pic'],
+                "email" => $_POST['userEmail'],
+                "password" => $_POST['userPwd'],
+            ));
+        }
+        //redirect user with success msg
+        if ($result) {
+            header("location: profil.php?updateSuccess");
+        }
+    }
+
 
     //Function to delete a user from the admin/moderator table and the database
     public function delete_user()
