@@ -88,7 +88,6 @@ include_once "../controller/AdminController.php";
                             <a href="./index.php" class="btn btn-outline-secondary">Cancel</a>
                         </div>
                     </div>
-                </form>
                     <!-- End Account -->
                     <div id="layoutAuthentication_footer">
                         <footer class="py-4 bg-light mt-auto">
@@ -99,6 +98,7 @@ include_once "../controller/AdminController.php";
                             </div>
                         </footer>
                     </div>
+                </form>
                 </div>
             </div>
             <!-- End Content Section -->
