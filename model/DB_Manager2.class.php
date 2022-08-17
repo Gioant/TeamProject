@@ -127,6 +127,40 @@ class DB_Manager2 {
     }
 
 
+    //Function to update slider
+    public function update_slider($id, $avatar){
+
+        //query to update database
+        $query = $this->db->prepare("UPDATE slider SET id = :id, title = :title, price = :price,picture = :picture, text = :text WHERE id = $id;");
+
+        //check if the $avatar is not in session['chef_pic]'
+        if($_SESSION['slider_pic'] != $avatar) {
+
+            //if it isn't user uploaded a new picture
+            $result = $query->execute(array(
+                "id" 			=> $_GET['updateID'],
+                "title" 		=> $_POST['sliderName'],
+                "price"			=> $_POST['sliderPrice'],
+                "picture" 		=> basename($_FILES["sliderPic"]["name"]),
+                "text"			=> $_POST['sliderDesc']
+            ));
+        } else {
+            //user did not upload picture
+            $result = $query->execute(array(
+                "id" 			=> $_GET['updateID'],
+                "title" 		=> $_POST['sliderName'],
+                "price"			=> $_POST['sliderPrice'],
+                "picture" 		=> $_SESSION['slider_pic'],
+                "text"			=> $_POST['sliderDesc']
+            ));
+        }
+        //redirect user with success msg
+        if ($result) {
+            header("location: services.php?updateSuccess");
+        }
+    }
+
+
     /*========================  END SLIDER - SERVICES PART  ==========================*/
 
 
@@ -157,6 +191,42 @@ class DB_Manager2 {
         $query = $this->db->prepare("DELETE FROM menu WHERE id = ?;");
         $result = $query->execute(array($_GET['deleteID']));
     }
+
+    //Function to update the menu
+    public function update_menu($id, $avatar){
+
+        //query to update database
+        $query = $this->db->prepare("UPDATE menu SET id = :id, name = :name, description = :description, price = :price, picture = :picture, type = :type WHERE id = $id;");
+
+        //check if the $avatar is not in session['menu_pic]'
+        if($_SESSION['menu_pic'] != $avatar) {
+
+            //if it isn't user uploaded a new picture
+            $result = $query->execute(array(
+                "id" 			=> $_GET['updateID'],
+                "name" 			=> $_POST['menuName'],
+                "description" 	=> $_POST['menuDesc'],
+                "price"			=> $_POST['menuPrice'],
+                "picture" 		=> basename($_FILES["menuPic"]["name"]),
+                "type"			=> $_POST['menuType']
+            ));
+        } else {
+            //user did not upload picture
+            $result = $query->execute(array(
+                "id" 			=> $_GET['updateID'],
+                "name" 			=> $_POST['menuName'],
+                "description" 	=> $_POST['menuDesc'],
+                "price"			=> $_POST['menuPrice'],
+                "picture" 		=> $_SESSION['menu_pic'],
+                "type"			=> $_POST['menuType']
+            ));
+        }
+        //redirect user with success msg
+        if ($result) {
+            header("location: portfolio.php?updateSuccess");
+        }
+    }
+
 
     /*=============================== END MENU PART  =================================*/
 
@@ -198,6 +268,29 @@ class DB_Manager2 {
         $result = $query->execute(array($_GET['deleteID']));
     }
 
+    //Function to update the contact
+    public function update_contact($id){
+
+        //query to update database
+        $query = $this->db->prepare("UPDATE contact SET id = :id, location = :location, open = :open, close = :close, email = :email, phone = :phone WHERE id = $id;");
+
+        $result = $query->execute(array(
+            "id" 		=> $_GET['updateID'],
+            "location"	=> $_POST['contactLocation'],
+            "open"		=> $_POST['contactOpen'],
+            "close"		=> $_POST['contactClose'],
+            "email"		=> $_POST['contactEmail'],
+            "phone"		=> $_POST['contactPhone']
+        ));
+
+        //redirect user with success msg
+        if ($result) {
+            header("location: contact.php?updateSuccess");
+        }
+
+    }
+
+
     /*============================  END CONTACT PART  =================================*/
 
 
@@ -228,6 +321,36 @@ class DB_Manager2 {
 
         return $aboutInfo;
     }
+
+    //Function to update the about
+    public function update_about($id, $avatar){
+
+        //query to update database
+        $query = $this->db->prepare("UPDATE about SET id = :id, text = :text, picture = :picture WHERE id = $id;");
+
+        //check if the $avatar is not in session['chef_pic]'
+        if($_SESSION['about_pic'] != $avatar) {
+
+            //if it isn't user uploaded a new picture
+            $result = $query->execute(array(
+                "id" 			=> $_GET['updateID'],
+                "text"			=> $_POST['aboutDesc'],
+                "picture" 		=> basename($_FILES["aboutPic"]["name"])
+            ));
+        } else {
+            //user did not upload picture
+            $result = $query->execute(array(
+                "id" 			=> $_GET['updateID'],
+                "text"			=> $_POST['aboutDesc'],
+                "picture" 		=> $_SESSION['about_pic']
+            ));
+        }
+        //redirect user with success msg
+        if ($result) {
+            header("location: about.php?updateSuccess");
+        }
+    }
+
 
     //Function to delete an about information from the menu table and the database
     public function delete_about()

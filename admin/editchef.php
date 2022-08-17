@@ -26,7 +26,7 @@ include_once "../controller/RestaurantController.php";
         <div class="row">
             <div class="col-md-12">
                 <div class="card mb-4">
-                    <h4 class="card-header">Profile Details</h4>
+                    <h4 class="card-header">Edit Chef Details</h4>
                     <!-- Account -->
                     <div class="card-body">
                         <div class="d-flex align-items-start align-items-sm-center gap-4">
@@ -51,7 +51,6 @@ include_once "../controller/RestaurantController.php";
                     <hr class="my-0">
                     <div class="card-body">
                         <div class="row">
-                            <?php var_dump($_SESSION['description']) ?>
                             <!-- First Name -->
                             <div class="mb-3 col-md-6">
                                 <label for="chefFirstName" class="form-label">First Name</label>
@@ -76,7 +75,7 @@ include_once "../controller/RestaurantController.php";
                         </div>
                         <div class="mt-2">
                             <button type="submit" class="btn btn-primary me-2" name="edit_chef">Save changes</button>
-                            <a href="./index.php" class="btn btn-outline-secondary">Cancel</a>
+                            <a href="./team.php" class="btn btn-outline-secondary">Cancel</a>
                         </div>
                         </form>
                     </div>
@@ -94,16 +93,5 @@ include_once "../controller/RestaurantController.php";
             </div>
             <!-- End Content Section -->
         </div>
-
-        <!-- Errors messages -->
-        <?php
-        if (isset($_GET['error'])) {
-            if ($_GET['error'] == "nameAlreadyExist") {
-                echo '<script>alert("This username already exist.\\nPlease select another username.")</script>';
-            } else if ($_GET['error'] == "emailAlreadyExist") {
-                echo '<script>alert("This email already exist.\\nPlease enter a different email.")</script>';
-            }
-        }
-        ?>
 </body>
 </html>

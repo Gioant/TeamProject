@@ -103,16 +103,5 @@ include_once "../controller/AdminController.php";
             </div>
             <!-- End Content Section -->
         </div>
-
-        <!-- Errors messages -->
-        <?php
-        if (isset($_GET['error'])) {
-            if ($_GET['error'] == "nameAlreadyExist") {
-                echo '<script>alert("This username already exist.\\nPlease select another username.")</script>';
-            } else if ($_GET['error'] == "emailAlreadyExist") {
-                echo '<script>alert("This email already exist.\\nPlease enter a different email.")</script>';
-            }
-        }
-        ?>
 </body>
 </html>
