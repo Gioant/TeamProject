@@ -231,9 +231,6 @@
                                             <td><?php echo $user['email'] ?></td>
                                             <td><?php echo $user['avatar'] ?></td>
                                             <td><?php echo $user['level'] ?></td>
-                                            <!-- <td>
-                                                <input type="submit" name="upgrade" class="btn btn-success" value="Upgrade">
-                                            </td> -->
                                             <td>
                                                 <a href="editUser.php?updateID=<?= $user['id'] ?>" class="btn btn-success">Update</a>
                                             </td>
