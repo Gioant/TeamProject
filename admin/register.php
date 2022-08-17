@@ -42,7 +42,7 @@
                                             </div>
                                             <div class="col-md-12 mb-3">
                                                 <div class="form-floating">
-                                                    <input class="form-control" id="inputUsername" type="text" name="username" placeholder="Enter your username" maxlength="10" required />
+                                                    <input class="form-control" id="inputUsername" type="text" name="username" placeholder="Enter your username" maxlength="15" required />
                                                     <label for="inputUsername">Username</label>
                                                 </div>
                                             </div>
