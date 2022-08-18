@@ -232,7 +232,9 @@
                                             <td><?php echo $user['avatar'] ?></td>
                                             <td><?php echo $user['level'] ?></td>
                                             <td>
-                                                <a href="editUser.php?updateID=<?= $user['id'] ?>" class="btn btn-success">Update</a>
+                                                <?php if($user['level'] == 2) : ?>
+                                                <?php echo '<a href="editUser.php?updateID='.$user['id'].'" class="btn btn-success">Update</a>'; ?>
+                                                <?php  endif; ?>
                                             </td>
                                         </tr>
                                         <?php endforeach; ?>
