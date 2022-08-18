@@ -1,8 +1,8 @@
 <?php
-include "../model/DB_Manager.class.php";
+include "../model/DB_Manager2.class.php";
 include "../model/Contact.class.php";
 
-$database = new DB_Manager();
+$database = new DB_Manager2();
 $get_contact = $database->get_contact();
 
 foreach ($get_contact as $contact) {
