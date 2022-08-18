@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 17, 2022 at 05:26 PM
+-- Generation Time: Aug 18, 2022 at 03:18 AM
 -- Server version: 8.0.29
 -- PHP Version: 7.4.9
 
@@ -40,12 +40,7 @@ CREATE TABLE IF NOT EXISTS `about` (
 --
 
 INSERT INTO `about` (`id`, `text`, `picture`) VALUES
-(1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore\r\n              magna aliqua. Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate\r\n              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in\r\n              culpa qui officia deserunt mollit anim id est laborum', 'about.jpg'),
-(2, 'This is a text test we have the best restaurant in the world you should come eat here everyday, this is more text to test, test test test test 12345', 'super_mario.jpg'),
-(6, 'Test', 'clownphoto.jpg'),
-(7, 'ihokjijhouhkjnojkoijhojm,', 'clownphoto.jpg'),
-(5, 'This is a test text description to try to add something inside the about section', 'windows.jpg'),
-(8, '1234', 'clownphoto.jpg');
+(1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore\r\n              magna aliqua. Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate\r\n              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in\r\n              culpa qui officia deserunt mollit anim id est laborum', 'about.jpg');
 
 -- --------------------------------------------------------
 
@@ -62,15 +57,17 @@ CREATE TABLE IF NOT EXISTS `chef` (
   `poste` varchar(50) NOT NULL,
   `description` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `chef`
 --
 
 INSERT INTO `chef` (`id`, `name`, `lastname`, `avatar`, `poste`, `description`) VALUES
-(1, 'Nicholas', 'Tsoukatos', 'nickk.jpg', 'Team Leader', 'Captain of the ship, my team needs me to get them out of the storm'),
-(2, 'Anthony', 'Giolti Funes', 'andy.jpg', 'Big Brain Genius', 'Andy gratuated University at 8 years old and is now mama birding us newbies in coding');
+(1, 'Nicholas', 'Tsoukatos', 'nickk.jpg', 'Team Leader', 'Captain of my ship, my team needs me to get them out of the storm'),
+(2, 'Anthony', 'Giolti Funes', 'andy.jpg', 'Big Brain Genius', 'Andy graduated University at 8 years old and is now mama birding us newbies in coding'),
+(3, 'Jean-Loup', 'Davidson', 'jean-loup.jpg', 'Hardworker', 'He will not take a break, he drink 5 redbulls a day'),
+(4, 'Kevin', 'Chan', 'kevin.jpg', 'Speed Checker', 'All Kevin does is work everyday, he did not sleep for the past 3 years');
 
 -- --------------------------------------------------------
 
@@ -94,10 +91,7 @@ CREATE TABLE IF NOT EXISTS `contact` (
 --
 
 INSERT INTO `contact` (`id`, `location`, `open`, `close`, `email`, `phone`) VALUES
-(1, 'A108 Adam Street, New York, NY 535022', '11:00', '23:00', 'info@example.com', '+1 5589 55488 55'),
-(2, '555 fake street, Montreal', '11:00', '23:00', 'email@email.com', '514-555-1230'),
-(3, 'Test Location Montreal', '9:00', '22:00', 'email@email.com', '514-001-2003'),
-(4, 'Anymore', '8:00', '22:30', 'test_email123@email.com', '555-555-5555');
+(1, 'A108 Adam Street, New York, NY 535022', '11:00', '23:00', 'info@example.com', '+1 5589 55488 55');
 
 -- --------------------------------------------------------
 
@@ -114,19 +108,22 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `picture` varchar(50) NOT NULL,
   `type` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `menu`
 --
 
 INSERT INTO `menu` (`id`, `name`, `description`, `price`, `picture`, `type`) VALUES
-(1, 'Lobster Bisque', 'Lorem, deren, trataro, filede, nerada', '5.95', 'lobster-bisque.jpg', 'starters'),
-(2, 'Bread Barrel', 'Lorem, deren, trataro, filede, nerada', '6.95', 'bread-barrel.jpg', 'specialty'),
-(6, 'Mozzarella Stick', 'Lorem, deren, trataro, filede, nerada', '4.95', 'mozzarella.jpg', 'starters'),
-(7, 'Greek Salad', 'Fresh spinach, crisp romaine, tomatoes, and Greek olives', '9.95', 'greek-salad.jpg', 'salads'),
-(8, 'Spinach Salad', 'Fresh spinach with mushrooms, hard boiled egg, and warm bacon vinaigrette', '9.95', 'spinach-salad', 'salads'),
-(9, 'Lobster Roll', 'Plump lobster meat, mayo and crisp lettuce on a toasted bulky roll', '13.95', 'lobster-roll.jpg', 'specialty');
+(1, 'Lobster Bisque', 'Lorem, deren, trataro, filede, nerada', '5.95', 'lobster-bisque.jpg', 'Starters'),
+(2, 'Crab Cake', 'A delicate crab cake served on a toasted roll with lettuce and tartar sauce', '7.95', 'cake.jpg', 'Starters'),
+(3, 'Tuscan Grilled', 'Grilled chicken with provolone, artichoke hearts, and roasted red pesto', '9.95', 'tuscan-grilled.jpg', 'Specialty'),
+(4, 'Greek Salad', 'Fresh spinach, crisp romaine, tomatoes, and Greek olives', '9.95', 'greek-salad.jpg', 'Salads'),
+(5, 'Lobster Roll', 'Plump lobster meat, mayo and crisp lettuce on a toasted bulky roll', '12.95', 'lobster-roll.jpg', 'Specialty'),
+(6, 'Bread Barrel', 'Lorem, deren, trataro, filede, nerada', '6.95', 'bread-barrel.jpg', 'Specialty'),
+(7, 'Caesar Selections', 'Lorem, deren, trataro, filede, nerada', '8.95', 'caesar.jpg', 'Salads'),
+(8, 'Mozzarella Stick', 'Lorem, deren, trataro, filede, nerada', '4.95', 'mozzarella.jpg', 'Starters'),
+(9, 'Spinach Salad', 'Fresh spinach with mushrooms, hard boiled egg, and warm bacon vinaigrette', '9.95', 'spinach-salad.jpg', 'Salads');
 
 -- --------------------------------------------------------
 
@@ -142,15 +139,16 @@ CREATE TABLE IF NOT EXISTS `slider` (
   `picture` varchar(50) NOT NULL,
   `text` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `slider`
 --
 
 INSERT INTO `slider` (`id`, `title`, `price`, `picture`, `text`) VALUES
-(1, 'Birthday Parties', 189, 'event-birthday.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'),
-(2, 'Private Parties', 290, 'event-private.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.');
+(1, 'Birtday Parties', 189, 'event-birthday.jpg', '1234'),
+(2, 'Private Parties', 290, 'event-private.jpg', '1234'),
+(3, 'Custom Parties', 99, 'event-custom.jpg', '1234');
 
 -- --------------------------------------------------------
 
