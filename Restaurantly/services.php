@@ -59,7 +59,7 @@ $get_slider = $database->get_slider();
                 <li><a class="nav-link scrollto" href="services.php">Services</a></li>
                 <li><a class="nav-link scrollto" href="portfolio.php">Portfolio</a></li>
                 <li><a class="nav-link scrollto" href="contact.php">Contact</a></li>
-                <li><a class="nav-link scrollto active" href="../admin/login.php">Admin</a></li>
+                <li><a class="nav-link scrollto" href="../admin/login.php">Admin</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
@@ -267,59 +267,9 @@ $get_slider = $database->get_slider();
 </main><!-- End #main -->
 
 <!-- ======= Footer ======= -->
-<footer id="footer">
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-info">
-                        <h3>Content Changer</h3>
-                        <p>
-                            1616 René-Lévesque Blvd W<br>
-                            Montreal, Quebec H3H 1P8<br><br>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
-                        </p>
-
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-md-6 footer-links">
-                    <h4>Useful Links</h4>
-                    <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>Our Services</h4>
-                    <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 col-md-6 footer-newsletter">
-                    <h4>Our Newsletter</h4>
-                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-                    <form action="" method="post">
-                        <input type="email" name="email"><input type="submit" value="Subscribe">
-                    </form>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-
+<?php
+ include_once "./footer.php";
+?>
     <div class="container">
         <div class="copyright">
             &copy; Copyright <strong><span>Restaurantly</span></strong>. All Rights Reserved
@@ -332,11 +282,8 @@ $get_slider = $database->get_slider();
             Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
         </div>
     </div>
-</footer><!-- End Footer -->
+<!-- End Footer -->
 
-<div id="preloader"></div>
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
 <script src="assets/vendor/aos/aos.js"></script>
