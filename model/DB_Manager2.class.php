@@ -24,6 +24,25 @@ class DB_Manager2 {
     }
 
     /*============================  CHEFS PART  ==================================*/
+    //Function to add a new chef inside the database
+    public function add_chef($chef)
+    {
+        $query = $this->db->prepare("INSERT INTO chef VALUES (DEFAULT, :name, :lastname, :avatar, :poste, :description);");
+        $result = $query->execute(array(
+            "name" 			=> $chef->getName(),
+            "lastname"		=> $chef->getLastname(),
+            "avatar"		=> $chef->getAvatar(),
+            "poste"			=> $chef->getPoste(),
+            "description"	=> $chef->getDescription()
+        ));
+
+        if ($result) {
+            header("location: team.php?addSuccess");
+        }
+
+    }
+
+
 
     //Function to get all the chefs from the database
     public function get_all_chefs()
@@ -48,7 +67,7 @@ class DB_Manager2 {
     {
         //query to update database
         $query = $this->db->prepare("DELETE FROM chef WHERE id = ?;");
-        $result = $query->execute(array($_GET['deleteID']));
+        $result = $query->execute(array($_GET['chefDeleteID']));
     }
 
     //Function to update the chefs
@@ -90,6 +109,22 @@ class DB_Manager2 {
 
 
     /*========================  SLIDER - SERVICES PART  ==============================*/
+    //Function to add a new slider information inside the database
+    public function add_slider($slider)
+    {
+        $query = $this->db->prepare("INSERT INTO slider VALUES (DEFAULT, :title, :price, :picture, :text);");
+        $result = $query->execute(array(
+            "title" 		=> $slider->getTitle(),
+            "price"			=> $slider->getPrice(),
+            "picture"		=> $slider->getPicture(),
+            "text"			=> $slider->getText()
+        ));
+
+        if ($result) {
+            header("location: services.php?addSuccess");
+        }
+
+    }
 
     //Function to select data from the slider table and save into a variable as an array
     public function get_slider() {
@@ -123,7 +158,7 @@ class DB_Manager2 {
     {
         //query to update database
         $query = $this->db->prepare("DELETE FROM slider WHERE id = ?;");
-        $result = $query->execute(array($_GET['deleteID']));
+        $result = $query->execute(array($_GET['sliderDeleteID']));
     }
 
 
@@ -165,6 +200,23 @@ class DB_Manager2 {
 
 
     /*================================  MENU PART  ===================================*/
+    //Function to add a new menu item information inside the database
+    public function add_menu($menu)
+    {
+        $query = $this->db->prepare("INSERT INTO menu VALUES (DEFAULT, :name, :description, :price, :picture, :type);");
+        $result = $query->execute(array(
+            "name" 			=> $menu->getName(),
+            "description" 	=> $menu->getDescription(),
+            "price"			=> $menu->getPrice(),
+            "picture"		=> $menu->getPicture(),
+            "type"			=> $menu->getType()
+        ));
+
+        if ($result) {
+            header("location: portfolio.php?addSuccess");
+        }
+
+    }
 
     //Function to get all the menu information from the database
     public function get_all_menu()
@@ -189,7 +241,7 @@ class DB_Manager2 {
     {
         //query to update database
         $query = $this->db->prepare("DELETE FROM menu WHERE id = ?;");
-        $result = $query->execute(array($_GET['deleteID']));
+        $result = $query->execute(array($_GET['menuDeleteID']));
     }
 
     //Function to update the menu
@@ -232,6 +284,23 @@ class DB_Manager2 {
 
 
     /*==============================  CONTACT PART  ==================================*/
+    //Function to add a new contact information inside the database
+    public function add_contact($contact)
+    {
+        $query = $this->db->prepare("INSERT INTO contact VALUES (DEFAULT, :location, :open, :close, :email, :phone);");
+        $result = $query->execute(array(
+            "location" 	=> $contact->getLocation(),
+            "open" 		=> $contact->getOpen(),
+            "close"		=> $contact->getClose(),
+            "email"		=> $contact->getEmail(),
+            "phone"		=> $contact->getPhone()
+        ));
+
+        if ($result) {
+            header("location: contact.php?addSuccess");
+        }
+
+    }
 
     //Function to select data from the contact table and save into a variable as an array
     public function get_contact() {
@@ -265,7 +334,7 @@ class DB_Manager2 {
     {
         //query to update database
         $query = $this->db->prepare("DELETE FROM contact WHERE id = ?;");
-        $result = $query->execute(array($_GET['deleteID']));
+        $result = $query->execute(array($_GET['contactDeleteID']));
     }
 
     //Function to update the contact
@@ -295,6 +364,21 @@ class DB_Manager2 {
 
 
     /*================================  ABOUT PART  ===================================*/
+
+    //Function to add a new about information inside the database
+    public function add_about($about)
+    {
+        $query = $this->db->prepare("INSERT INTO about VALUES (DEFAULT, :text, :picture);");
+        $result = $query->execute(array(
+            "text" 	  => $about->getText(),
+            "picture" => $about->getPicture()
+        ));
+
+        if ($result) {
+            header("location: about.php?addSuccess");
+        }
+
+    }
 
     public function get_about() {
         $query = $this->db->query("SELECT * FROM about");
@@ -357,7 +441,7 @@ class DB_Manager2 {
     {
         //query to update database
         $query = $this->db->prepare("DELETE FROM about WHERE id = ?;");
-        $result = $query->execute(array($_GET['deleteID']));
+        $result = $query->execute(array($_GET['aboutDeleteID']));
     }
 
     /*================================  END ABOUT PART  ================================*/

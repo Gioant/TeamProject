@@ -32,30 +32,48 @@ $_SESSION['all_about'] = $database2->get_all_about();
 
 
 //To delete a chef from the admin panel and database
-if(isset($_GET['deleteID'])){
+if(isset($_GET['chefDeleteID'])){
     $database2->delete_chef();
 }
 
-//To delete a manu from the admin panel and database
-if(isset($_GET['deleteID'])){
+//To delete a menu from the admin panel and database
+if(isset($_GET['menuDeleteID'])){
     $database2->delete_menu();
 }
 
 //To delete about info from the admin panel and database
-if(isset($_GET['deleteID'])){
+if(isset($_GET['aboutDeleteID'])){
     $database2->delete_about();
 }
 
 //To delete a contact info from the admin panel and database
-if(isset($_GET['deleteID'])){
+if(isset($_GET['contactDeleteID'])){
     $database2->delete_contact();
 }
 
 //To delete a slider info from the admin panel and database
-if(isset($_GET['deleteID'])){
+if(isset($_GET['sliderDeleteID'])){
     $database2->delete_slider();
 }
 
+//To add a new chef inside the table and the database
+if (isset($_POST['new_chef'])) {
+    $newChefDb = array("name" 	  		=> $_POST['addChefFirstName'],
+        "lastname"		=> $_POST['addChefLastName'],
+        "avatar" 		=> basename($_FILES["addChefPic"]["name"]),
+        "poste"			=> $_POST['addChefPosition'],
+        "description"	=> $_POST['addChefDescription']
+    );
+
+    //Getting the avatar
+    $target_directory = "../Restaurantly/assets/img/chefs/"; //The file that is being selected
+    $target_file = $target_directory . basename($_FILES["addChefPic"]["name"]);
+    move_uploaded_file($_FILES["addChefPic"]["tmp_name"], $target_file);
+
+    //Calling the classes
+    $chef = new Chef($newChefDb);
+    $database2->add_chef($chef);
+}
 
 
 //check if chef is on edit profile page by clicking update button from team.php
@@ -113,6 +131,28 @@ if (strpos($_SERVER['REQUEST_URI'], '/editchef.php?updateID') !== false) {
 
 /*=============================== Edit Menu Part ==================================*/
 
+
+//To add a new menu item inside the table and the database
+if (isset($_POST['new_menu'])) {
+    $newMenuDb = array("name" 	  		=> $_POST['addMenuName'],
+        "description"	=> $_POST['addMenuDesc'],
+        "price"			=> $_POST['addMenuPrice'],
+        "picture" 		=> basename($_FILES["addMenuPic"]["name"]),
+        "type"			=> $_POST['addMenuType']
+    );
+
+    //Getting the avatar
+    $target_directory = "../Restaurantly/assets/img/menu/"; //The file that is being selected
+    $target_file = $target_directory . basename($_FILES["addMenuPic"]["name"]);
+    move_uploaded_file($_FILES["addMenuPic"]["tmp_name"], $target_file);
+
+    //Calling the classes
+    $menu = new Menu($newMenuDb);
+    $database2->add_menu($menu);
+}
+
+
+
 //check if menu dish is on edit profile page by clicking update button from team.php
 if (strpos($_SERVER['REQUEST_URI'], '/editmenu.php?updateID') !== false) {
     //Get ID from url
@@ -167,6 +207,25 @@ if (strpos($_SERVER['REQUEST_URI'], '/editmenu.php?updateID') !== false) {
 
 /*=============================== Edit Slider Part ==================================*/
 
+//To add a new slider item inside the table and the database
+if (isset($_POST['new_services'])) {
+    $newSliderDb = array("title" 	  	=> $_POST['addSliderTitle'],
+        "price"			=> $_POST['addSliderPrice'],
+        "picture" 		=> basename($_FILES["addSliderPic"]["name"]),
+        "text"			=> $_POST['addSliderDesc']
+    );
+
+    //Getting the avatar
+    $target_directory = "../Restaurantly/assets/img/"; //The file that is being selected
+    $target_file = $target_directory . basename($_FILES["addSliderPic"]["name"]);
+    move_uploaded_file($_FILES["addSliderPic"]["tmp_name"], $target_file);
+
+    //Calling the classes
+    $slider = new Slider($newSliderDb);
+    $database2->add_slider($slider);
+}
+
+
 //check if slider info is on edit profile page by clicking update button from team.php
 if (strpos($_SERVER['REQUEST_URI'], '/editservices.php?updateID') !== false) {
     //Get ID from url
@@ -219,6 +278,23 @@ if (strpos($_SERVER['REQUEST_URI'], '/editservices.php?updateID') !== false) {
 
 /*=============================== Edit About Part ==================================*/
 
+//To add a new about information inside the table and the database
+if (isset($_POST['new_about'])) {
+    $newAboutDb = array("text" 	  => $_POST['newAboutDesc'],
+        "picture" => basename($_FILES["newAboutPic"]["name"])
+    );
+
+    //Getting the avatar
+    $target_directory = "../Restaurantly/assets/img/"; //The file that is being selected
+    $target_file = $target_directory . basename($_FILES["newAboutPic"]["name"]);
+    move_uploaded_file($_FILES["newAboutPic"]["tmp_name"], $target_file);
+
+    //Calling the classes
+    $about = new About($newAboutDb);
+    $database2->add_about($about);
+}
+
+
 //check if slider info is on edit profile page by clicking update button from team.php
 if (strpos($_SERVER['REQUEST_URI'], '/editabout.php?updateID') !== false) {
     //Get ID from url
@@ -267,6 +343,21 @@ if (strpos($_SERVER['REQUEST_URI'], '/editabout.php?updateID') !== false) {
 
 
 /*=============================== Edit Contact Part ==================================*/
+//To add a new contact information inside the table and the database
+if (isset($_POST['new_contact'])) {
+
+    $newContactDb = array("location" 	=> $_POST['addContactLocation'],
+        "open"		=> $_POST['addContactOpen'],
+        "close"		=> $_POST['addContactClose'],
+        "email"		=> $_POST['addContactEmail'],
+        "phone"		=> $_POST['addContactPhone']
+    );
+
+    //Calling the classes
+    $contact = new Contact($newContactDb);
+    $database2->add_contact($contact);
+}
+
 
 //check if slider info is on edit profile page by clicking update button from team.php
 if (strpos($_SERVER['REQUEST_URI'], '/editcontact.php?updateID') !== false) {
