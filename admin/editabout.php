@@ -40,7 +40,7 @@
                                     <i class="bx bx-upload d-block d-sm-none"></i>
 
                                     <input type="file" id="upload" class="account-file-input" accept="image/png, image/jpeg" hidden="" name="aboutPic"
-                                           onchange="document.getElementById('uploadedAvatar').src = window.URL.createObjectURL(this.files[0])">
+                                           onchange="document.getElementById('uploadedAvatar').src = window.URL.createObjectURL(this.files[0])" required>
                                 
                                 </label>
                                 <p class="text-muted mb-0">Allowed JPG, GIF or PNG.</p>
@@ -53,7 +53,7 @@
                                 <!-- Description -->
                                 <div class="mb-3 col-md-6">
                                     <label for="aboutDesc" class="form-label">About Description</label>
-                                    <textarea class="form-control" style="height: 200px" type="text" id="aboutDesc" name="aboutDesc" maxlength="255" autocomplete="off"><?php echo $_SESSION['aboutDesc']; ?></textarea>
+                                    <textarea class="form-control" style="height: 200px" type="text" id="aboutDesc" name="aboutDesc" maxlength="255" autocomplete="off" required><?php echo $_SESSION['aboutDesc']; ?></textarea>
                                 </div>
                             </div>
                             <div class="mt-2">

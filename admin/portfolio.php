@@ -202,7 +202,7 @@ include_once "../controller/RestaurantController.php";
                                         <td><?php echo $menu['type'] ?></td>
                                         <td>
                                             <a href="editmenu.php?updateID=<?= $menu['id'] ?>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                            <a href="portfolio.php?deleteID=<?= $menu['id'] ?>"class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                            <a href="portfolio.php?menuDeleteID=<?= $menu['id'] ?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -244,6 +244,21 @@ include_once "../controller/RestaurantController.php";
         Swal.fire({
             title: 'Success',
             text: 'Menu Updated Successfully',
+            icon: 'success',
+            color: 'LimeGreen',
+            confirmButtonText: 'Thank You!'
+        });
+
+        // After Showing Alert, Remove Parameter GET createSuccess
+        window.history.replaceState(null, null, window.location.pathname);
+    </script>
+<?php endif; ?>
+
+<?php if (isset($_GET["addSuccess"])) : ?>
+    <script>
+        Swal.fire({
+            title: 'Success',
+            text: 'Added Successfully',
             icon: 'success',
             color: 'LimeGreen',
             confirmButtonText: 'Thank You!'

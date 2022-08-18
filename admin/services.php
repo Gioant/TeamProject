@@ -201,7 +201,7 @@ include_once "../controller/RestaurantController.php";
                                         <td><?php echo $slider['text'] ?></td>
                                         <td>
                                             <a href="editservices.php?updateID=<?= $slider['id'] ?>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                            <a href="services.php?deleteID=<?= $slider['id'] ?>"class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                            <a href="services.php?sliderDeleteID=<?= $slider['id'] ?>"class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -242,6 +242,22 @@ include_once "../controller/RestaurantController.php";
         Swal.fire({
             title: 'Success',
             text: 'Services Updated Successfully',
+            icon: 'success',
+            color: 'LimeGreen',
+            confirmButtonText: 'Thank You!'
+        });
+
+        // After Showing Alert, Remove Parameter GET createSuccess
+        window.history.replaceState(null, null, window.location.pathname);
+    </script>
+<?php endif; ?>
+
+
+<?php if (isset($_GET["addSuccess"])) : ?>
+    <script>
+        Swal.fire({
+            title: 'Success',
+            text: 'Added Successfully',
             icon: 'success',
             color: 'LimeGreen',
             confirmButtonText: 'Thank You!'

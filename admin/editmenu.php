@@ -40,7 +40,7 @@
                                     <i class="bx bx-upload d-block d-sm-none"></i>
 
                                     <input type="file" id="upload" class="account-file-input" accept="image/png, image/jpeg" hidden="" name="menuPic"
-                                           onchange="document.getElementById('uploadedAvatar').src = window.URL.createObjectURL(this.files[0])">
+                                           onchange="document.getElementById('uploadedAvatar').src = window.URL.createObjectURL(this.files[0])" required>
                                 
                                 </label>
                                 <p class="text-muted mb-0">Allowed JPG, GIF or PNG.</p>
@@ -54,22 +54,22 @@
                                 <div class="mb-3 col-md-6">
                                     <label for="menuName" class="form-label">Dish Name</label>
                                     <input class="form-control" type="text" id="menuName"
-                                           name="menuName" <?php echo 'value="'.$_SESSION['menuName'].'"'; ?> autocomplete="off">
+                                           name="menuName" <?php echo 'value="'.$_SESSION['menuName'].'"'; ?> autocomplete="off" required>
                                 </div>
                                 <!-- Last Name -->
                                 <div class="mb-3 col-md-6">
                                     <label for="menuType" class="form-label">Dish Type</label>
-                                    <input class="form-control" type="text" name="menuType" id="menuType" <?php echo 'value="'.$_SESSION['menuType'].'"'; ?> autocomplete="off">
+                                    <input class="form-control" type="text" name="menuType" id="menuType" <?php echo 'value="'.$_SESSION['menuType'].'"'; ?> autocomplete="off" required>
                                 </div>
                                 <!-- Position -->
                                 <div class="mb-3 col-md-6">
                                     <label for="menuPrice" class="form-label">Price/$</label>
-                                    <input type="text" class="form-control" id="menuPrice" name="menuPrice" <?php echo 'value="'.$_SESSION['menuPrice'].'"'; ?> autocomplete="off">
+                                    <input type="text" class="form-control" id="menuPrice" name="menuPrice" <?php echo 'value="'.$_SESSION['menuPrice'].'"'; ?> autocomplete="off" required>
                                 </div>
                                 <!-- Description -->
                                 <div class="mb-3 col-md-6">
                                     <label for="menuDesc" class="form-label">Description</label>
-                                    <textarea class="form-control" type="text" id="menuDesc" name="menuDesc" maxlength="100" autocomplete="off"><?php echo $_SESSION['menuDesc']; ?></textarea>
+                                    <textarea class="form-control" type="text" id="menuDesc" name="menuDesc" maxlength="100" autocomplete="off" required><?php echo $_SESSION['menuDesc']; ?></textarea>
                                 </div>
                             </div>
                             <div class="mt-2">
