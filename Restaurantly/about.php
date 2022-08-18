@@ -39,23 +39,6 @@
 
 <body>
 
-<!-- ======= Top Bar ======= -->
-<!-- <div id="topbar" class="d-flex align-items-center fixed-top">
-  <div class="container d-flex justify-content-center justify-content-md-between">
-
-    <div class="contact-info d-flex align-items-center">
-      <i class="bi bi-phone d-flex align-items-center"><span>+1 5589 55488 55</span></i>
-      <i class="bi bi-clock d-flex align-items-center ms-4"><span> Mon-Sat: 11AM - 23PM</span></i>
-    </div>
-
-    <div class="languages d-none d-md-flex align-items-center">
-      <ul>
-        <li>En</li>
-        <li><a href="#">De</a></li>
-      </ul>
-    </div>
-  </div>
-</div> -->
 
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top d-flex align-items-cente">
@@ -71,54 +54,13 @@
                 <li><a class="nav-link scrollto" href="about.php">About</a></li>
                 <li><a class="nav-link scrollto" href="services.php">Services</a></li>
                 <li><a class="nav-link scrollto" href="portfolio.php">Portfolio</a></li>
-                <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a> -->
-                <!-- <ul>
-                  <li><a href="#">Drop Down 1</a></li>
-                  <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                    <ul>
-                      <li><a href="#">Deep Drop Down 1</a></li>
-                      <li><a href="#">Deep Drop Down 2</a></li>
-                      <li><a href="#">Deep Drop Down 3</a></li>
-                      <li><a href="#">Deep Drop Down 4</a></li>
-                      <li><a href="#">Deep Drop Down 5</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Drop Down 2</a></li>
-                  <li><a href="#">Drop Down 3</a></li>
-                  <li><a href="#">Drop Down 4</a></li>
-                </ul> -->
-                </li>
                 <li><a class="nav-link scrollto" href="contact.php">Contact</a></li>
-                <li><a class="nav-link scrollto active" href="../admin/login.php">Admin</a></li>
+                <li><a class="nav-link scrollto" href="../admin/login.php">Admin</a></li>
             </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
-        <a href="#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex">Change Something?</a>
-
     </div>
 </header><!-- End Header -->
 
-<!-- ======= Hero Section ======= -->
-<!-- <section id="hero" class="d-flex align-items-center">
-  <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
-    <div class="row">
-      <div class="col-lg-8">
-        <h1>Welcome to <span>Content Manager</span></h1>
-        <h2>Changing content for 2 weeks. . . !</h2>
-
-        <div class="btns">
-          <a href="#menu" class="btn-menu animated fadeInUp scrollto">Our Menu</a>
-          <a href="#book-a-table" class="btn-book animated fadeInUp scrollto">Book a Table</a>
-        </div>
-      </div>
-      <div class="col-lg-4 d-flex align-items-center justify-content-center position-relative" data-aos="zoom-in" data-aos-delay="200">
-        <a href="https://www.youtube.com/watch?v=u6BOC7CDUTQ" class="glightbox play-btn"></a>
-      </div>
-
-    </div>
-  </div>
-</section> -->
-<!-- End Hero -->
 
 <main id="main">
 
@@ -308,58 +250,9 @@
 </main><!-- End #main -->
 
 <!-- ======= Footer ======= -->
-<footer id="footer">
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-info">
-                        <h3>Content Changer</h3>
-                        <p>
-                            1616 René-Lévesque Blvd W<br>
-                            Montreal, Quebec H3H 1P8<br><br>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
-                        </p>
-
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-md-6 footer-links">
-                    <h4>Useful Links</h4>
-                    <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>Our Services</h4>
-                    <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 col-md-6 footer-newsletter">
-                    <h4>Our Newsletter</h4>
-                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-                    <form action="" method="post">
-                        <input type="email" name="email"><input type="submit" value="Subscribe">
-                    </form>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
+<?php
+    include_once "./footer.php";
+?>
 
     <div class="container">
         <div class="copyright">
@@ -375,9 +268,6 @@
     </div>
 </footer><!-- End Footer -->
 
-<div id="preloader"></div>
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
 <script src="assets/vendor/aos/aos.js"></script>
