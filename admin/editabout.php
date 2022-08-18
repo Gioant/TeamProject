@@ -1,5 +1,5 @@
-<?php 
-	include_once "../controller/core2.php";
+<?php
+include_once "../controller/RestaurantController.php";
 ?>
 
 <!DOCTYPE html>
