@@ -30,6 +30,13 @@ $_SESSION['all_contact'] = $database2->get_all_contact();
 //Storing all about info inside a session to print them inside the table in the index
 $_SESSION['all_about'] = $database2->get_all_about();
 
+//Storing all footer info inside a session to print them inside the table in the index
+$_SESSION['all_footer'] = $database2->get_all_footer();
+
+//Storing all welcome info inside a session to print them inside the table in the index
+$_SESSION['all_welcome'] = $database2->get_all_welcome();
+
+
 
 //To delete a chef from the admin panel and database
 if(isset($_GET['chefDeleteID'])){
@@ -54,6 +61,16 @@ if(isset($_GET['contactDeleteID'])){
 //To delete a slider info from the admin panel and database
 if(isset($_GET['sliderDeleteID'])){
     $database2->delete_slider();
+}
+
+//To delete a footer info from the admin panel and database
+if (isset($_GET['footerDeleteID'])) {
+    $database2->delete_footer();
+}
+
+//To delete a welcome info from the admin panel and database
+if (isset($_GET['welcomeDeleteID'])) {
+    $database2->delete_welcome();
 }
 
 //To add a new chef inside the table and the database
@@ -134,7 +151,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/editchef.php?updateID') !== false) {
 
 //To add a new menu item inside the table and the database
 if (isset($_POST['new_menu'])) {
-    $newMenuDb = array("name" 	  		=> $_POST['addMenuName'],
+    $newMenuDb = array("name" => $_POST['addMenuName'],
         "description"	=> $_POST['addMenuDesc'],
         "price"			=> $_POST['addMenuPrice'],
         "picture" 		=> basename($_FILES["addMenuPic"]["name"]),
@@ -397,3 +414,108 @@ if (strpos($_SERVER['REQUEST_URI'], '/editcontact.php?updateID') !== false) {
 }
 
 /*=============================== End of Contact Part ==================================*/
+
+
+/*=============================== Edit Welcome Part ==================================*/
+//To add a new contact information inside the table and the database
+if (isset($_POST['new_welcome'])) {
+
+    $newWelcomeDb = array("title1" => $_POST['addWelcomeTitle1'],
+        "title2" => $_POST['addWelcomeTitle2']
+    );
+
+    //Calling the classes
+    $welcome = new Welcome($newWelcomeDb);
+    $database2->add_welcome($welcome);
+}
+
+
+//check if welcome info is on edit profile page by clicking update button from team.php
+if (strpos($_SERVER['REQUEST_URI'], '/editwelcome.php?updateID') !== false) {
+    //Get ID from url
+    $id = $_GET['updateID'];
+
+    //get data from ID of slider
+    $edit_welcome = $database2->welcome_info($id);
+
+    //store remaining properties of welcome info into unique sessions
+    // to autofill form inputs
+    $_SESSION['welcomeTitle1'] = $edit_welcome['title1'];
+    $_SESSION['welcomeTitle2'] = $edit_welcome['title2'];
+
+
+    // ======================= Edit Welcome Decription part ===============================
+    if (isset($_POST['edit_welcome'])) {
+        //save all form inputs
+        $welcome_title1 = $_POST['welcomeTitle1'];
+        $welcome_title2 = $_POST['welcomeTitle2'];
+
+        //call function to update slider
+        $database2->update_welcome($id);
+
+    }
+    //if user manually entered to go to edit chef profile page
+} else if (strpos($_SERVER['REQUEST_URI'], '/editwelcome.php')) {
+    //user did not click update button.. alert user and redirect them
+    echo '<script>alert("Error! You Did Not click Update Button.. Redirecting you")</script>';
+    header("Refresh:0.25; url=http://localhost/TeamProject/admin/index.php");
+}
+
+/*=============================== End of Welcome Part ==================================*/
+
+
+/*=============================== Edit Footer Part ==================================*/
+//To add a new footer information inside the table and the database
+if (isset($_POST['new_footer'])) {
+
+    $newFooterDb = array("title" => $_POST['addFooterTitle'],
+        "address" => $_POST['addFooterAddress'],
+        "area" => $_POST['addFooterArea'],
+        "phone" => $_POST['addFooterPhone'],
+        "email" => $_POST['addFooterEmail']
+    );
+
+    //Calling the classes
+    $footer = new Footer($newFooterDb);
+    $database2->add_footer($footer);
+}
+
+
+//check if footer info is on edit profile page by clicking update button from team.php
+if (strpos($_SERVER['REQUEST_URI'], '/edithome.php?updateID') !== false) {
+    //Get ID from url
+    $id = $_GET['updateID'];
+
+    //get data from ID of slider
+    $edit_footer = $database2->footer_info($id);
+
+    //store remaining properties of footer info into unique sessions
+    // to autofill form inputs
+    $_SESSION['footerTitle'] = $edit_footer['title'];
+    $_SESSION['footerAddress'] = $edit_footer['address'];
+    $_SESSION['footerArea'] = $edit_footer['area'];
+    $_SESSION['footerPhone'] = $edit_footer['phone'];
+    $_SESSION['footerEmail'] = $edit_footer['email'];
+
+
+    // ======================= Edit Footer Decription part ===============================
+    if (isset($_POST['edit_footer'])) {
+        //save all form inputs
+        $footer_title = $_POST['footerTitle'];
+        $footer_address = $_POST['footerAddress'];
+        $footer_area = $_POST['footerArea'];
+        $footer_phone = $_POST['footerPhone'];
+        $footer_emal = $_POST['footerEmail'];
+
+        //call function to update slider
+        $database2->update_footer($id);
+
+    }
+    //if user manually entered to go to edit chef profile page
+} else if (strpos($_SERVER['REQUEST_URI'], '/edithome.php')) {
+    //user did not click update button.. alert user and redirect them
+    echo '<script>alert("Error! You Did Not click Update Button.. Redirecting you")</script>';
+    header("Refresh:0.25; url=http://localhost/TeamProject/admin/index.php");
+}
+
+/*=============================== End of Footer Part ==================================*/
