@@ -177,7 +177,8 @@ include_once "../controller/RestaurantController.php";
                         <i class="fas fa-table me-1"></i>
                         Contact DataTable
                         <div class="float-end">
-                            <button type="button" class="btn btn-info"><!-- <i class="fa fa-plus"></i> --><a href="addcontact.php" style="text-decoration: none;">+Add New</a></button>
+                            <button type="button" class="btn btn-info"><a href="addcontact.php" style="text-decoration: none;">+Add New</a>
+                            </button>
                         </div>
                     </div>
                     <div class="card-body">

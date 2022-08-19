@@ -12,6 +12,12 @@ include_once "../controller/RestaurantController.php";
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Home Page</title>
+
+    <!-- JQUERY & SWEETALERT 2-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.20/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.20/dist/sweetalert2.min.css">
+
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/profilestyles.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -170,89 +176,96 @@ include_once "../controller/RestaurantController.php";
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
-                        Home DataTable
+                        Welcome Text DataTable
                         <div class="float-end">
-                            <button type="button" class="btn btn-info"><i class="fa fa-plus"></i> Add New</button>
+                            <button type="button" class="btn btn-info"></i><a href="addwelcome.php" style="text-decoration: none;">+Add New</a>
+                            </button>
                         </div>
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple" class="table table-striped">
                             <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>Main Title</th>
+                                <th>Sub Title</th>
                             </tr>
                             </thead>
                             <tbody>
+                            <?php if ($_SESSION['loggedInUser']['level'] == "1") : ?>
+                                <?php foreach ($_SESSION['all_welcome'] as $welcome) : ?>
+                                    <tr>
+                                        <td><?php echo $welcome['title1'] ?></td>
+                                        <td><?php echo $welcome['title2'] ?></td>
+                                        <td>
+                                            <a href="editwelcome.php?updateID=<?= $welcome['id'] ?>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                            <a href="home.php?welcomeDeleteID=<?= $welcome['id'] ?>"class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php else : ?>
+                                <?php foreach ($_SESSION['all_welcome'] as $welcome) : ?>
+                                    <tr>
+                                        <td><?php echo $welcome['title1'] ?></td>
+                                        <td><?php echo $welcome['title2'] ?></td>
+                                        <td>
+                                            <a href="editwelcome.php?updateID=<?= $welcome['id'] ?>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        Footer DataTable
+                        <div class="float-end">
+                            <button type="button" class="btn btn-info"></i><a href="addhome.php" style="text-decoration: none;">+Add New</a>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table id="datatablesSimple" class="table table-striped">
+                            <thead>
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
-                                <td>
-                                    <!-- <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a> -->
-                                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                </td>
+                                <th>Title</th>
+                                <th>Address</th>
+                                <th>Area</th>
+                                <th>Phone</th>
+                                <th>Email</th>
                             </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011/07/25</td>
-                                <td>$170,750</td>
-                                <td>
-                                    <!-- <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a> -->
-                                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Ashton Cox</td>
-                                <td>Junior Technical Author</td>
-                                <td>San Francisco</td>
-                                <td>66</td>
-                                <td>2009/01/12</td>
-                                <td>$86,000</td>
-                                <td>
-                                    <!-- <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a> -->
-                                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Cedric Kelly</td>
-                                <td>Senior Javascript Developer</td>
-                                <td>Edinburgh</td>
-                                <td>22</td>
-                                <td>2012/03/29</td>
-                                <td>$433,060</td>
-                                <td>
-                                    <!-- <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a> -->
-                                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Airi Satou</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>33</td>
-                                <td>2008/11/28</td>
-                                <td>$162,700</td>
-                                <td>
-                                    <!-- <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a> -->
-                                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                                </td>
-                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php if ($_SESSION['loggedInUser']['level'] == "1") : ?>
+                                <?php foreach ($_SESSION['all_footer'] as $footer) : ?>
+                                    <tr>
+                                        <td><?php echo $footer['title'] ?></td>
+                                        <td><?php echo $footer['address'] ?></td>
+                                        <td><?php echo $footer['area'] ?></td>
+                                        <td><?php echo $footer['phone'] ?></td>
+                                        <td><?php echo $footer['email'] ?></td>
+                                        <td>
+                                            <a href="edithome.php?updateID=<?= $footer['id'] ?>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                            <a href="home.php?footerDeleteID=<?= $footer['id'] ?>"class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php else : ?>
+                                <?php foreach ($_SESSION['all_footer'] as $footer) : ?>
+                                    <tr>
+                                        <td><?php echo $footer['title'] ?></td>
+                                        <td><?php echo $footer['address'] ?></td>
+                                        <td><?php echo $footer['area'] ?></td>
+                                        <td><?php echo $footer['phone'] ?></td>
+                                        <td><?php echo $footer['email'] ?></td>
+                                        <td>
+                                            <a href="edithome.php?updateID=<?= $footer['id'] ?>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                             </tbody>
                         </table>
                     </div>
@@ -271,7 +284,37 @@ include_once "../controller/RestaurantController.php";
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <script src="js/scripts.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-<!-- <script src="js/datatables-simple-demo.js"></script> -->
+
+<?php if (isset($_GET["updateSuccess"])) : ?>
+    <script>
+        Swal.fire({
+            title: 'Success',
+            text: 'Services Updated Successfully',
+            icon: 'success',
+            color: 'LimeGreen',
+            confirmButtonText: 'Thank You!'
+        });
+
+        // After Showing Alert, Remove Parameter GET createSuccess
+        window.history.replaceState(null, null, window.location.pathname);
+    </script>
+<?php endif; ?>
+
+
+<?php if (isset($_GET["addSuccess"])) : ?>
+    <script>
+        Swal.fire({
+            title: 'Success',
+            text: 'Added Successfully',
+            icon: 'success',
+            color: 'LimeGreen',
+            confirmButtonText: 'Thank You!'
+        });
+
+        // After Showing Alert, Remove Parameter GET createSuccess
+        window.history.replaceState(null, null, window.location.pathname);
+    </script>
+<?php endif; ?>
 </body>
 
 </html>

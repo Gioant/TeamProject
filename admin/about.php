@@ -12,6 +12,12 @@ include_once "../controller/RestaurantController.php";
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Home Page</title>
+
+    <!-- JQUERY & SWEETALERT 2-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.20/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.20/dist/sweetalert2.min.css">
+
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/profilestyles.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -172,7 +178,8 @@ include_once "../controller/RestaurantController.php";
                         <i class="fas fa-table me-1"></i>
                         About DataTable
                         <div class="float-end">
-                            <button type="button" class="btn btn-info"><i class="fa fa-plus"></i> Add New</button>
+                            <button type="button" class="btn btn-info"><a href="addabout.php" style="text-decoration: none;">+Add New</a>
+                            </button>
                         </div>
                     </div>
                     <div class="card-body">
@@ -191,7 +198,7 @@ include_once "../controller/RestaurantController.php";
                                         <td><?php echo $about['picture'] ?></td>
                                         <td>
                                             <a href="editabout.php?updateID=<?= $about['id'] ?>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                            <a href="about.php?deleteID=<?= $about['id'] ?>"class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                            <a href="about.php?aboutDeleteID=<?= $about['id'] ?>"class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -224,7 +231,36 @@ include_once "../controller/RestaurantController.php";
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <script src="js/scripts.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-<!-- <script src="js/datatables-simple-demo.js"></script> -->
+
+<?php if (isset($_GET["updateSuccess"])) : ?>
+    <script>
+        Swal.fire({
+            title: 'Success',
+            text: 'Services Updated Successfully',
+            icon: 'success',
+            color: 'LimeGreen',
+            confirmButtonText: 'Thank You!'
+        });
+
+        // After Showing Alert, Remove Parameter GET createSuccess
+        window.history.replaceState(null, null, window.location.pathname);
+    </script>
+<?php endif; ?>
+
+<?php if (isset($_GET["addSuccess"])) : ?>
+    <script>
+        Swal.fire({
+            title: 'Success',
+            text: 'Added Successfully',
+            icon: 'success',
+            color: 'LimeGreen',
+            confirmButtonText: 'Thank You!'
+        });
+
+        // After Showing Alert, Remove Parameter GET createSuccess
+        window.history.replaceState(null, null, window.location.pathname);
+    </script>
+<?php endif; ?>
 </body>
 
 </html>

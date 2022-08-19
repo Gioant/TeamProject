@@ -177,7 +177,8 @@ include_once "../controller/RestaurantController.php";
                         <i class="fas fa-table me-1"></i>
                         Portfolio DataTable
                         <div class="float-end">
-                            <button type="button" class="btn btn-info"><i class="fa fa-plus"></i> Add New</button>
+                            <button type="button" class="btn btn-info"></i><a href="addportfolio.php" style="text-decoration: none;">+Add New</a>
+                            </button>
                         </div>
                     </div>
                     <div class="card-body">
