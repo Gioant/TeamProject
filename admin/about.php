@@ -171,7 +171,7 @@ include_once "../controller/RestaurantController.php";
                 </ol>
                 <div class="card mb-4">
                     <div class="card-body">
-                        DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables.</div>
+                        Small bio and informations about the restaurant.</div>
                 </div>
                 <div class="card mb-4">
                     <div class="card-header">
@@ -186,6 +186,8 @@ include_once "../controller/RestaurantController.php";
                         <table id="datatablesSimple" class="table table-striped">
                             <thead>
                             <tr>
+                                <th>Title</th>
+                                <th>Sub Title</th>
                                 <th>Text</th>
                                 <th>Picture</th>
                             </tr>
@@ -194,6 +196,8 @@ include_once "../controller/RestaurantController.php";
                             <?php if ($_SESSION['loggedInUser']['level'] == "1") : ?>
                                 <?php foreach ($_SESSION['all_about'] as $about) : ?>
                                     <tr>
+                                        <td><?php echo $about['title'] ?></td>
+                                        <td><?php echo $about['subTitle'] ?></td>
                                         <td><?php echo $about['text'] ?></td>
                                         <td><?php echo $about['picture'] ?></td>
                                         <td>
@@ -205,6 +209,8 @@ include_once "../controller/RestaurantController.php";
                             <?php else : ?>
                                 <?php foreach ($_SESSION['all_about'] as $about) : ?>
                                     <tr>
+                                        <td><?php echo $about['title'] ?></td>
+                                        <td><?php echo $about['subTitle'] ?></td>
                                         <td><?php echo $about['text'] ?></td>
                                         <td><?php echo $about['picture'] ?></td>
                                         <td>
