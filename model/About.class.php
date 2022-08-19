@@ -1,6 +1,8 @@
 <?php
 class About {
-    private $id; 
+    private $id;
+    private $title;
+    private $subTitle;
     private $text;
     private $picture;
 
@@ -47,4 +49,43 @@ class About {
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getSubTitle()
+    {
+        return $this->subTitle;
+    }
+
+    /**
+     * @param mixed $subTitle
+     *
+     * @return self
+     */
+    public function setSubTitle($subTitle)
+    {
+        $this->subTitle = $subTitle;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param mixed $title
+     *
+     * @return self
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
 }
