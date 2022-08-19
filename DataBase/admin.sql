@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 18, 2022 at 03:18 AM
+-- Generation Time: Aug 19, 2022 at 04:23 AM
 -- Server version: 8.0.29
 -- PHP Version: 7.4.9
 
@@ -33,14 +33,15 @@ CREATE TABLE IF NOT EXISTS `about` (
   `text` text NOT NULL,
   `picture` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `about`
 --
 
 INSERT INTO `about` (`id`, `text`, `picture`) VALUES
-(1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore\r\n              magna aliqua. Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate\r\n              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in\r\n              culpa qui officia deserunt mollit anim id est laborum', 'about.jpg');
+(1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore\r\n              magna aliqua. Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate\r\n              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in\r\n              culpa qui officia deserunt mollit anim id est laborum', 'about.jpg'),
+(9, 'Testing text ', 'clownphoto.jpg');
 
 -- --------------------------------------------------------
 
@@ -57,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `chef` (
   `poste` varchar(50) NOT NULL,
   `description` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `chef`
@@ -84,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `contact` (
   `email` varchar(50) NOT NULL,
   `phone` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `contact`
@@ -92,6 +93,30 @@ CREATE TABLE IF NOT EXISTS `contact` (
 
 INSERT INTO `contact` (`id`, `location`, `open`, `close`, `email`, `phone`) VALUES
 (1, 'A108 Adam Street, New York, NY 535022', '11:00', '23:00', 'info@example.com', '+1 5589 55488 55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `footer`
+--
+
+DROP TABLE IF EXISTS `footer`;
+CREATE TABLE IF NOT EXISTS `footer` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `area` varchar(50) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `footer`
+--
+
+INSERT INTO `footer` (`id`, `title`, `address`, `area`, `phone`, `email`) VALUES
+(1, 'Content Changer', '1616 Rene-Levesque Blvd W.', 'Montreal, Quebec H3H 1P8', '+1 5589 55488 551', 'info@example.com');
 
 -- --------------------------------------------------------
 
@@ -108,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `picture` varchar(50) NOT NULL,
   `type` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `menu`
@@ -139,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `slider` (
   `picture` varchar(50) NOT NULL,
   `text` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `slider`
@@ -176,6 +201,27 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `name`, `lastname`, `username`, `avatar`, `email`, `password`, `level`) VALUES
 (1, 'Demo', 'Test', 'DemoUser', 'default.png', 'test123@grr.la', '12345', 1),
 (2, 'Andy', 'Demo', 'AndyTest', 'default-color.png', 'andyTest@grr.la', 'test123', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `welcome`
+--
+
+DROP TABLE IF EXISTS `welcome`;
+CREATE TABLE IF NOT EXISTS `welcome` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title1` varchar(50) NOT NULL,
+  `title2` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `welcome`
+--
+
+INSERT INTO `welcome` (`id`, `title1`, `title2`) VALUES
+(1, 'Welcome to Content Manager12', 'Changing content for 2 weeks..!');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
