@@ -198,7 +198,7 @@ include_once "../controller/RestaurantController.php";
                                         <td><?php echo $about['picture'] ?></td>
                                         <td>
                                             <a href="editabout.php?updateID=<?= $about['id'] ?>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                            <a href="about.php?aboutDeleteID=<?= $about['id'] ?>"class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                            <a href="about.php?aboutDeleteID=<?= $about['id'] ?>" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
