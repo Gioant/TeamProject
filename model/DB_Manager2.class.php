@@ -1,5 +1,6 @@
 <?php
-class DB_Manager2 {
+class DB_Manager2
+{
     private $db;
 
     //Connection to the database
@@ -29,11 +30,11 @@ class DB_Manager2 {
     {
         $query = $this->db->prepare("INSERT INTO chef VALUES (DEFAULT, :name, :lastname, :avatar, :poste, :description);");
         $result = $query->execute(array(
-            "name" 			=> $chef->getName(),
-            "lastname"		=> $chef->getLastname(),
-            "avatar"		=> $chef->getAvatar(),
-            "poste"			=> $chef->getPoste(),
-            "description"	=> $chef->getDescription()
+            "name" => $chef->getName(),
+            "lastname" => $chef->getLastname(),
+            "avatar" => $chef->getAvatar(),
+            "poste" => $chef->getPoste(),
+            "description" => $chef->getDescription()
         ));
 
         if ($result) {
@@ -41,7 +42,6 @@ class DB_Manager2 {
         }
 
     }
-
 
 
     //Function to get all the chefs from the database
@@ -71,32 +71,33 @@ class DB_Manager2 {
     }
 
     //Function to update the chefs
-    public function update_chef($id, $avatar){
+    public function update_chef($id, $avatar)
+    {
 
         //query to update database
         $query = $this->db->prepare("UPDATE chef SET id= :id, name = :name, lastname = :lastname, avatar = :avatar, poste = :poste, description = :description WHERE id = $id;");
 
         //check if the $avatar is not in session['chef_pic]'
-        if($_SESSION['chef_pic'] != $avatar) {
+        if ($_SESSION['chef_pic'] != $avatar) {
 
             //if it isn't user uploaded a new picture
             $result = $query->execute(array(
-                "id" 			=> $_GET['updateID'],
-                "name" 			=> $_POST['chefFirstName'],
-                "lastname" 		=> $_POST['chefLastName'],
-                "avatar" 		=> basename($_FILES["chefPic"]["name"]),
-                "poste"			=> $_POST['position'],
-                "description"	=> $_POST['description']
+                "id" => $_GET['updateID'],
+                "name" => $_POST['chefFirstName'],
+                "lastname" => $_POST['chefLastName'],
+                "avatar" => basename($_FILES["chefPic"]["name"]),
+                "poste" => $_POST['position'],
+                "description" => $_POST['description']
             ));
         } else {
             //user did not upload picture
             $result = $query->execute(array(
-                "id" 			=> $_GET['updateID'],
-                "name" 			=> $_POST['chefFirstName'],
-                "lastname" 		=> $_POST['chefLastName'],
-                "avatar" 		=> $_SESSION['chef_pic'],
-                "poste"			=> $_POST['position'],
-                "description"	=> $_POST['description']
+                "id" => $_GET['updateID'],
+                "name" => $_POST['chefFirstName'],
+                "lastname" => $_POST['chefLastName'],
+                "avatar" => $_SESSION['chef_pic'],
+                "poste" => $_POST['position'],
+                "description" => $_POST['description']
             ));
         }
         //redirect user with success msg
@@ -114,10 +115,10 @@ class DB_Manager2 {
     {
         $query = $this->db->prepare("INSERT INTO slider VALUES (DEFAULT, :title, :price, :picture, :text);");
         $result = $query->execute(array(
-            "title" 		=> $slider->getTitle(),
-            "price"			=> $slider->getPrice(),
-            "picture"		=> $slider->getPicture(),
-            "text"			=> $slider->getText()
+            "title" => $slider->getTitle(),
+            "price" => $slider->getPrice(),
+            "picture" => $slider->getPicture(),
+            "text" => $slider->getText()
         ));
 
         if ($result) {
@@ -127,7 +128,8 @@ class DB_Manager2 {
     }
 
     //Function to select data from the slider table and save into a variable as an array
-    public function get_slider() {
+    public function get_slider()
+    {
         $query = $this->db->query("SELECT * FROM slider");
         $array = $query->fetchAll(PDO::FETCH_ASSOC);
         $sliderObj = new Slider($array);
@@ -163,30 +165,31 @@ class DB_Manager2 {
 
 
     //Function to update slider
-    public function update_slider($id, $avatar){
+    public function update_slider($id, $avatar)
+    {
 
         //query to update database
         $query = $this->db->prepare("UPDATE slider SET id = :id, title = :title, price = :price,picture = :picture, text = :text WHERE id = $id;");
 
         //check if the $avatar is not in session['chef_pic]'
-        if($_SESSION['slider_pic'] != $avatar) {
+        if ($_SESSION['slider_pic'] != $avatar) {
 
             //if it isn't user uploaded a new picture
             $result = $query->execute(array(
-                "id" 			=> $_GET['updateID'],
-                "title" 		=> $_POST['sliderName'],
-                "price"			=> $_POST['sliderPrice'],
-                "picture" 		=> basename($_FILES["sliderPic"]["name"]),
-                "text"			=> $_POST['sliderDesc']
+                "id" => $_GET['updateID'],
+                "title" => $_POST['sliderName'],
+                "price" => $_POST['sliderPrice'],
+                "picture" => basename($_FILES["sliderPic"]["name"]),
+                "text" => $_POST['sliderDesc']
             ));
         } else {
             //user did not upload picture
             $result = $query->execute(array(
-                "id" 			=> $_GET['updateID'],
-                "title" 		=> $_POST['sliderName'],
-                "price"			=> $_POST['sliderPrice'],
-                "picture" 		=> $_SESSION['slider_pic'],
-                "text"			=> $_POST['sliderDesc']
+                "id" => $_GET['updateID'],
+                "title" => $_POST['sliderName'],
+                "price" => $_POST['sliderPrice'],
+                "picture" => $_SESSION['slider_pic'],
+                "text" => $_POST['sliderDesc']
             ));
         }
         //redirect user with success msg
@@ -205,11 +208,11 @@ class DB_Manager2 {
     {
         $query = $this->db->prepare("INSERT INTO menu VALUES (DEFAULT, :name, :description, :price, :picture, :type);");
         $result = $query->execute(array(
-            "name" 			=> $menu->getName(),
-            "description" 	=> $menu->getDescription(),
-            "price"			=> $menu->getPrice(),
-            "picture"		=> $menu->getPicture(),
-            "type"			=> $menu->getType()
+            "name" => $menu->getName(),
+            "description" => $menu->getDescription(),
+            "price" => $menu->getPrice(),
+            "picture" => $menu->getPicture(),
+            "type" => $menu->getType()
         ));
 
         if ($result) {
@@ -245,32 +248,33 @@ class DB_Manager2 {
     }
 
     //Function to update the menu
-    public function update_menu($id, $avatar){
+    public function update_menu($id, $avatar)
+    {
 
         //query to update database
         $query = $this->db->prepare("UPDATE menu SET id = :id, name = :name, description = :description, price = :price, picture = :picture, type = :type WHERE id = $id;");
 
         //check if the $avatar is not in session['menu_pic]'
-        if($_SESSION['menu_pic'] != $avatar) {
+        if ($_SESSION['menu_pic'] != $avatar) {
 
             //if it isn't user uploaded a new picture
             $result = $query->execute(array(
-                "id" 			=> $_GET['updateID'],
-                "name" 			=> $_POST['menuName'],
-                "description" 	=> $_POST['menuDesc'],
-                "price"			=> $_POST['menuPrice'],
-                "picture" 		=> basename($_FILES["menuPic"]["name"]),
-                "type"			=> $_POST['menuType']
+                "id" => $_GET['updateID'],
+                "name" => $_POST['menuName'],
+                "description" => $_POST['menuDesc'],
+                "price" => $_POST['menuPrice'],
+                "picture" => basename($_FILES["menuPic"]["name"]),
+                "type" => $_POST['menuType']
             ));
         } else {
             //user did not upload picture
             $result = $query->execute(array(
-                "id" 			=> $_GET['updateID'],
-                "name" 			=> $_POST['menuName'],
-                "description" 	=> $_POST['menuDesc'],
-                "price"			=> $_POST['menuPrice'],
-                "picture" 		=> $_SESSION['menu_pic'],
-                "type"			=> $_POST['menuType']
+                "id" => $_GET['updateID'],
+                "name" => $_POST['menuName'],
+                "description" => $_POST['menuDesc'],
+                "price" => $_POST['menuPrice'],
+                "picture" => $_SESSION['menu_pic'],
+                "type" => $_POST['menuType']
             ));
         }
         //redirect user with success msg
@@ -289,11 +293,11 @@ class DB_Manager2 {
     {
         $query = $this->db->prepare("INSERT INTO contact VALUES (DEFAULT, :location, :open, :close, :email, :phone);");
         $result = $query->execute(array(
-            "location" 	=> $contact->getLocation(),
-            "open" 		=> $contact->getOpen(),
-            "close"		=> $contact->getClose(),
-            "email"		=> $contact->getEmail(),
-            "phone"		=> $contact->getPhone()
+            "location" => $contact->getLocation(),
+            "open" => $contact->getOpen(),
+            "close" => $contact->getClose(),
+            "email" => $contact->getEmail(),
+            "phone" => $contact->getPhone()
         ));
 
         if ($result) {
@@ -303,7 +307,8 @@ class DB_Manager2 {
     }
 
     //Function to select data from the contact table and save into a variable as an array
-    public function get_contact() {
+    public function get_contact()
+    {
         $query = $this->db->query("SELECT * FROM contact");
         $array = $query->fetchAll(PDO::FETCH_ASSOC);
         $contactObj = new Contact($array);
@@ -338,18 +343,19 @@ class DB_Manager2 {
     }
 
     //Function to update the contact
-    public function update_contact($id){
+    public function update_contact($id)
+    {
 
         //query to update database
         $query = $this->db->prepare("UPDATE contact SET id = :id, location = :location, open = :open, close = :close, email = :email, phone = :phone WHERE id = $id;");
 
         $result = $query->execute(array(
-            "id" 		=> $_GET['updateID'],
-            "location"	=> $_POST['contactLocation'],
-            "open"		=> $_POST['contactOpen'],
-            "close"		=> $_POST['contactClose'],
-            "email"		=> $_POST['contactEmail'],
-            "phone"		=> $_POST['contactPhone']
+            "id" => $_GET['updateID'],
+            "location" => $_POST['contactLocation'],
+            "open" => $_POST['contactOpen'],
+            "close" => $_POST['contactClose'],
+            "email" => $_POST['contactEmail'],
+            "phone" => $_POST['contactPhone']
         ));
 
         //redirect user with success msg
@@ -370,7 +376,7 @@ class DB_Manager2 {
     {
         $query = $this->db->prepare("INSERT INTO about VALUES (DEFAULT, :text, :picture);");
         $result = $query->execute(array(
-            "text" 	  => $about->getText(),
+            "text" => $about->getText(),
             "picture" => $about->getPicture()
         ));
 
@@ -380,7 +386,8 @@ class DB_Manager2 {
 
     }
 
-    public function get_about() {
+    public function get_about()
+    {
         $query = $this->db->query("SELECT * FROM about");
         $array = $query->fetchAll(PDO::FETCH_ASSOC);
         $aboutObj = new About($array);
@@ -407,26 +414,27 @@ class DB_Manager2 {
     }
 
     //Function to update the about
-    public function update_about($id, $avatar){
+    public function update_about($id, $avatar)
+    {
 
         //query to update database
         $query = $this->db->prepare("UPDATE about SET id = :id, text = :text, picture = :picture WHERE id = $id;");
 
         //check if the $avatar is not in session['chef_pic]'
-        if($_SESSION['about_pic'] != $avatar) {
+        if ($_SESSION['about_pic'] != $avatar) {
 
             //if it isn't user uploaded a new picture
             $result = $query->execute(array(
-                "id" 			=> $_GET['updateID'],
-                "text"			=> $_POST['aboutDesc'],
-                "picture" 		=> basename($_FILES["aboutPic"]["name"])
+                "id" => $_GET['updateID'],
+                "text" => $_POST['aboutDesc'],
+                "picture" => basename($_FILES["aboutPic"]["name"])
             ));
         } else {
             //user did not upload picture
             $result = $query->execute(array(
-                "id" 			=> $_GET['updateID'],
-                "text"			=> $_POST['aboutDesc'],
-                "picture" 		=> $_SESSION['about_pic']
+                "id" => $_GET['updateID'],
+                "text" => $_POST['aboutDesc'],
+                "picture" => $_SESSION['about_pic']
             ));
         }
         //redirect user with success msg
@@ -445,4 +453,160 @@ class DB_Manager2 {
     }
 
     /*================================  END ABOUT PART  ================================*/
+
+
+    /*==================================  WELCOME PART  =================================*/
+
+    //Function to add a new footer information inside the database
+    public function add_welcome($welcome)
+    {
+        $query = $this->db->prepare("INSERT INTO welcome VALUES (DEFAULT, :title1, :title2);");
+        $result = $query->execute(array(
+            "title1"    => $welcome->getTitle1(),
+            "title2"    => $welcome->getTitle2()
+        ));
+
+        if ($result) {
+            header("location: home.php?addSuccess");
+        }
+
+    }
+
+    public function get_welcome() {
+        $query = $this->db->query("SELECT * FROM welcome");
+        $array = $query->fetchAll(PDO::FETCH_ASSOC);
+        $welcomeObj = new Footer($array);
+
+        return $array;
+    }
+
+    //Function to get all the footer information from the database
+    public function get_all_welcome()
+    {
+        $query = $this->db->query("SELECT * FROM welcome");
+        $array = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        return $array;
+    }
+
+    //Function to select all footer informations based on his id
+    public function welcome_info($id)
+    {
+        $query = $this->db->query("SELECT * FROM welcome WHERE id = $id;");
+        $welcomeInfo = $query->fetch(PDO::FETCH_ASSOC);
+
+        return $welcomeInfo;
+    }
+
+    //Function to update the footer info
+    public function update_welcome($id){
+
+        //query to update database
+        $query = $this->db->prepare("UPDATE welcome SET id = :id, title1 = :title1, title2 = :title2 WHERE id = $id;");
+
+        $result = $query->execute(array(
+            "id"      => $_GET['updateID'],
+            "title1"  => $_POST['welcomeTitle1'],
+            "title2"  => $_POST["welcomeTitle2"]
+        ));
+
+
+        //redirect user with success msg
+        if ($result) {
+            header("location: home.php?updateSuccess");
+        }
+    }
+
+    //Function to delete an about information from the menu table and the database
+    public function delete_welcome()
+    {
+        //query to update database
+        $query = $this->db->prepare("DELETE FROM welcome WHERE id = ?;");
+        $result = $query->execute(array($_GET['welcomeDeleteID']));
+    }
+
+    /*================================  END WELCOME PART  ================================*/
+
+
+
+    /*==================================  FOOTER PART  =================================*/
+
+
+    //Function to add a new footer information inside the database
+    public function add_footer($footer)
+    {
+        $query = $this->db->prepare("INSERT INTO footer VALUES (DEFAULT, :title, :address, :area, :phone, :email);");
+        $result = $query->execute(array(
+            "title"     => $footer->getTitle(),
+            "address"   => $footer->getAddress(),
+            "area"      => $footer->getArea(),
+            "phone"     => $footer->getPhone(),
+            "email"     => $footer->getEmail()
+        ));
+
+        if ($result) {
+            header("location: home.php?addSuccess");
+        }
+
+    }
+
+    public function get_footer() {
+        $query = $this->db->query("SELECT * FROM footer");
+        $array = $query->fetchAll(PDO::FETCH_ASSOC);
+        $footerObj = new Footer($array);
+
+        return $array;
+    }
+
+    //Function to get all the footer information from the database
+    public function get_all_footer()
+    {
+        $query = $this->db->query("SELECT * FROM footer");
+        $array = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        return $array;
+    }
+
+    //Function to select all footer informations based on his id
+    public function footer_info($id)
+    {
+        $query = $this->db->query("SELECT * FROM footer WHERE id = $id;");
+        $footerInfo = $query->fetch(PDO::FETCH_ASSOC);
+
+        return $footerInfo;
+    }
+
+    //Function to update the footer info
+    public function update_footer($id){
+
+        //query to update database
+        $query = $this->db->prepare("UPDATE footer SET id = :id, title = :title, address = :address, area = :area, phone = :phone, email = :email WHERE id = $id;");
+
+        $result = $query->execute(array(
+            "id"        => $_GET['updateID'],
+            "title"     => $_POST['footerTitle'],
+            "address"   => $_POST["footerAddress"],
+            "area"      => $_POST['footerArea'],
+            "phone"     => $_POST['footerPhone'],
+            "email"     => $_POST['footerEmail']
+        ));
+
+
+        //redirect user with success msg
+        if ($result) {
+            header("location: home.php?updateSuccess");
+        }
+    }
+
+    //Function to delete an about information from the menu table and the database
+    public function delete_footer()
+    {
+        //query to update database
+        $query = $this->db->prepare("DELETE FROM footer WHERE id = ?;");
+        $result = $query->execute(array($_GET['footerDeleteID']));
+    }
+
+
+    /*================================  END FOOTER PART  ================================*/
 }
+
