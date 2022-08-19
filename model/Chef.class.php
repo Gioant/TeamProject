@@ -1,16 +1,17 @@
-<?php 
-	class Chef {
-		private $id;
-		private $name;
-		private $lastname;
-        private $picture;
-        private $poste;
+<?php
+class Chef {
+    private $id;
+    private $name;
+    private $lastname;
+    private $avatar;
+    private $poste;
+    private $description;
 
-        public function __construct ($array){
-	        foreach ($array as $chef => $value) {
-	            $this->$chef = $value;
-	        }
-    	}
+    public function __construct ($array){
+        foreach ($array as $chef => $value) {
+            $this->$chef = $value;
+        }
+    }
 
     /**
      * @return mixed
@@ -75,26 +76,6 @@
     /**
      * @return mixed
      */
-    public function getPicture()
-    {
-        return $this->picture;
-    }
-
-    /**
-     * @param mixed $picture
-     *
-     * @return self
-     */
-    public function setPicture($picture)
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getPoste()
     {
         return $this->poste;
@@ -108,6 +89,46 @@
     public function setPoste($poste)
     {
         $this->poste = $poste;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    /**
+     * @param mixed $avatar
+     *
+     * @return self
+     */
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
 
         return $this;
     }
