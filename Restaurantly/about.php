@@ -158,7 +158,7 @@
                 <p>Our Professional Chefs</p>
             </div>
 
-            <div class="row" style="justify-content-md-center">
+            <div class="row justify-content-md-center">
 
                 <div class="col-3">
                     <div class="member" data-aos="zoom-in" data-aos-delay="100">
