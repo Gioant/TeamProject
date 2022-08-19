@@ -54,12 +54,12 @@ include_once "../controller/RestaurantController.php";
                                 <div class="mb-3 col-md-6">
                                     <label for="addSliderTitle" class="form-label">Add Title</label>
                                     <input class="form-control" type="text" id="addSliderTitle"
-                                           name="addSliderTitle" autocomplete="off" required>
+                                           name="addSliderTitle" autocomplete="off" required minlength="10" maxlength="50">
                                 </div>
                                 <!-- Slider Price -->
                                 <div class="mb-3 col-md-6">
                                     <label for="addSliderPrice" class="form-label">Add Price</label>
-                                    <input class="form-control" type="number" min="1" step="any" name="addSliderPrice" id="addSliderPrice" autocomplete="off" required>
+                                    <input class="form-control" type="number" min="1" step="any" name="addSliderPrice" id="addSliderPrice" autocomplete="off" required minlength="2">
                                 </div>
                                 <!-- Description -->
                                 <div class="mb-3 col-md-6">

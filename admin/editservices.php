@@ -54,12 +54,12 @@
                                 <div class="mb-3 col-md-6">
                                     <label for="sliderName" class="form-label">Title</label>
                                     <input class="form-control" type="text" id="sliderName"
-                                           name="sliderName" <?php echo 'value="'.$_SESSION['sliderName'].'"'; ?> autocomplete="off">
+                                           name="sliderName" <?php echo 'value="'.$_SESSION['sliderName'].'"'; ?> autocomplete="off" minlength="10" maxlength="50">
                                 </div>
                                 <!-- Slider Price -->
                                 <div class="mb-3 col-md-6">
                                     <label for="sliderPrice" class="form-label">Price</label>
-                                    <input class="form-control" type="text" name="sliderPrice" id="sliderPrice" <?php echo 'value="'.$_SESSION['sliderPrice'].'"'; ?> autocomplete="off">
+                                    <input class="form-control" type="text" name="sliderPrice" id="sliderPrice" <?php echo 'value="'.$_SESSION['sliderPrice'].'"'; ?> autocomplete="off" minlength="2">
                                 </div>
                                 <!-- Description -->
                                 <div class="mb-3 col-md-6">
