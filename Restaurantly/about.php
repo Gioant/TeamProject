@@ -1,3 +1,14 @@
+<?php
+include_once "../model/DB_Manager2.class.php";
+include_once "../model/About.class.php";
+
+$database = new DB_Manager2();
+$get_about = $database->get_all_about();
+
+foreach ($get_about as $about) {
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,13 +80,13 @@
             <div class="row">
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
                     <div class="about-img">
-                        <img name="about-image" src="assets/img/about.jpg" alt="">
+                        <img name="about-image" src="assets/img/<?php echo $about['picture'] ?>" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
                     <h3 name="about-title">Voluptatem dignissimos provident quasi corporis voluptates sit
                         assumenda.</h3>
-                    <p name="about-subtitle" class="fst-italic">
+                    <!-- <p name="about-subtitle" class="fst-italic">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore
                         magna aliqua.
@@ -91,13 +102,14 @@
                             commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta
                             storacalaperda mastiro dolore eu fugiat nulla pariatur.
                         </li>
-                    </ul>
+                    </ul> -->
                     <p name="about-point4">
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                        <!-- Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
                         in voluptate
                         velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                         proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum
+                        culpa qui officia deserunt mollit anim id est laborum -->
+                        <?php echo $about['text'] ?>
                     </p>
                 </div>
             </div>

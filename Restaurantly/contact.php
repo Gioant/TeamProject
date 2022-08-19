@@ -3,7 +3,7 @@ include "../model/DB_Manager2.class.php";
 include "../model/Contact.class.php";
 
 $database = new DB_Manager2();
-$get_contact = $database->get_contact();
+$get_contact = $database->get_all_contact();
 
 foreach ($get_contact as $contact) {
 }

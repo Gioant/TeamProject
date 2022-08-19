@@ -3,7 +3,7 @@ include_once "../model/DB_Manager2.class.php";
 include_once "../model/Slider.class.php";
 
 $database = new DB_Manager2();
-$get_slider = $database->get_slider();
+$get_slider = $database->get_all_slider();
 ?>
 
 <!DOCTYPE html>
