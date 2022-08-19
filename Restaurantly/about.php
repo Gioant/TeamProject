@@ -5,9 +5,7 @@ include_once "../model/About.class.php";
 $database = new DB_Manager2();
 $get_about = $database->get_all_about();
 
-var_dump($get_about);
-foreach ($get_about as $about) {
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -76,8 +74,8 @@ foreach ($get_about as $about) {
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
+        <?php foreach($get_about as $about): ?>
         <div class="container" data-aos="fade-up">
-
             <div class="row">
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
                     <div class="about-img">
@@ -92,8 +90,9 @@ foreach ($get_about as $about) {
                     </p>
                 </div>
             </div>
-
+            <br><hr style="opacity: unset">
         </div>
+        <?php endforeach; ?>
     </section><!-- End About Section -->
 
     <!-- ======= Why Us Section ======= -->
