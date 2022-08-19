@@ -297,7 +297,9 @@ if (strpos($_SERVER['REQUEST_URI'], '/editservices.php?updateID') !== false) {
 
 //To add a new about information inside the table and the database
 if (isset($_POST['new_about'])) {
-    $newAboutDb = array("text" 	  => $_POST['newAboutDesc'],
+    $newAboutDb = array("title"   => $_POST['newAboutTitle'],
+        "subTitle"=> $_POST['newAboutSubTitle'],
+        "text" 	  => $_POST['newAboutDesc'],
         "picture" => basename($_FILES["newAboutPic"]["name"])
     );
 
@@ -325,12 +327,16 @@ if (strpos($_SERVER['REQUEST_URI'], '/editabout.php?updateID') !== false) {
 
     //store remaining properties of slider info into unique sessions
     // to autofill form inputs
+    $_SESSION['aboutTitle'] = $edit_about['title'];
+    $_SESSION['aboutSubTitle'] = $edit_about['subTitle'];
     $_SESSION['aboutDesc'] = $edit_about['text'];
 
 
     // ======================= Edit About Decription part ===============================
     if (isset($_POST['edit_about'])) {
         //save all form inputs
+        $about_title = $_POST['aboutTitle'];
+        $about_SubTitle = $_POST['aboutSubTitle'];
         $about_description = $_POST['aboutDesc'];
         $about_avatar = basename($_FILES["aboutPic"]["name"]);
 

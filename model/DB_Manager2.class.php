@@ -374,8 +374,10 @@ class DB_Manager2
     //Function to add a new about information inside the database
     public function add_about($about)
     {
-        $query = $this->db->prepare("INSERT INTO about VALUES (DEFAULT, :text, :picture);");
+        $query = $this->db->prepare("INSERT INTO about VALUES (DEFAULT, :title, :subTitle, :text, :picture);");
         $result = $query->execute(array(
+            "title" => $about->getTitle(),
+            "subTitle" => $about->getSubTitle(),
             "text" => $about->getText(),
             "picture" => $about->getPicture()
         ));
@@ -413,12 +415,12 @@ class DB_Manager2
         return $aboutInfo;
     }
 
-    //Function to update the about
+//Function to update the about
     public function update_about($id, $avatar)
     {
 
         //query to update database
-        $query = $this->db->prepare("UPDATE about SET id = :id, text = :text, picture = :picture WHERE id = $id;");
+        $query = $this->db->prepare("UPDATE about SET id = :id, title = :title, subTitle = :subTitle, text = :text, picture = :picture WHERE id = $id;");
 
         //check if the $avatar is not in session['chef_pic]'
         if ($_SESSION['about_pic'] != $avatar) {
@@ -426,6 +428,8 @@ class DB_Manager2
             //if it isn't user uploaded a new picture
             $result = $query->execute(array(
                 "id" => $_GET['updateID'],
+                "title" => $_POST['aboutTitle'],
+                "subTitle" => $_POST['aboutSubTitle'],
                 "text" => $_POST['aboutDesc'],
                 "picture" => basename($_FILES["aboutPic"]["name"])
             ));
@@ -433,6 +437,8 @@ class DB_Manager2
             //user did not upload picture
             $result = $query->execute(array(
                 "id" => $_GET['updateID'],
+                "title" => $_POST['aboutTitle'],
+                "subTitle" => $_POST['aboutSubTitle'],
                 "text" => $_POST['aboutDesc'],
                 "picture" => $_SESSION['about_pic']
             ));
@@ -442,7 +448,6 @@ class DB_Manager2
             header("location: about.php?updateSuccess");
         }
     }
-
 
     //Function to delete an about information from the menu table and the database
     public function delete_about()
