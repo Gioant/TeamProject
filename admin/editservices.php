@@ -40,7 +40,7 @@
                                     <i class="bx bx-upload d-block d-sm-none"></i>
 
                                     <input type="file" id="upload" class="account-file-input" accept="image/png, image/jpeg" hidden="" name="sliderPic"
-                                           onchange="document.getElementById('uploadedAvatar').src = window.URL.createObjectURL(this.files[0])" required>
+                                           onchange="document.getElementById('uploadedAvatar').src = window.URL.createObjectURL(this.files[0])">
                                 
                                 </label>
                                 <p class="text-muted mb-0">Allowed JPG, GIF or PNG.</p>
@@ -54,17 +54,17 @@
                                 <div class="mb-3 col-md-6">
                                     <label for="sliderName" class="form-label">Title</label>
                                     <input class="form-control" type="text" id="sliderName"
-                                           name="sliderName" <?php echo 'value="'.$_SESSION['sliderName'].'"'; ?> autocomplete="off" required>
+                                           name="sliderName" <?php echo 'value="'.$_SESSION['sliderName'].'"'; ?> autocomplete="off">
                                 </div>
                                 <!-- Slider Price -->
                                 <div class="mb-3 col-md-6">
                                     <label for="sliderPrice" class="form-label">Price</label>
-                                    <input class="form-control" type="text" name="sliderPrice" id="sliderPrice" <?php echo 'value="'.$_SESSION['sliderPrice'].'"'; ?> autocomplete="off" required>
+                                    <input class="form-control" type="text" name="sliderPrice" id="sliderPrice" <?php echo 'value="'.$_SESSION['sliderPrice'].'"'; ?> autocomplete="off">
                                 </div>
                                 <!-- Description -->
                                 <div class="mb-3 col-md-6">
                                     <label for="sliderDesc" class="form-label">Description</label>
-                                    <textarea class="form-control" type="text" id="sliderDesc" name="sliderDesc" maxlength="100" autocomplete="off" required><?php echo $_SESSION['sliderDesc']; ?></textarea>
+                                    <textarea class="form-control" type="text" id="sliderDesc" name="sliderDesc" maxlength="100" autocomplete="off"><?php echo $_SESSION['sliderDesc']; ?></textarea>
                                 </div>
                             </div>
                             <div class="mt-2">

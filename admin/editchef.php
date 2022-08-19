@@ -41,7 +41,7 @@ include_once "../controller/RestaurantController.php";
                                         <i class="bx bx-upload d-block d-sm-none"></i>
 
                                         <input type="file" id="upload" class="account-file-input" accept="image/png, image/jpeg" hidden="" name="chefPic"
-                                               onchange="document.getElementById('uploadedAvatar').src = window.URL.createObjectURL(this.files[0])" required>
+                                               onchange="document.getElementById('uploadedAvatar').src = window.URL.createObjectURL(this.files[0])">
 
                                     </label>
                                     <p class="text-muted mb-0">Allowed JPG, GIF or PNG.</p>
@@ -55,22 +55,22 @@ include_once "../controller/RestaurantController.php";
                             <div class="mb-3 col-md-6">
                                 <label for="chefFirstName" class="form-label">First Name</label>
                                 <input class="form-control" type="text" id="chefFirstName"
-                                       name="chefFirstName" <?php echo 'value="'.$_SESSION['chefFirstName'].'"'; ?> autocomplete="off" required>
+                                       name="chefFirstName" <?php echo 'value="'.$_SESSION['chefFirstName'].'"'; ?> autocomplete="off">
                             </div>
                             <!-- Last Name -->
                             <div class="mb-3 col-md-6">
                                 <label for="chefLastName" class="form-label">Last Name</label>
-                                <input class="form-control" type="text" name="chefLastName" id="lastName" <?php echo 'value="'.$_SESSION['chefLastName'].'"'; ?> autocomplete="off" required>
+                                <input class="form-control" type="text" name="chefLastName" id="lastName" <?php echo 'value="'.$_SESSION['chefLastName'].'"'; ?> autocomplete="off">
                             </div>
                             <!-- Position -->
                             <div class="mb-3 col-md-6">
                                 <label for="position" class="form-label">Position</label>
-                                <input type="text" class="form-control" id="position" name="position" <?php echo 'value="'.$_SESSION['position'].'"'; ?> autocomplete="off" required>
+                                <input type="text" class="form-control" id="position" name="position" <?php echo 'value="'.$_SESSION['position'].'"'; ?> autocomplete="off">
                             </div>
                             <!-- Description -->
                             <div class="mb-3 col-md-6">
                                 <label for="description" class="form-label">Description</label>
-                                <textarea class="form-control" type="text" id="description" name="description" maxlength="100" autocomplete="off" required><?php echo $_SESSION['description']; ?></textarea>
+                                <textarea class="form-control" type="text" id="description" name="description" maxlength="100" autocomplete="off"><?php echo $_SESSION['description']; ?></textarea>
                             </div>
                         </div>
                         <div class="mt-2">
@@ -93,5 +93,7 @@ include_once "../controller/RestaurantController.php";
             </div>
             <!-- End Content Section -->
         </div>
+    </div>
+</div>
 </body>
 </html>

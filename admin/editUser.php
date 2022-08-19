@@ -25,7 +25,7 @@ include_once "../controller/AdminController.php";
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="row">
             <div class="col-md-12">
-                <form class="card mb-4">
+                <div class="card mb-4">
                     <h4 class="card-header">User Details</h4>
                     <!-- Account -->
                     <div class="card-body">
@@ -39,10 +39,8 @@ include_once "../controller/AdminController.php";
                                     <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
                                         <span class="d-none d-sm-block">Upload new photo</span>
                                         <i class="bx bx-upload d-block d-sm-none"></i>
-
                                         <input type="file" id="upload" class="account-file-input" accept="image/png, image/jpeg" hidden="" name="userPic"
                                                onchange="document.getElementById('uploadedAvatar').src = window.URL.createObjectURL(this.files[0])">
-
                                     </label>
                                     <p class="text-muted mb-0">Allowed JPG, GIF or PNG.</p>
                             </div>
@@ -98,7 +96,7 @@ include_once "../controller/AdminController.php";
                             </div>
                         </footer>
                     </div>
-                </form>
+                    </form>
                 </div>
             </div>
             <!-- End Content Section -->

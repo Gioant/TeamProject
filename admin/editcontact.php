@@ -33,27 +33,27 @@
                                 <div class="mb-3 col-md-6">
                                     <label for="contactLocation" class="form-label">Location</label>
                                     <input class="form-control" type="text" id="contactLocation"
-                                           name="contactLocation" <?php echo 'value="'.$_SESSION['contactLocation'].'"'; ?> autocomplete="off" required>
+                                           name="contactLocation" <?php echo 'value="'.$_SESSION['contactLocation'].'"'; ?> autocomplete="off">
                                 </div>
                                 <!-- Opening Hours -->
                                 <div class="mb-3 col-md-3">
                                     <label for="contactOpen" class="form-label">Opening Hours</label>
-                                    <input class="form-control" type="text" name="contactOpen" id="contactOpen" <?php echo 'value="'.$_SESSION['contactOpen'].'"'; ?> autocomplete="off" required>
+                                    <input class="form-control" type="text" name="contactOpen" id="contactOpen" <?php echo 'value="'.$_SESSION['contactOpen'].'"'; ?> autocomplete="off">
                                 </div>
                                 <!-- Closing Hours -->
                                 <div class="mb-3 col-md-3">
                                     <label for="contactClose" class="form-label">Closing Hours</label>
-                                    <input class="form-control" type="text" name="contactClose" id="contactClose" <?php echo 'value="'.$_SESSION['contactClose'].'"'; ?> autocomplete="off" required>
+                                    <input class="form-control" type="text" name="contactClose" id="contactClose" <?php echo 'value="'.$_SESSION['contactClose'].'"'; ?> autocomplete="off">
                                 </div>
                                 <!-- Email -->
                                 <div class="mb-3 col-md-6">
                                     <label for="contactEmail" class="form-label">Email</label>
-                                    <input type="text" class="form-control" id="contactEmail" name="contactEmail" <?php echo 'value="'.$_SESSION['contactEmail'].'"'; ?> autocomplete="off" required>
+                                    <input type="text" class="form-control" id="contactEmail" name="contactEmail" <?php echo 'value="'.$_SESSION['contactEmail'].'"'; ?> autocomplete="off">
                                 </div>
                                 <!-- Telephone -->
                                 <div class="mb-3 col-md-6">
                                     <label for="contactPhone" class="form-label">Telephone</label>
-                                    <input class="form-control" type="text" id="contactPhone" name="contactPhone" maxlength="100" <?php echo 'value="'.$_SESSION['contactPhone'].'"'; ?> autocomplete="off" required>
+                                    <input class="form-control" type="text" id="contactPhone" name="contactPhone" maxlength="100" <?php echo 'value="'.$_SESSION['contactPhone'].'"'; ?> autocomplete="off">
                                 </div>
                             </div>
                             <div class="mt-2">
@@ -75,5 +75,15 @@
                 </div>
                 </div>
 
+        <!-- Errors messages -->
+        <?php
+            if (isset($_GET['error'])) {
+                if ($_GET['error'] == "nameAlreadyExist") {
+                    echo '<script>alert("This username already exist.\\nPlease select another username.")</script>';
+                } else if ($_GET['error'] == "emailAlreadyExist") {
+                    echo '<script>alert("This email already exist.\\nPlease enter a different email.")</script>';
+                }
+            }
+        ?>
     </body>
 </html>
