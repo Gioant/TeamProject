@@ -171,7 +171,7 @@ include_once "../controller/RestaurantController.php";
                 </ol>
                 <div class="card mb-4">
                     <div class="card-body">
-                        DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables.</div>
+                        Employees name and lastname with their picture, their position and a small bio.</div>
                 </div>
                 <div class="card mb-4">
                     <div class="card-header">
