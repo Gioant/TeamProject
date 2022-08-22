@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 19, 2022 at 04:23 AM
+-- Generation Time: Aug 22, 2022 at 02:29 AM
 -- Server version: 8.0.29
 -- PHP Version: 7.4.9
 
@@ -30,18 +30,20 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `about`;
 CREATE TABLE IF NOT EXISTS `about` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `text` text NOT NULL,
+  `title` varchar(150) NOT NULL,
+  `subTitle` varchar(150) NOT NULL,
+  `text` longtext NOT NULL,
   `picture` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `about`
 --
 
-INSERT INTO `about` (`id`, `text`, `picture`) VALUES
-(1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore\r\n              magna aliqua. Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate\r\n              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in\r\n              culpa qui officia deserunt mollit anim id est laborum', 'about.jpg'),
-(9, 'Testing text ', 'clownphoto.jpg');
+INSERT INTO `about` (`id`, `title`, `subTitle`, `text`, `picture`) VALUES
+(1, 'Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat lorem ipsum dolores michelada.', 'about.jpg'),
+(2, 'This is a test title for the add about description', 'This is a test sub Title', 'Team C is the best team in the world <3', 'mybrain.png');
 
 -- --------------------------------------------------------
 
@@ -159,12 +161,12 @@ INSERT INTO `menu` (`id`, `name`, `description`, `price`, `picture`, `type`) VAL
 DROP TABLE IF EXISTS `slider`;
 CREATE TABLE IF NOT EXISTS `slider` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(20) NOT NULL,
+  `title` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `price` int NOT NULL,
   `picture` varchar(50) NOT NULL,
   `text` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `slider`
@@ -214,7 +216,7 @@ CREATE TABLE IF NOT EXISTS `welcome` (
   `title1` varchar(50) NOT NULL,
   `title2` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `welcome`
