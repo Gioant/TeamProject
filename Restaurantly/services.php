@@ -43,7 +43,6 @@ $get_slider = $database->get_all_slider();
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
 </head>
-
 <body>
 
 <!-- ======= Header ======= -->
@@ -172,7 +171,6 @@ $get_slider = $database->get_all_slider();
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials section-bg">
         <div class="container" data-aos="fade-up">
-
             <div class="section-title">
                 <h2>Testimonials</h2>
                 <p>What they're saying about us</p>
@@ -180,7 +178,6 @@ $get_slider = $database->get_all_slider();
 
             <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
-
                     <div class="swiper-slide">
                         <div class="testimonial-item">
                             <p>

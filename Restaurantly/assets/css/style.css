@@ -124,7 +124,7 @@ h6 {
 --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
-    transition-delay: 0 !important;
+    transition-delay: 0ms !important;
   }
 }
 
@@ -573,12 +573,12 @@ h6 {
   animation-delay: 0s;
   -webkit-animation: pulsate-btn 2s;
   animation: pulsate-btn 2s;
-  -webkit-animation-direction: forwards;
-  animation-direction: forwards;
+  -webkit-animation-direction: normal;
+  animation-direction: normal;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
-  -webkit-animation-timing-function: steps;
-  animation-timing-function: steps;
+  -webkit-animation-timing-function: steps(5,start);
+  animation-timing-function: steps(5,start);
   opacity: 1;
   border-radius: 50%;
   border: 5px solid rgba(205, 164, 94, 0.7);

@@ -3,6 +3,11 @@
     <div class="footer-top">
         <div class="container">
             <div style="display: flex;justify-content: space-between">
+                <div class="col-lg-3">
+                    <h3>Final Project</h3>
+                    <p style="margin-top: 5%; line-height: 1.8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-info">
                         <h3>Content Changer</h3>

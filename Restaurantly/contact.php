@@ -128,7 +128,7 @@ foreach ($get_contact as $contact) {
 
                     </div>
 
-                    <div class="social-links mt-3">
+                    <div class="social-links mt-3" style="font-size: 36px;">
                         <a name="contact-twitter"
                            href="https://www.youtube.com/watch?v=0qJxp7LwGd0&ab_channel=CrunchyrollCollection"
                            target="_blank" class="twitter"><i class="bx bxl-twitter"></i></a>

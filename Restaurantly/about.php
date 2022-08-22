@@ -5,6 +5,7 @@ include_once "../model/About.class.php";
 $database = new DB_Manager2();
 $get_about = $database->get_all_about();
 
+$get_chef = $database-> get_all_chefs();
 
 ?>
 
@@ -149,16 +150,16 @@ $get_about = $database->get_all_about();
             </div>
 
             <div class="row justify-content-md-center">
-
+                <?php foreach($get_chef as $chef): ?>
                 <div class="col-3">
                     <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                        <img name="about-nickpic" src="assets/img/chefs/nickk.jpg" class="img-fluid1" alt=""
+                        <img src="assets/img/chefs/<?php echo $chef['avatar'] ?>" class="img-fluid1" alt=""
                              height="416" width="416">
                         <div class="member-info">
                             <div class="member-info-content">
-                                <h3 name="about-name1">Nicholas Tsoukatos</h3>
-                                <h4 name="about-title1">Team Leader</h4>
-                                <h6 name="about-bio1">I need me a bad bitch</h6>
+                                <h3><?php echo $chef['name'] . " " .$chef['lastname'] ?></h3>
+                                <h4><?php echo $chef['poste']?></h4>
+                                <h6><?php echo $chef['description']?></h6>
                             </div>
                             <div class="social">
                                 <a href=""><i class="bi bi-twitter"></i></a>
@@ -169,68 +170,8 @@ $get_about = $database->get_all_about();
                         </div>
                     </div>
                 </div>
-
-                <div class="col-3">
-                    <div class="member" data-aos="zoom-in" data-aos-delay="200">
-                        <img name="about-andypic" src="assets/img/chefs/andy.jpg" class="img-fluid1" alt="">
-                        <div class="member-info">
-                            <div class="member-info-content">
-                                <h3 name="about-name2">Anthony Giolti Funes</h3>
-                                <h4 name="about-title2">Big Brain Genius</h4>
-                                <h6 name="about-bio2">Andy graduated University at 8 years old and is now mama birding
-                                    us newbies in coding</h6>
-                            </div>
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <div class="member" data-aos="zoom-in" data-aos-delay="300">
-                        <img name="about-jlpic" src="assets/img/chefs/jean-loup.jpg" class="img-fluid1" alt="">
-                        <div class="member-info">
-                            <div class="member-info-content">
-                                <h3 name="about-name3">Jean-Loup Davidson</h3>
-                                <h4 name="about-title3">Hardworker</h4>
-                                <h6 name="about-bio3">Finally got his first W in warzone last night</h6>
-                            </div>
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-3">
-                    <div class="member" data-aos="zoom-in" data-aos-delay="300">
-                        <img name="about-kevinpic" src="./assets/img/chefs/kevinChan.jpg" class="img-fluid1" alt="">
-                        <div class="member-info">
-                            <div class="member-info-content">
-                                <h3 name="about-name4">Kevin Chan</h3>
-                                <h4 name="about-title4">Speed Checker</h4>
-                                <h6 name="about-bio4">All Kevin does is work everyday</h6>
-                            </div>
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
+                <?php endforeach; ?>
             </div>
-
         </div>
     </section><!-- End Chefs Section -->
 
