@@ -80,7 +80,7 @@ $get_chef = $database-> get_all_chefs();
             <div class="row">
                 <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
                     <div class="about-img">
-                        <img name="about-image" src="assets/img/<?php echo $about['picture'] ?>" alt="">
+                        <img name="about-image" src="assets/img/<?php echo $about['picture'] ?>" alt="" width="650px" height="480px">
                     </div>
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">

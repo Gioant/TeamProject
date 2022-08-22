@@ -14,6 +14,7 @@ include_once "../controller/RestaurantController.php";
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/imask"></script>
         <script src="js/scripts.js"></script>
     </head>
     <body class="bg-secondary">
@@ -53,7 +54,7 @@ include_once "../controller/RestaurantController.php";
                                 <div class="mb-3 col-md-6">
                                     <label for="addContactPhone" class="form-label">New Telephone</label>
                                     <input class="form-control" type="tel" id="addContactPhone" name="addContactPhone" autocomplete="off"
-                                           minlength="10" maxlength="12" required>
+                                           minlength="10" required>
                                 </div>
                             </div>
                             <div class="mt-2">
@@ -85,5 +86,12 @@ include_once "../controller/RestaurantController.php";
                 }
             }
         ?>
+            <script>
+                var element = document.getElementById('addContactPhone');
+                var maskOptions = {
+                    mask: '000-000-0000'
+                };
+                var mask = IMask(element, maskOptions);
+            </script>
     </body>
 </html>
