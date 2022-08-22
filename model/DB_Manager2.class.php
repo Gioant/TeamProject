@@ -286,6 +286,14 @@ class DB_Manager2
 
     /*=============================== END MENU PART  =================================*/
 
+    // Function to group menu by type
+    public function get_group_type()
+    {
+        $query = $this->db->query("SELECT * FROM menu GROUP BY type;");
+        $array = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        return $array;
+    }
 
     /*==============================  CONTACT PART  ==================================*/
     //Function to add a new contact information inside the database
