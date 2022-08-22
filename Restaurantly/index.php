@@ -1,3 +1,15 @@
+<?php
+include_once "../model/DB_Manager2.class.php";
+include_once "../model/About.class.php";
+
+$database = new DB_Manager2();
+$get_welcome = $database-> get_all_welcome();
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,17 +73,15 @@
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
+    <?php foreach($get_welcome as $welcome): ?>
     <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
         <div class="row">
             <div class="col-lg-8">
-                <h1 name="index-title">Welcome to Content Manager</h1>
-                <h2 name="index-subtitle">Changing content for 2 weeks. . . !</h2>
+                <h1><?php echo $welcome['title1'] ?></h1>
+                <h2><?php echo $welcome['title2'] ?></h2>
 
-                <div class="btns">
-                    <a href="#menu" class="btn-menu animated fadeInUp scrollto">Our Menu</a>
-                    <a href="#book-a-table" class="btn-book animated fadeInUp scrollto">Book a Table</a>
-                </div>
             </div>
+            <?php endforeach; ?>
             <div class="col-lg-4 d-flex align-items-center justify-content-center position-relative" data-aos="zoom-in"
                  data-aos-delay="200">
                 <a href="https://www.youtube.com/watch?v=u6BOC7CDUTQ" class="glightbox play-btn"></a>
