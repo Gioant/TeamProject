@@ -278,5 +278,19 @@
         </script>
     <?php endif; ?>
 
+    <?php if (isset($_GET["deleteSuccess"])) : ?>
+        <script>
+            Swal.fire({
+                title: 'Success',
+                text: 'User Deleted Successfully',
+                icon: 'success',
+                color: 'LimeGreen',
+                confirmButtonText: 'Thank You!'
+            });
+
+            // After Showing Alert, Remove Parameter GET createSuccess
+            window.history.replaceState(null, null, window.location.pathname);
+        </script>
+    <?php endif; ?>
 </body>
 </html>

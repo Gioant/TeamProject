@@ -197,7 +197,11 @@ avatar = :avatar, email=:email,password=:password WHERE id = $id;");
     {
         //query to update database
         $query = $this->db->prepare("DELETE FROM users WHERE id = ?;");
-        $query->execute(array($_GET['id']));
+        $result = $query->execute(array($_GET['id']));
+
+        if ($result) {
+            header("location: index.php?deleteSuccess");
+        }
     }
 
     //Function to select all informations of a user based on his id
