@@ -54,22 +54,22 @@ include_once "../controller/RestaurantController.php";
                                 <div class="mb-3 col-md-6">
                                     <label for="addMenuName" class="form-label">Add Dish Name</label>
                                     <input class="form-control" type="text" id="addMenuName"
-                                           name="addMenuName" autocomplete="off" required>
+                                           name="addMenuName" autocomplete="off" placeholder="Dish Name" required>
                                 </div>
                                 <!-- Menu Type -->
                                 <div class="mb-3 col-md-6">
                                     <label for="addMenuType" class="form-label">Add Dish Type</label>
-                                    <input class="form-control" type="text" name="addMenuType" id="addMenuType" autocomplete="off" required>
+                                    <input class="form-control" type="text" name="addMenuType" id="addMenuType" placeholder="Dish Type" autocomplete="off" required>
                                 </div>
                                 <!-- Price -->
                                 <div class="mb-3 col-md-6">
                                     <label for="addMenuPrice" class="form-label">Add Price/$</label>
-                                    <input type="number" min="1" step="any" class="form-control" id="addMenuPrice" name="addMenuPrice" autocomplete="off" required>
+                                    <input type="number" min="1" step="any" class="form-control" id="addMenuPrice" name="addMenuPrice" placeholder="Price" autocomplete="off" required>
                                 </div>
                                 <!-- Description -->
                                 <div class="mb-3 col-md-6">
                                     <label for="addMenuDesc" class="form-label">Description</label>
-                                    <textarea class="form-control" type="text" id="addMenuDesc" name="addMenuDesc" maxlength="100" autocomplete="off" required></textarea>
+                                    <textarea class="form-control" type="text" id="addMenuDesc" name="addMenuDesc" maxlength="100" placeholder="Description" autocomplete="off" required></textarea>
                                 </div>
                             </div>
                             <div class="mt-2">

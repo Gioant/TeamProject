@@ -33,27 +33,27 @@
                                 <div class="mb-3 col-md-6">
                                     <label for="addFooterTitle" class="form-label">Add Title</label>
                                     <input class="form-control" type="text" id="addFooterTitle"
-                                           name="addFooterTitle" autocomplete="off" required>
+                                           name="addFooterTitle" autocomplete="off" placeholder="Title" required>
                                 </div>
                                 <!-- Address -->
                                 <div class="mb-3 col-md-3">
                                     <label for="addFooterAddress" class="form-label">Add Address</label>
-                                    <input class="form-control" type="text" name="addFooterAddress" id="addFooterAddress" autocomplete="off" required>
+                                    <input class="form-control" type="text" name="addFooterAddress" id="addFooterAddress" autocomplete="off" placeholder="123 Fake Street" required>
                                 </div>
                                 <!-- Area -->
                                 <div class="mb-3 col-md-3">
                                     <label for="addFooterArea" class="form-label">Add Area</label>
-                                    <input class="form-control" type="text" name="addFooterArea" id="addFooterArea" autocomplete="off" required>
+                                    <input class="form-control" type="text" name="addFooterArea" id="addFooterArea" autocomplete="off" placeholder="Somewhere"required>
                                 </div>
                                 <!-- Telephone -->
                                 <div class="mb-3 col-md-6">
                                     <label for="addFooterPhone" class="form-label">Add Telephone</label>
-                                    <input class="form-control" type="text" id="addFooterPhone" name="addFooterPhone" maxlength="15" autocomplete="off" required>
+                                    <input class="form-control" type="text" id="addFooterPhone" name="addFooterPhone" maxlength="100" autocomplete="off" placeholder="123-456-7890" required>
                                 </div>
                                 <!-- Email -->
                                 <div class="mb-3 col-md-6">
                                     <label for="addFooterEmail" class="form-label">Add Email</label>
-                                    <input type="text" class="form-control" id="addFooterEmail" name="addFooterEmail" autocomplete="off" required>
+                                    <input type="text" class="form-control" id="addFooterEmail" name="addFooterEmail" autocomplete="off" placeholder="testing@gmail.com" required>
                                 </div>
                             </div>
                             <div class="mt-2">

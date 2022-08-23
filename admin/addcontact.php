@@ -14,7 +14,6 @@ include_once "../controller/RestaurantController.php";
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/imask"></script>
         <script src="js/scripts.js"></script>
     </head>
     <body class="bg-secondary">
@@ -33,28 +32,27 @@ include_once "../controller/RestaurantController.php";
                                 <!-- Location -->
                                 <div class="mb-3 col-md-6">
                                     <label for="addContactLocation" class="form-label">New Location</label>
-                                    <input class="form-control" type="text" id="addContactLocation" name="addContactLocation" autocomplete="off" required>
+                                    <input class="form-control" type="text" id="addContactLocation" name="addContactLocation" autocomplete="off" placeholder="123 Fake Street" required>
                                 </div>
                                 <!-- Opening Hours -->
                                 <div class="mb-3 col-md-3">
                                     <label for="addContactOpen" class="form-label">New Opening Hours</label>
-                                    <input class="form-control" type="text" name="addContactOpen" id="addContactOpen" autocomplete="off" required>
+                                    <input class="form-control" type="text" name="addContactOpen" id="addContactOpen" autocomplete="off" placeholder="9:00AM"  required>
                                 </div>
                                 <!-- Closing Hours -->
                                 <div class="mb-3 col-md-3">
                                     <label for="addContactClose" class="form-label">New Closing Hours</label>
-                                    <input class="form-control" type="text" name="addContactClose" id="addContactClose" autocomplete="off" required>
+                                    <input class="form-control" type="text" name="addContactClose" id="addContactClose" autocomplete="off" placeholder="5:00PM"required>
                                 </div>
                                 <!-- Email -->
                                 <div class="mb-3 col-md-6">
                                     <label for="addContactEmail" class="form-label">New Email</label>
-                                    <input type="text" class="form-control" id="addContactEmail" name="addContactEmail" autocomplete="off" required>
+                                    <input type="text" class="form-control" id="addContactEmail" name="addContactEmail" autocomplete="off" placeholder="testing@gmail.com" required>
                                 </div>
                                 <!-- Telephone -->
                                 <div class="mb-3 col-md-6">
                                     <label for="addContactPhone" class="form-label">New Telephone</label>
-                                    <input class="form-control" type="tel" id="addContactPhone" name="addContactPhone" autocomplete="off"
-                                           minlength="10"  required>
+                                    <input class="form-control" type="number" id="addContactPhone" name="addContactPhone" maxlength="12" autocomplete="off" placeholder="123-456-7890"required>
                                 </div>
                             </div>
                             <div class="mt-2">
@@ -86,12 +84,5 @@ include_once "../controller/RestaurantController.php";
                 }
             }
         ?>
-            <script>
-                var element = document.getElementById('addContactPhone');
-                var maskOptions = {
-                    mask: '000-000-0000'
-                };
-                var mask = IMask(element, maskOptions);
-            </script>
     </body>
 </html>

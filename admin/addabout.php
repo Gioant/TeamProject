@@ -53,17 +53,17 @@ include_once "../controller/RestaurantController.php";
                             <!-- Title -->
                             <div class="mb-3 col-md-6">
                                 <label for="newAboutTitle" class="form-label">New About Title</label>
-                                <textarea class="form-control" style="height: 100px" type="text" id="newAboutTitle" name="newAboutTitle" maxlength="150" autocomplete="off" required></textarea>
+                                <textarea class="form-control" style="height: 100px" type="text" id="newAboutTitle" name="newAboutTitle"  placeholder="About Title" maxlength="150" autocomplete="off" required></textarea>
                             </div>
                             <!-- Sub Title -->
                             <div class="mb-3 col-md-6">
                                 <label for="newAboutSubTitle" class="form-label">New About Sub Title</label>
-                                <textarea class="form-control" style="height: 100px" type="text" id="newAboutSubTitle" name="newAboutSubTitle" maxlength="150" autocomplete="off" required></textarea>
+                                <textarea class="form-control" style="height: 100px" type="text" id="newAboutSubTitle" name="newAboutSubTitle" placeholder="About Sub Title" maxlength="150" autocomplete="off" required></textarea>
                             </div>
                             <!-- Description -->
                             <div class="mb-3 col-md-6">
                                 <label for="newAboutDesc" class="form-label">New About Description</label>
-                                <textarea class="form-control" style="height: 200px" type="text" id="newAboutDesc" name="newAboutDesc" maxlength="255" autocomplete="off" required></textarea>
+                                <textarea class="form-control" style="height: 200px" type="text" id="newAboutDesc" name="newAboutDesc" placeholder="About Description" maxlength="255" autocomplete="off" required></textarea>
                             </div>
                         </div>
                         <div class="mt-2">

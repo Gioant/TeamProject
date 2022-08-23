@@ -33,13 +33,13 @@
                                 <div class="mb-3 col-md-6">
                                     <label for="addWelcomeTitle1" class="form-label">Add Main Title</label>
                                     <input class="form-control" type="text" id="addWelcomeTitle1"
-                                           name="addWelcomeTitle1" autocomplete="off" required>
+                                           name="addWelcomeTitle1" autocomplete="off" placeholder="Main Title" required>
                                 </div>
                                 <!-- Sub Title -->
                                 <div class="mb-3 col-md-3">
                                     <label for="addWelcomeTitle2" class="form-label">Add Sub Title</label>
                                     <input class="form-control" type="text" id="addWelcomeTitle2"
-                                           name="addWelcomeTitle2" autocomplete="off" required>
+                                           name="addWelcomeTitle2" autocomplete="off" placeholder="Sub Title" required>
                                 </div>
                             </div>
                             <div class="mt-2">

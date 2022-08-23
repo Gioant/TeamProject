@@ -54,22 +54,22 @@ include_once "../controller/RestaurantController.php";
                                 <div class="mb-3 col-md-6">
                                     <label for="addChefFirstName" class="form-label">Add First Name</label>
                                     <input class="form-control" type="text" id="addChefFirstName"
-                                           name="addChefFirstName" autocomplete="off" required>
+                                           name="addChefFirstName" autocomplete="off" placeholder="First Name" required>
                                 </div>
                                 <!-- Last Name -->
                                 <div class="mb-3 col-md-6">
                                     <label for="addChefLastName" class="form-label">Add Last Name</label>
-                                    <input class="form-control" type="text" name="addChefLastName" id="addChefLastName" autocomplete="off" required>
+                                    <input class="form-control" type="text" name="addChefLastName" id="addChefLastName" autocomplete="off" placeholder="Last Name" required>
                                 </div>
                                 <!-- Position -->
                                 <div class="mb-3 col-md-6">
                                     <label for="addChefPosition" class="form-label">Add Position</label>
-                                    <input type="text" class="form-control" id="addChefPosition" name="addChefPosition" autocomplete="off" required>
+                                    <input type="text" class="form-control" id="addChefPosition" name="addChefPosition" autocomplete="off" placeholder="Position" required>
                                 </div>
                                 <!-- Description -->
                                 <div class="mb-3 col-md-6">
                                     <label for="addChefDescription" class="form-label">Add Description</label>
-                                    <textarea class="form-control" type="text" id="addChefDescription" name="addChefDescription" style="height: 100px;" maxlength="100" autocomplete="off" required></textarea>
+                                    <textarea class="form-control" type="text" id="addChefDescription" name="addChefDescription" placeholder="Description" style="height: 100px;" maxlength="100" autocomplete="off" required></textarea>
                                 </div>
                             </div>
                             <div class="mt-2">
