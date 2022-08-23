@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 22, 2022 at 02:29 AM
+-- Generation Time: Aug 23, 2022 at 04:28 AM
 -- Server version: 8.0.29
 -- PHP Version: 7.4.9
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `about` (
   `text` longtext NOT NULL,
   `picture` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `about`
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `chef` (
   `poste` varchar(50) NOT NULL,
   `description` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `chef`
@@ -70,7 +70,7 @@ INSERT INTO `chef` (`id`, `name`, `lastname`, `avatar`, `poste`, `description`) 
 (1, 'Nicholas', 'Tsoukatos', 'nickk.jpg', 'Team Leader', 'Captain of my ship, my team needs me to get them out of the storm'),
 (2, 'Anthony', 'Giolti Funes', 'andy.jpg', 'Big Brain Genius', 'Andy graduated University at 8 years old and is now mama birding us newbies in coding'),
 (3, 'Jean-Loup', 'Davidson', 'jean-loup.jpg', 'Hardworker', 'He will not take a break, he drink 5 redbulls a day'),
-(4, 'Kevin', 'Chan', 'kevin.jpg', 'Speed Checker', 'All Kevin does is work everyday, he did not sleep for the past 3 years');
+(4, 'Kevin', 'Chan', 'kevinChan.jpg', 'Speed Checker', 'All Kevin does is work everyday, he did not sleep for the past 3 years');
 
 -- --------------------------------------------------------
 
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `contact` (
   `email` varchar(50) NOT NULL,
   `phone` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `contact`
@@ -105,20 +105,21 @@ INSERT INTO `contact` (`id`, `location`, `open`, `close`, `email`, `phone`) VALU
 DROP TABLE IF EXISTS `footer`;
 CREATE TABLE IF NOT EXISTS `footer` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `picture` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `title` varchar(50) NOT NULL,
   `address` varchar(50) NOT NULL,
   `area` varchar(50) NOT NULL,
   `phone` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `footer`
 --
 
-INSERT INTO `footer` (`id`, `title`, `address`, `area`, `phone`, `email`) VALUES
-(1, 'Content Changer', '1616 Rene-Levesque Blvd W.', 'Montreal, Quebec H3H 1P8', '+1 5589 55488 551', 'info@example.com');
+INSERT INTO `footer` (`id`, `picture`, `title`, `address`, `area`, `phone`, `email`) VALUES
+(1, 'logo.png', 'Content Changer', '1616 Rene-Levesque Blvd W.', 'Montreal, Quebec H3H 1P8', '+1 5589 55488 551', 'info@example.com');
 
 -- --------------------------------------------------------
 
@@ -194,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(50) NOT NULL,
   `level` int NOT NULL DEFAULT '2',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -216,14 +217,14 @@ CREATE TABLE IF NOT EXISTS `welcome` (
   `title1` varchar(50) NOT NULL,
   `title2` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `welcome`
 --
 
 INSERT INTO `welcome` (`id`, `title1`, `title2`) VALUES
-(1, 'Welcome to Content Manager12', 'Changing content for 2 weeks..!');
+(1, 'Welcome to Content Manager', 'Changing content for 2 weeks..!');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
