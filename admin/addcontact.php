@@ -54,7 +54,7 @@ include_once "../controller/RestaurantController.php";
                                 <div class="mb-3 col-md-6">
                                     <label for="addContactPhone" class="form-label">New Telephone</label>
                                     <input class="form-control" type="tel" id="addContactPhone" name="addContactPhone" autocomplete="off"
-                                           minlength="10" required>
+                                           minlength="10"  required>
                                 </div>
                             </div>
                             <div class="mt-2">

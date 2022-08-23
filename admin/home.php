@@ -285,11 +285,28 @@ include_once "../controller/RestaurantController.php";
 <script src="js/scripts.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
 
+<?php if (isset($_GET["deleteSuccess"])) : ?>
+    <script>
+        Swal.fire({
+            title: 'Success',
+            text: 'Deleted Successfully',
+            icon: 'success',
+            color: 'LimeGreen',
+            confirmButtonText: 'Thank You!'
+        });
+
+        // After Showing Alert, Remove Parameter GET createSuccess
+        window.history.replaceState(null, null, window.location.pathname);
+    </script>
+<?php endif; ?>
+
+
+
 <?php if (isset($_GET["updateSuccess"])) : ?>
     <script>
         Swal.fire({
             title: 'Success',
-            text: 'Services Updated Successfully',
+            text: 'Home Updated Successfully',
             icon: 'success',
             color: 'LimeGreen',
             confirmButtonText: 'Thank You!'

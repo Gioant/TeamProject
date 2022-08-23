@@ -68,6 +68,10 @@ class DB_Manager2
         //query to update database
         $query = $this->db->prepare("DELETE FROM chef WHERE id = ?;");
         $result = $query->execute(array($_GET['chefDeleteID']));
+
+        if ($result) {
+            header("location: team.php?deleteSuccess");
+        }
     }
 
     //Function to update the chefs
@@ -161,6 +165,10 @@ class DB_Manager2
         //query to update database
         $query = $this->db->prepare("DELETE FROM slider WHERE id = ?;");
         $result = $query->execute(array($_GET['sliderDeleteID']));
+
+        if ($result) {
+            header("location: team.php?deleteSuccess");
+        }
     }
 
 
@@ -245,6 +253,10 @@ class DB_Manager2
         //query to update database
         $query = $this->db->prepare("DELETE FROM menu WHERE id = ?;");
         $result = $query->execute(array($_GET['menuDeleteID']));
+
+        if ($result) {
+            header("location: services.php?deleteSuccess");
+        }
     }
 
     //Function to update the menu
@@ -348,6 +360,10 @@ class DB_Manager2
         //query to update database
         $query = $this->db->prepare("DELETE FROM contact WHERE id = ?;");
         $result = $query->execute(array($_GET['contactDeleteID']));
+
+        if ($result) {
+            header("location: contact.php?deleteSuccess");
+        }
     }
 
     //Function to update the contact
@@ -463,6 +479,10 @@ class DB_Manager2
         //query to update database
         $query = $this->db->prepare("DELETE FROM about WHERE id = ?;");
         $result = $query->execute(array($_GET['aboutDeleteID']));
+
+        if ($result) {
+            header("location: about.php?deleteSuccess");
+        }
     }
 
     /*================================  END ABOUT PART  ================================*/
@@ -526,7 +546,7 @@ class DB_Manager2
 
         //redirect user with success msg
         if ($result) {
-            header("location: home.php?updateSuccess");
+            header("location: home.php?updateWelcomeSuccess");
         }
     }
 
@@ -536,6 +556,10 @@ class DB_Manager2
         //query to update database
         $query = $this->db->prepare("DELETE FROM welcome WHERE id = ?;");
         $result = $query->execute(array($_GET['welcomeDeleteID']));
+
+        if ($result) {
+            header("location: home.php?deleteSuccess");
+        }
     }
 
     /*================================  END WELCOME PART  ================================*/
@@ -617,6 +641,10 @@ class DB_Manager2
         //query to update database
         $query = $this->db->prepare("DELETE FROM footer WHERE id = ?;");
         $result = $query->execute(array($_GET['footerDeleteID']));
+
+        if ($result) {
+            header("location: home.php?deleteSuccess");
+        }
     }
 
 

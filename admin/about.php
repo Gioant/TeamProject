@@ -237,6 +237,20 @@ include_once "../controller/RestaurantController.php";
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <script src="js/scripts.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+<?php if (isset($_GET["deleteSuccess"])) : ?>
+    <script>
+        Swal.fire({
+            title: 'Success',
+            text: 'About Deleted Successfully',
+            icon: 'success',
+            color: 'LimeGreen',
+            confirmButtonText: 'Thank You!'
+        });
+
+        // After Showing Alert, Remove Parameter GET createSuccess
+        window.history.replaceState(null, null, window.location.pathname);
+    </script>
+<?php endif; ?>
 
 <?php if (isset($_GET["updateSuccess"])) : ?>
     <script>

@@ -48,7 +48,7 @@
                                 <!-- Telephone -->
                                 <div class="mb-3 col-md-6">
                                     <label for="addFooterPhone" class="form-label">Add Telephone</label>
-                                    <input class="form-control" type="text" id="addFooterPhone" name="addFooterPhone" maxlength="100" autocomplete="off" required>
+                                    <input class="form-control" type="text" id="addFooterPhone" name="addFooterPhone" maxlength="15" autocomplete="off" required>
                                 </div>
                                 <!-- Email -->
                                 <div class="mb-3 col-md-6">
