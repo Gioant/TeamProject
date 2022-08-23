@@ -18,7 +18,6 @@
         <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
         <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
-
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
@@ -83,7 +82,7 @@
                 </div>
                 </div>
             <script>
-                var element = document.getElementById('addContactPhone');
+                var element = document.getElementById('contactPhone');
                 var maskOptions = {
                     mask: '000-000-0000'
                 };
