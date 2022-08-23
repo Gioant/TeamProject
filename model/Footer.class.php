@@ -1,6 +1,7 @@
 <?php 
 	class Footer {
 		private $id;
+        private $picture;
 		private $title;
 		private $address;
         private $area;
@@ -13,9 +14,27 @@
 	        }
     	}
 
-    	
-	
-    /**
+        /**
+         * @return mixed
+         */
+        public function getPicture()
+        {
+            return $this->picture;
+        }
+
+        /**
+         * @param mixed $avatar
+         *
+         * @return self
+         */
+        public function setPicture($picture)
+        {
+            $this->picture = $picture;
+
+            return $this;
+        }
+
+        /**
      * @return mixed
      */
     public function getId()

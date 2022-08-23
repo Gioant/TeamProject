@@ -474,12 +474,19 @@ if (strpos($_SERVER['REQUEST_URI'], '/editwelcome.php?updateID') !== false) {
 //To add a new footer information inside the table and the database
 if (isset($_POST['new_footer'])) {
 
-    $newFooterDb = array("title" => $_POST['addFooterTitle'],
+    $newFooterDb = array(
+        "picture" =>  basename($_FILES["addFooterPic"]["name"]),
+        "title" => $_POST['addFooterTitle'],
         "address" => $_POST['addFooterAddress'],
         "area" => $_POST['addFooterArea'],
         "phone" => $_POST['addFooterPhone'],
         "email" => $_POST['addFooterEmail']
     );
+
+    //Getting the avatar
+    $target_directory = "../Restaurantly/assets/img/"; //The file that is being selected
+    $target_file = $target_directory . basename($_FILES["addFooterPic"]["name"]);
+    move_uploaded_file($_FILES["addFooterPic"]["tmp_name"], $target_file);
 
     //Calling the classes
     $footer = new Footer($newFooterDb);
@@ -497,6 +504,7 @@ if (strpos($_SERVER['REQUEST_URI'], '/edithome.php?updateID') !== false) {
 
     //store remaining properties of footer info into unique sessions
     // to autofill form inputs
+    $_SESSION['footerPic'] = $edit_footer['picture'];
     $_SESSION['footerTitle'] = $edit_footer['title'];
     $_SESSION['footerAddress'] = $edit_footer['address'];
     $_SESSION['footerArea'] = $edit_footer['area'];
@@ -507,15 +515,26 @@ if (strpos($_SERVER['REQUEST_URI'], '/edithome.php?updateID') !== false) {
     // ======================= Edit Footer Decription part ===============================
     if (isset($_POST['edit_footer'])) {
         //save all form inputs
+        $footer_pic = basename($_FILES["footerPic"]["name"]);
         $footer_title = $_POST['footerTitle'];
         $footer_address = $_POST['footerAddress'];
         $footer_area = $_POST['footerArea'];
         $footer_phone = $_POST['footerPhone'];
-        $footer_emal = $_POST['footerEmail'];
+        $footer_email = $_POST['footerEmail'];
 
-        //call function to update slider
-        $database2->update_footer($id);
+        if(!empty($footer_pic)){
+            //move uploaded picture to folder
+            $target_directory = "../Restaurantly/assets/img/menu/";
+            $target_file = $target_directory . basename($_FILES["footerPic"]["name"]);
+            move_uploaded_file($_FILES["footerPic"]["tmp_name"], $target_file);
 
+            //call function to update user
+            $database2->update_footer($id, $footer_pic);
+
+        } else {
+            $footer_pic = $_SESSION['footerPic'];
+            $database2->update_footer($id, $footer_pic);
+        }
     }
     //if user manually entered to go to edit chef profile page
 } else if (strpos($_SERVER['REQUEST_URI'], '/edithome.php')) {

@@ -230,6 +230,7 @@ include_once "../controller/RestaurantController.php";
                         <table id="datatablesSimple" class="table table-striped">
                             <thead>
                             <tr>
+                                <th>Picture</th>
                                 <th>Title</th>
                                 <th>Address</th>
                                 <th>Area</th>
@@ -241,6 +242,7 @@ include_once "../controller/RestaurantController.php";
                             <?php if ($_SESSION['loggedInUser']['level'] == "1") : ?>
                                 <?php foreach ($_SESSION['all_footer'] as $footer) : ?>
                                     <tr>
+                                        <td><?php echo $footer['picture'] ?></td>
                                         <td><?php echo $footer['title'] ?></td>
                                         <td><?php echo $footer['address'] ?></td>
                                         <td><?php echo $footer['area'] ?></td>
@@ -255,6 +257,7 @@ include_once "../controller/RestaurantController.php";
                             <?php else : ?>
                                 <?php foreach ($_SESSION['all_footer'] as $footer) : ?>
                                     <tr>
+                                        <td><?php echo $footer['footerPic'] ?></td>
                                         <td><?php echo $footer['title'] ?></td>
                                         <td><?php echo $footer['address'] ?></td>
                                         <td><?php echo $footer['area'] ?></td>

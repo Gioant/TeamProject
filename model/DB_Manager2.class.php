@@ -572,8 +572,9 @@ class DB_Manager2
     //Function to add a new footer information inside the database
     public function add_footer($footer)
     {
-        $query = $this->db->prepare("INSERT INTO footer VALUES (DEFAULT, :title, :address, :area, :phone, :email);");
+        $query = $this->db->prepare("INSERT INTO footer VALUES (DEFAULT, :picture, :title, :address, :area, :phone, :email);");
         $result = $query->execute(array(
+            "picture" => $footer->getPicture(),
             "title"     => $footer->getTitle(),
             "address"   => $footer->getAddress(),
             "area"      => $footer->getArea(),
@@ -614,21 +615,32 @@ class DB_Manager2
     }
 
     //Function to update the footer info
-    public function update_footer($id){
+    public function update_footer($id,$footer_pic){
 
         //query to update database
-        $query = $this->db->prepare("UPDATE footer SET id = :id, title = :title, address = :address, area = :area, phone = :phone, email = :email WHERE id = $id;");
+        $query = $this->db->prepare("UPDATE footer SET id = :id, picture = :picture, title = :title, address = :address, area = :area, phone = :phone, email = :email WHERE id = $id;");
 
-        $result = $query->execute(array(
-            "id"        => $_GET['updateID'],
-            "title"     => $_POST['footerTitle'],
-            "address"   => $_POST["footerAddress"],
-            "area"      => $_POST['footerArea'],
-            "phone"     => $_POST['footerPhone'],
-            "email"     => $_POST['footerEmail']
-        ));
-
-
+        if($_SESSION['footerPic'] != $footer_pic) {
+            $result = $query->execute(array(
+                "id" => $_GET['updateID'],
+                "picture" => $_POST['footerPic'],
+                "title" => $_POST['footerTitle'],
+                "address" => $_POST["footerAddress"],
+                "area" => $_POST['footerArea'],
+                "phone" => $_POST['footerPhone'],
+                "email" => $_POST['footerEmail']
+            ));
+        } else {
+            $result = $query->execute(array(
+                "id" => $_GET['updateID'],
+                "picture" => $_POST['footerPic'],
+                "title" => $_POST['footerTitle'],
+                "address" => $_POST["footerAddress"],
+                "area" => $_POST['footerArea'],
+                "phone" => $_POST['footerPhone'],
+                "email" => $_POST['footerEmail']
+            ));
+        }
         //redirect user with success msg
         if ($result) {
             header("location: home.php?updateSuccess");

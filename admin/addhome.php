@@ -27,7 +27,25 @@
                 <div class="card mb-4">
                     <h4 class="card-header">Add Footer Details</h4>
                     <div class="card-body">
-                    	<form method="POST" action="#">
+                            <div class="d-flex align-items-start align-items-sm-center gap-4">
+                                <!-- Show Picture -->
+                                <img src="../Restaurantly/assets/img/menu/default_pic.png" alt="menu-avatar" class="d-block rounded" id="uploadedAvatar" width="100" height="100">
+                                <div class="button-wrapper">
+                                    <!-- Start Of Form -->
+                                    <form id="formAccountSettings" method="POST" action="#" enctype="multipart/form-data">
+                                        <!-- Upload Input-->
+                                        <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+                                            <span class="d-none d-sm-block">Upload new photo</span>
+                                            <i class="bx bx-upload d-block d-sm-none"></i>
+                                            <input type="file" id="upload" class="account-file-input" accept="image/png, image/jpeg" hidden="" name="addFooterPic"
+                                                   onchange="document.getElementById('uploadedAvatar').src = window.URL.createObjectURL(this.files[0])" required>
+                                        </label>
+                                        <p class="text-muted mb-0">Allowed JPG, GIF or PNG.</p>
+                                </div>
+                            </div>
+                    </div>
+                        <hr class="my-0">
+                        <div class="card-body">
                             <div class="row">
                                 <!-- Title -->
                                 <div class="mb-3 col-md-6">

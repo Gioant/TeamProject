@@ -1,22 +1,31 @@
+<?php
+
+$database = new DB_Manager2();
+$get_footer = $database->get_all_footer();
+
+foreach ($get_footer as $footer) {
+}
+?>
+
 <!-- ======= Footer ======= -->
 <footer id="footer">
     <div class="footer-top">
         <div class="container">
             <div style="display: flex;justify-content: space-between">
                 <div class="col-lg-3">
-                    <h3>Final Project</h3>
-                    <p style="margin-top: 5%; line-height: 1.8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <div>
+                        <img src="assets/img/<?php echo $footer['picture'] ?>" alt="" style="width:375px; height:210px;">
+                    </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-info">
-                        <h3>Content Changer</h3>
+                        <h3><?php echo $footer['title'] ?></h3>
                         <p>
-                            1616 René-Lévesque Blvd W<br>
+                            <?php echo $footer['address'] ?><br>
                         <p>
-                            Montreal, Quebec H3H 1P8<br><br>   </p>
-                        <p> <strong>Phone:</strong> +1 5589 55488 55<br>   </p>
-                        <p><strong>Email:</strong> info@example.com<br>   </p>
+                            <?php echo $footer['area'] ?><br><br>   </p>
+                        <p> <strong>Phone:</strong> <?php echo $footer['phone'] ?><br>   </p>
+                        <p><strong>Email:</strong> <?php echo $footer['email'] ?><br>   </p>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6 footer-links">
@@ -32,3 +41,5 @@
             </div>
         </div>
     </div>
+</footer>
+

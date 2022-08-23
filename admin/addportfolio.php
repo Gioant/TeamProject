@@ -41,7 +41,6 @@ include_once "../controller/RestaurantController.php";
 
                                     <input type="file" id="upload" class="account-file-input" accept="image/png, image/jpeg" hidden="" name="addMenuPic"
                                            onchange="document.getElementById('uploadedAvatar').src = window.URL.createObjectURL(this.files[0])" required>
-                                
                                 </label>
                                 <p class="text-muted mb-0">Allowed JPG, GIF or PNG.</p>
                             </div>
