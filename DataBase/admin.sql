@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 23, 2022 at 04:28 AM
+-- Generation Time: Aug 23, 2022 at 04:15 PM
 -- Server version: 8.0.29
 -- PHP Version: 7.4.9
 
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `footer` (
 --
 
 INSERT INTO `footer` (`id`, `picture`, `title`, `address`, `area`, `phone`, `email`) VALUES
-(1, 'logo.png', 'Content Changer', '1616 Rene-Levesque Blvd W.', 'Montreal, Quebec H3H 1P8', '+1 5589 55488 551', 'info@example.com');
+(1, 'logo.png', 'Content Changer', '1616 Rene-Levesque Blvd W.', 'Montreal, Quebec H3H 1P8', '123-123-1234', 'info@example.com');
 
 -- --------------------------------------------------------
 
