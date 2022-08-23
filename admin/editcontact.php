@@ -12,6 +12,13 @@
         <meta name="author" content="" />
         <title>Edit Profile</title>
         <link href="css/styles.css" rel="stylesheet" />
+
+        <!-- Plugins for Clock-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+        <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+        <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
@@ -39,12 +46,12 @@
                                 <!-- Opening Hours -->
                                 <div class="mb-3 col-md-3">
                                     <label for="contactOpen" class="form-label">Opening Hours</label>
-                                    <input class="form-control" type="text" name="contactOpen" id="contactOpen" <?php echo 'value="'.$_SESSION['contactOpen'].'"'; ?> autocomplete="off">
+                                    <input class="form-control" type="text" name="contactOpen" id="contactOpen" <?php echo 'value="'.$_SESSION['contactOpen'].'"'; ?> autocomplete="off" width="276">
                                 </div>
                                 <!-- Closing Hours -->
                                 <div class="mb-3 col-md-3">
                                     <label for="contactClose" class="form-label">Closing Hours</label>
-                                    <input class="form-control" type="text" name="contactClose" id="contactClose" <?php echo 'value="'.$_SESSION['contactClose'].'"'; ?> autocomplete="off">
+                                    <input class="form-control" type="text" name="contactClose" id="contactClose" <?php echo 'value="'.$_SESSION['contactClose'].'"'; ?> autocomplete="off" width="276">
                                 </div>
                                 <!-- Email -->
                                 <div class="mb-3 col-md-6">
@@ -81,6 +88,11 @@
                     mask: '000-000-0000'
                 };
                 var mask = IMask(element, maskOptions);
+            </script>
+            <!-- clock script code -->
+            <script>
+                $('#contactOpen').timepicker();
+                $('#contactClose').timepicker();
             </script>
     </body>
 </html>

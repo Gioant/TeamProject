@@ -12,6 +12,13 @@ include_once "../controller/RestaurantController.php";
         <meta name="author" content="" />
         <title>Edit Profile</title>
         <link href="css/styles.css" rel="stylesheet" />
+
+        <!-- Plugins for Clock-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+        <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+        <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
@@ -38,12 +45,12 @@ include_once "../controller/RestaurantController.php";
                                 <!-- Opening Hours -->
                                 <div class="mb-3 col-md-3">
                                     <label for="addContactOpen" class="form-label">New Opening Hours</label>
-                                    <input class="form-control" type="text" name="addContactOpen" id="addContactOpen" autocomplete="off" placeholder="9:00AM"  required>
+                                    <input class="form-control" type="text" name="addContactOpen" id="addContactOpen" autocomplete="off" placeholder="9:00" required width="276">
                                 </div>
                                 <!-- Closing Hours -->
                                 <div class="mb-3 col-md-3">
                                     <label for="addContactClose" class="form-label">New Closing Hours</label>
-                                    <input class="form-control" type="text" name="addContactClose" id="addContactClose" autocomplete="off" placeholder="5:00PM" required>
+                                    <input class="form-control" type="text" name="addContactClose" id="addContactClose" autocomplete="off" placeholder="5:00" required width="276">
                                 </div>
                                 <!-- Email -->
                                 <div class="mb-3 col-md-6">
@@ -81,6 +88,11 @@ include_once "../controller/RestaurantController.php";
                     mask: '000-000-0000'
                 };
                 var mask = IMask(element, maskOptions);
+            </script>
+            <!-- clock script code -->
+            <script>
+                $('#addContactOpen').timepicker();
+                $('#addContactClose').timepicker();
             </script>
     </body>
 </html>

@@ -12,6 +12,7 @@ include_once "../controller/RestaurantController.php";
     <meta name="author" content="" />
     <title>Edit Profile</title>
     <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://unpkg.com/imask"></script>
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
@@ -55,18 +56,18 @@ include_once "../controller/RestaurantController.php";
                                 </div>
                                 <!-- Address -->
                                 <div class="mb-3 col-md-3">
-                                    <label for="footerAddress" class="form-label">Opening Hours</label>
+                                    <label for="footerAddress" class="form-label">Add Address</label>
                                     <input class="form-control" type="text" name="footerAddress" id="footerAddress" <?php echo 'value="'.$_SESSION['footerAddress'].'"'; ?> autocomplete="off" required>
                                 </div>
                                 <!-- Area -->
                                 <div class="mb-3 col-md-3">
-                                    <label for="footerArea" class="form-label">Closing Hours</label>
+                                    <label for="footerArea" class="form-label">Add Area</label>
                                     <input class="form-control" type="text" name="footerArea" id="footerArea" <?php echo 'value="'.$_SESSION['footerArea'].'"'; ?> autocomplete="off" required>
                                 </div>
                                 <!-- Telephone -->
                                 <div class="mb-3 col-md-6">
                                     <label for="footerPhone" class="form-label">Telephone</label>
-                                    <input class="form-control" type="text" id="footerPhone" name="footerPhone" maxlength="100" <?php echo 'value="'.$_SESSION['footerPhone'].'"'; ?> autocomplete="off" required>
+                                    <input class="form-control" type="text" id="footerPhone" name="footerPhone" minlength="10" <?php echo 'value="'.$_SESSION['footerPhone'].'"'; ?> autocomplete="off" required>
                                 </div>
                                 <!-- Email -->
                                 <div class="mb-3 col-md-6">
@@ -95,5 +96,12 @@ include_once "../controller/RestaurantController.php";
             </div>
         </div>
     </div>
+<script>
+    var element = document.getElementById('footerPhone');
+    var maskOptions = {
+        mask: '000-000-0000'
+    };
+    var mask = IMask(element, maskOptions);
+</script>
 </body>
 </html>
