@@ -15,6 +15,7 @@
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
+        <script src="https://unpkg.com/imask"></script>
     </head>
     <body class="bg-secondary">
 
@@ -66,7 +67,7 @@
                                 <!-- Telephone -->
                                 <div class="mb-3 col-md-6">
                                     <label for="addFooterPhone" class="form-label">Add Telephone</label>
-                                    <input class="form-control" type="text" id="addFooterPhone" name="addFooterPhone" maxlength="100" autocomplete="off" placeholder="123-456-7890" required>
+                                    <input class="form-control" type="text" id="addFooterPhone" name="addFooterPhone" minlength="10"  autocomplete="off" placeholder="123-456-7890" required>
                                 </div>
                                 <!-- Email -->
                                 <div class="mb-3 col-md-6">
@@ -95,5 +96,12 @@
 		</div>
     </div>
 </div>
+<script>
+    var element = document.getElementById('addContactPhone');
+    var maskOptions = {
+        mask: '000-000-0000'
+    };
+    var mask = IMask(element, maskOptions);
+</script>
 </body>
 </html>

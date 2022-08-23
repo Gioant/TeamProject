@@ -15,6 +15,7 @@
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
+        <script src="https://unpkg.com/imask"></script>
     </head>
     <body class="bg-secondary">
 
@@ -53,7 +54,7 @@
                                 <!-- Telephone -->
                                 <div class="mb-3 col-md-6">
                                     <label for="contactPhone" class="form-label">Telephone</label>
-                                    <input class="form-control" type="text" id="contactPhone" name="contactPhone" maxlength="100" <?php echo 'value="'.$_SESSION['contactPhone'].'"'; ?> autocomplete="off">
+                                    <input class="form-control" type="text" id="contactPhone" name="contactPhone" minlength="10" placeholder="123-123-1234" <?php echo 'value="'.$_SESSION['contactPhone'].'"'; ?> autocomplete="off">
                                 </div>
                             </div>
                             <div class="mt-2">
@@ -74,16 +75,12 @@
                     </div>
                 </div>
                 </div>
-
-        <!-- Errors messages -->
-        <?php
-            if (isset($_GET['error'])) {
-                if ($_GET['error'] == "nameAlreadyExist") {
-                    echo '<script>alert("This username already exist.\\nPlease select another username.")</script>';
-                } else if ($_GET['error'] == "emailAlreadyExist") {
-                    echo '<script>alert("This email already exist.\\nPlease enter a different email.")</script>';
-                }
-            }
-        ?>
+            <script>
+                var element = document.getElementById('addContactPhone');
+                var maskOptions = {
+                    mask: '000-000-0000'
+                };
+                var mask = IMask(element, maskOptions);
+            </script>
     </body>
 </html>

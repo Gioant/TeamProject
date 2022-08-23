@@ -15,6 +15,7 @@ include_once "../controller/RestaurantController.php";
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
+        <script src="https://unpkg.com/imask"></script>
     </head>
     <body class="bg-secondary">
 
@@ -42,7 +43,7 @@ include_once "../controller/RestaurantController.php";
                                 <!-- Closing Hours -->
                                 <div class="mb-3 col-md-3">
                                     <label for="addContactClose" class="form-label">New Closing Hours</label>
-                                    <input class="form-control" type="text" name="addContactClose" id="addContactClose" autocomplete="off" placeholder="5:00PM"required>
+                                    <input class="form-control" type="text" name="addContactClose" id="addContactClose" autocomplete="off" placeholder="5:00PM" required>
                                 </div>
                                 <!-- Email -->
                                 <div class="mb-3 col-md-6">
@@ -52,7 +53,8 @@ include_once "../controller/RestaurantController.php";
                                 <!-- Telephone -->
                                 <div class="mb-3 col-md-6">
                                     <label for="addContactPhone" class="form-label">New Telephone</label>
-                                    <input class="form-control" type="number" id="addContactPhone" name="addContactPhone" maxlength="12" autocomplete="off" placeholder="123-456-7890"required>
+                                    <input class="form-control" type="tel" id="addContactPhone" name="addContactPhone" autocomplete="off"
+                                           minlength="10" placeholder="123-123-1234" required>
                                 </div>
                             </div>
                             <div class="mt-2">
@@ -73,16 +75,12 @@ include_once "../controller/RestaurantController.php";
                     </div>
                 </div>
                 </div>
-
-        <!-- Errors messages -->
-        <?php
-            if (isset($_GET['error'])) {
-                if ($_GET['error'] == "nameAlreadyExist") {
-                    echo '<script>alert("This username already exist.\\nPlease select another username.")</script>';
-                } else if ($_GET['error'] == "emailAlreadyExist") {
-                    echo '<script>alert("This email already exist.\\nPlease enter a different email.")</script>';
-                }
-            }
-        ?>
+            <script>
+                var element = document.getElementById('addContactPhone');
+                var maskOptions = {
+                    mask: '000-000-0000'
+                };
+                var mask = IMask(element, maskOptions);
+            </script>
     </body>
 </html>
