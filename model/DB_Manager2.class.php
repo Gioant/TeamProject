@@ -255,7 +255,7 @@ class DB_Manager2
         $result = $query->execute(array($_GET['menuDeleteID']));
 
         if ($result) {
-            header("location: services.php?deleteSuccess");
+            header("location: portfolio.php?deleteSuccess");
         }
     }
 
@@ -546,7 +546,7 @@ class DB_Manager2
 
         //redirect user with success msg
         if ($result) {
-            header("location: home.php?updateWelcomeSuccess");
+            header("location: home.php?updateSuccess");
         }
     }
 
@@ -623,7 +623,7 @@ class DB_Manager2
         if($_SESSION['footerPic'] != $footer_pic) {
             $result = $query->execute(array(
                 "id" => $_GET['updateID'],
-                "picture" => $_POST['footerPic'],
+                "picture" => basename($_FILES["footerPic"]["name"]),
                 "title" => $_POST['footerTitle'],
                 "address" => $_POST["footerAddress"],
                 "area" => $_POST['footerArea'],
@@ -633,7 +633,7 @@ class DB_Manager2
         } else {
             $result = $query->execute(array(
                 "id" => $_GET['updateID'],
-                "picture" => $_POST['footerPic'],
+                "picture" => $_SESSION['footerPic'],
                 "title" => $_POST['footerTitle'],
                 "address" => $_POST["footerAddress"],
                 "area" => $_POST['footerArea'],

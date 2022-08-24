@@ -225,7 +225,7 @@ foreach ($get_contact as $contact) {
                 <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
                     <?php foreach ($get_all_menu as $menu) : ?>
                         <div class="col-log-6 menu-item filter-<?= $menu['type'] ?>" style="width: 50%;">
-                            <img name="port-pic1" src="assets/img/menu/<?= $menu['picture'] ?>" class="menu-img" alt="">
+                            <img src="assets/img/menu/<?= $menu['picture'] ?>" class="menu-img" alt="" width="60" height="60">
                             <div class="menu-content">
                                 <a name="port-item1" href="#"><?= $menu['name'] ?></a><span>$<?= $menu['price'] ?></span>
                             </div>
