@@ -448,7 +448,6 @@ class DB_Manager2
 
         //check if the $avatar is not in session['chef_pic]'
         if ($_SESSION['about_pic'] != $avatar) {
-
             //if it isn't user uploaded a new picture
             $result = $query->execute(array(
                 "id" => $_GET['updateID'],
@@ -615,7 +614,8 @@ class DB_Manager2
     }
 
     //Function to update the footer info
-    public function update_footer($id,$footer_pic){
+    public function update_footer($id,$footer_pic)
+    {
 
         //query to update database
         $query = $this->db->prepare("UPDATE footer SET id = :id, picture = :picture, title = :title, address = :address, area = :area, phone = :phone, email = :email WHERE id = $id;");
@@ -630,6 +630,7 @@ class DB_Manager2
                 "phone" => $_POST['footerPhone'],
                 "email" => $_POST['footerEmail']
             ));
+
         } else {
             $result = $query->execute(array(
                 "id" => $_GET['updateID'],
@@ -646,6 +647,7 @@ class DB_Manager2
             header("location: home.php?updateSuccess");
         }
     }
+
 
     //Function to delete an about information from the menu table and the database
     public function delete_footer()

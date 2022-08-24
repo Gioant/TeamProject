@@ -97,7 +97,7 @@
     </div>
 </div>
 <script>
-    var element = document.getElementById('addContactPhone');
+    var element = document.getElementById('addFooterPhone');
     var maskOptions = {
         mask: '000-000-0000'
     };

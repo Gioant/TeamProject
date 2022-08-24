@@ -522,9 +522,10 @@ if (strpos($_SERVER['REQUEST_URI'], '/edithome.php?updateID') !== false) {
         $footer_phone = $_POST['footerPhone'];
         $footer_email = $_POST['footerEmail'];
 
+
         if(!empty($footer_pic)){
             //move uploaded picture to folder
-            $target_directory = "../Restaurantly/assets/img/menu/";
+            $target_directory = "../Restaurantly/assets/img";
             $target_file = $target_directory . basename($_FILES["footerPic"]["name"]);
             move_uploaded_file($_FILES["footerPic"]["tmp_name"], $target_file);
 
