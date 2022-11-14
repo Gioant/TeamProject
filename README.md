@@ -1,4 +1,4 @@
-PHP Content Manage System(CMS) Group Project
+PHP Content Management System(CMS) Group Project
 
 Team:
 - Andy
