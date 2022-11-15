@@ -8,9 +8,5 @@ Team:
 
 - Anthony Funes
 - Jean-Loup
-<<<<<<< HEAD
-- Nicholas Tsoukatos
-=======
 - Nicholas Tsoukatos 
->>>>>>> master
 - Kevin Chan
