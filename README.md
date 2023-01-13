@@ -1,4 +1,10 @@
-PHP Content Management System(CMS) Team Project
+PHP Content Management System (CMS) Made With My Team
+
+This project was to demonstrate the use of such an application. 
+
+A user who has admin permissions can change the content of any page without programming.
+
+They can register an account, login with the account and choose which aspects of the website they would like to change.
 
 Languages used:
 - HTML
