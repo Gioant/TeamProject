@@ -16,9 +16,6 @@ Languages used:
 - JQuery
 
 
-you may test the application here:  [link](https://tinyurl.com/Restoly)
-
-
 Team:
 - Anthony Funes
 - Jean-Loup
