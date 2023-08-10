@@ -2,6 +2,8 @@ PHP Content Management System (CMS) Made With My Team
 
 This project was to demonstrate the use of such an application. 
 
+you may test the application here:  [link](https://tinyurl.com/restaurantly)
+
 https://user-images.githubusercontent.com/66393141/202045409-985f4471-3a23-407b-817c-0033c7c204b3.mp4
 
 A user who has admin permissions can change the content of any page without programming.
